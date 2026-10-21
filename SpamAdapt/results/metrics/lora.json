@@ -1,0 +1,92 @@
+{
+  "experiment": "lora",
+  "stage": 3,
+  "run_type": "lora_peft",
+  "model_name": "google-bert/bert-base-uncased",
+  "lora_config": {
+    "r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.1,
+    "target_modules": [
+      "query",
+      "value"
+    ]
+  },
+  "parameters": {
+    "total_parameters": 109780228,
+    "trainable_parameters": 296450,
+    "frozen_parameters": 109483778,
+    "trainable_percentage": 0.27
+  },
+  "hardware": {
+    "device": "cpu",
+    "gpu_name": "CPU",
+    "total_gpu_memory_mb": 0.0,
+    "peak_gpu_memory_mb": 0.0,
+    "cuda_available": false
+  },
+  "training_tracking": {
+    "total_training_time_seconds": 1303.78,
+    "formatted_training_time": "21m 43s",
+    "num_epochs": 1,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "max_length": 128,
+    "seed": 42,
+    "epoch_history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.128,
+        "val_loss": 0.045729765776955124,
+        "val_accuracy": 0.9858,
+        "val_f1_spam": 0.9418,
+        "val_macro_f1": 0.9669,
+        "duration_seconds": 1241.76
+      }
+    ]
+  },
+  "test_metrics": {
+    "accuracy": 0.9832,
+    "precision": 0.9468,
+    "recall": 0.9175,
+    "f1": 0.9319,
+    "macro_f1": 0.9612,
+    "macro_precision": 0.9675,
+    "macro_recall": 0.9551,
+    "ham_f1": 0.9904,
+    "confusion_matrix": {
+      "true_negative": 672,
+      "false_positive": 5,
+      "false_negative": 8,
+      "true_positive": 89,
+      "matrix": [
+        [
+          672,
+          5
+        ],
+        [
+          8,
+          89
+        ]
+      ]
+    },
+    "loss": 0.0783
+  },
+  "comparison_with_baseline": {
+    "baseline_test_macro_f1": 0.964,
+    "baseline_test_f1": 0.9368,
+    "baseline_test_accuracy": 0.9845,
+    "delta_macro_f1": -0.0028,
+    "delta_f1": -0.0049,
+    "delta_accuracy": -0.0013,
+    "baseline_training_time_seconds": 1464.86,
+    "baseline_trainable_parameters": 109483778,
+    "parameter_reduction_factor": "369.3x fewer parameters"
+  },
+  "saved_artifacts": {
+    "model_dir": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora\\model",
+    "confusion_matrix_plot": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\results\\plots\\lora_confusion_matrix.png"
+  }
+}

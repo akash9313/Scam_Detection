@@ -1,0 +1,254 @@
+{
+  "model_version": "v3_candidate",
+  "method": "lora",
+  "parameters": {
+    "total_parameters": 109780228,
+    "trainable_parameters": 296450,
+    "frozen_parameters": 109483778,
+    "trainable_percentage": 0.27
+  },
+  "selected_validation_threshold": 0.5,
+  "calibration": {
+    "brier_score": 0.0269,
+    "expected_calibration_error": 0.024
+  },
+  "evaluation_results": {
+    "original_test_set_774": {
+      "at_default_0_50": {
+        "accuracy": 0.9703,
+        "precision": 0.8854,
+        "recall": 0.8763,
+        "f1": 0.8808,
+        "macro_f1": 0.9319,
+        "macro_precision": 0.9339,
+        "macro_recall": 0.93,
+        "ham_f1": 0.983,
+        "confusion_matrix": {
+          "true_negative": 666,
+          "false_positive": 11,
+          "false_negative": 12,
+          "true_positive": 85,
+          "matrix": [
+            [
+              666,
+              11
+            ],
+            [
+              12,
+              85
+            ]
+          ]
+        }
+      },
+      "at_tuned_threshold": {
+        "accuracy": 0.9703,
+        "precision": 0.8854,
+        "recall": 0.8763,
+        "f1": 0.8808,
+        "macro_f1": 0.9319,
+        "macro_precision": 0.9339,
+        "macro_recall": 0.93,
+        "ham_f1": 0.983,
+        "confusion_matrix": {
+          "true_negative": 666,
+          "false_positive": 11,
+          "false_negative": 12,
+          "true_positive": 85,
+          "matrix": [
+            [
+              666,
+              11
+            ],
+            [
+              12,
+              85
+            ]
+          ]
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "at_default_0_50": {
+        "accuracy": 0.8318,
+        "precision": 0.8842,
+        "recall": 0.7636,
+        "f1": 0.8195,
+        "macro_f1": 0.831,
+        "macro_precision": 0.8381,
+        "macro_recall": 0.8318,
+        "ham_f1": 0.8426,
+        "confusion_matrix": {
+          "true_negative": 99,
+          "false_positive": 11,
+          "false_negative": 26,
+          "true_positive": 84,
+          "matrix": [
+            [
+              99,
+              11
+            ],
+            [
+              26,
+              84
+            ]
+          ]
+        }
+      },
+      "at_tuned_threshold": {
+        "accuracy": 0.8318,
+        "precision": 0.8842,
+        "recall": 0.7636,
+        "f1": 0.8195,
+        "macro_f1": 0.831,
+        "macro_precision": 0.8381,
+        "macro_recall": 0.8318,
+        "ham_f1": 0.8426,
+        "confusion_matrix": {
+          "true_negative": 99,
+          "false_positive": 11,
+          "false_negative": 26,
+          "true_positive": 84,
+          "matrix": [
+            [
+              99,
+              11
+            ],
+            [
+              26,
+              84
+            ]
+          ]
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "accuracy": 0.9333
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "accuracy": 0.9333
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "accuracy": 0.9333
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 13,
+          "fp": 2,
+          "fn": 0,
+          "accuracy": 0.8667
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "accuracy": 1.0
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "accuracy": 1.0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 4,
+          "fp": 6,
+          "fn": 0,
+          "accuracy": 0.4
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "accuracy": 0.72
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 23,
+          "fp": 0,
+          "fn": 2,
+          "accuracy": 0.92
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "accuracy": 0.88
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 31,
+          "fp": 0,
+          "fn": 14,
+          "accuracy": 0.6889
+        }
+      }
+    },
+    "regression_fixtures": {
+      "upi_bob": {
+        "text": "Rs.1000.00 Dr. from A/C XXXXXXXXX3220 and Cr. to 9313357315@upi. Ref:075319983737. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+        "clean_text": "Rs.1000.00 Dr. from A/C XXXXXXXXX3220 and Cr. to 9313357315@upi. Ref:075319983737. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+        "logits": [
+          2.8003,
+          -2.0744
+        ],
+        "ham_probability": 0.9924,
+        "spam_probability": 0.0076,
+        "predicted_label": "HAM",
+        "threshold_used": 0.5
+      },
+      "jio_reverification": {
+        "text": "Reverification process of your Jio Number 9313357315 has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+        "clean_text": "Reverification process of your Jio Number 9313357315 has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+        "logits": [
+          1.121,
+          -0.4954
+        ],
+        "ham_probability": 0.8343,
+        "spam_probability": 0.1657,
+        "predicted_label": "HAM",
+        "threshold_used": 0.5
+      },
+      "upi_bob_redacted": {
+        "text": "Rs.1000.00 Dr. from A/C XXXXXXXXX0000 and Cr. to user@upi. Ref:000000000000. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+        "clean_text": "Rs.1000.00 Dr. from A/C XXXXXXXXX0000 and Cr. to user@upi. Ref:000000000000. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+        "logits": [
+          2.0718,
+          -1.418
+        ],
+        "ham_probability": 0.9704,
+        "spam_probability": 0.0296,
+        "predicted_label": "HAM",
+        "threshold_used": 0.5
+      },
+      "jio_reverification_redacted": {
+        "text": "Reverification process of your Jio Number 9876543210 has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+        "clean_text": "Reverification process of your Jio Number 9876543210 has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+        "logits": [
+          0.9355,
+          -0.3601
+        ],
+        "ham_probability": 0.7851,
+        "spam_probability": 0.2149,
+        "predicted_label": "HAM",
+        "threshold_used": 0.5
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+model_key,model_name,threshold_used,category,expected_class,total_samples,correct,false_positives,false_negatives,accuracy_pct,error_rate_pct
+full_finetuning_v2,Full Fine-Tuning v2,0.1,personal_conversation,HAM,15,15,0,0,100.0,0.0
+full_finetuning_v2,Full Fine-Tuning v2,0.1,telecom_service,HAM,15,15,0,0,100.0,0.0
+full_finetuning_v2,Full Fine-Tuning v2,0.1,bank_otp,HAM,15,15,0,0,100.0,0.0
+full_finetuning_v2,Full Fine-Tuning v2,0.1,upi_transaction,HAM,15,12,3,0,80.0,20.0
+full_finetuning_v2,Full Fine-Tuning v2,0.1,delivery_tracking,HAM,15,13,2,0,86.67,13.33
+full_finetuning_v2,Full Fine-Tuning v2,0.1,appointment_account,HAM,15,15,0,0,100.0,0.0
+full_finetuning_v2,Full Fine-Tuning v2,0.1,legitimate_promotional,HAM,10,4,6,0,40.0,60.0
+full_finetuning_v2,Full Fine-Tuning v2,0.1,hinglish_code_mixed,HAM,25,24,0,1,96.0,4.0
+full_finetuning_v2,Full Fine-Tuning v2,0.1,phishing_credential_theft,SPAM,25,24,0,1,96.0,4.0
+full_finetuning_v2,Full Fine-Tuning v2,0.1,kyc_account_blocking,SPAM,25,18,0,7,72.0,28.0
+full_finetuning_v2,Full Fine-Tuning v2,0.1,fake_jobs_loans_prizes,SPAM,45,38,0,7,84.44,15.56
+lora_v2,LoRA v2 (r=8),0.18,personal_conversation,HAM,15,15,0,0,100.0,0.0
+lora_v2,LoRA v2 (r=8),0.18,telecom_service,HAM,15,12,3,0,80.0,20.0
+lora_v2,LoRA v2 (r=8),0.18,bank_otp,HAM,15,10,5,0,66.67,33.33
+lora_v2,LoRA v2 (r=8),0.18,upi_transaction,HAM,15,7,8,0,46.67,53.33
+lora_v2,LoRA v2 (r=8),0.18,delivery_tracking,HAM,15,11,4,0,73.33,26.67
+lora_v2,LoRA v2 (r=8),0.18,appointment_account,HAM,15,14,1,0,93.33,6.67
+lora_v2,LoRA v2 (r=8),0.18,legitimate_promotional,HAM,10,3,7,0,30.0,70.0
+lora_v2,LoRA v2 (r=8),0.18,hinglish_code_mixed,HAM,25,22,0,3,88.0,12.0
+lora_v2,LoRA v2 (r=8),0.18,phishing_credential_theft,SPAM,25,22,0,3,88.0,12.0
+lora_v2,LoRA v2 (r=8),0.18,kyc_account_blocking,SPAM,25,18,0,7,72.0,28.0
+lora_v2,LoRA v2 (r=8),0.18,fake_jobs_loans_prizes,SPAM,45,35,0,10,77.78,22.22
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,personal_conversation,HAM,15,15,0,0,100.0,0.0
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,telecom_service,HAM,15,12,3,0,80.0,20.0
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,bank_otp,HAM,15,12,3,0,80.0,20.0
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,upi_transaction,HAM,15,7,8,0,46.67,53.33
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,delivery_tracking,HAM,15,11,4,0,73.33,26.67
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,appointment_account,HAM,15,14,1,0,93.33,6.67
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,legitimate_promotional,HAM,10,3,7,0,30.0,70.0
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,hinglish_code_mixed,HAM,25,22,0,3,88.0,12.0
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,phishing_credential_theft,SPAM,25,22,0,3,88.0,12.0
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,kyc_account_blocking,SPAM,25,18,0,7,72.0,28.0
+dora_v2,"DoRA v2 (r=8, use_dora=True)",0.18,fake_jobs_loans_prizes,SPAM,45,35,0,10,77.78,22.22
+lora_v3,LoRA v3 (Candidate),0.5,personal_conversation,HAM,15,14,1,0,93.33,6.67
+lora_v3,LoRA v3 (Candidate),0.5,telecom_service,HAM,15,14,1,0,93.33,6.67
+lora_v3,LoRA v3 (Candidate),0.5,bank_otp,HAM,15,14,1,0,93.33,6.67
+lora_v3,LoRA v3 (Candidate),0.5,upi_transaction,HAM,15,13,2,0,86.67,13.33
+lora_v3,LoRA v3 (Candidate),0.5,delivery_tracking,HAM,15,15,0,0,100.0,0.0
+lora_v3,LoRA v3 (Candidate),0.5,appointment_account,HAM,15,15,0,0,100.0,0.0
+lora_v3,LoRA v3 (Candidate),0.5,legitimate_promotional,HAM,10,4,6,0,40.0,60.0
+lora_v3,LoRA v3 (Candidate),0.5,hinglish_code_mixed,HAM,25,18,0,7,72.0,28.0
+lora_v3,LoRA v3 (Candidate),0.5,phishing_credential_theft,SPAM,25,23,0,2,92.0,8.0
+lora_v3,LoRA v3 (Candidate),0.5,kyc_account_blocking,SPAM,25,22,0,3,88.0,12.0
+lora_v3,LoRA v3 (Candidate),0.5,fake_jobs_loans_prizes,SPAM,45,31,0,14,68.89,31.11

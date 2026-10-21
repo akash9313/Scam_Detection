@@ -1,0 +1,459 @@
+{
+  "timestamp": "2026-10-19T09:31:45+0530",
+  "verification_status": "ALL_CHECKS_PASSED",
+  "duration_seconds": 142.89,
+  "check1_artifact_integrity": {
+    "datasets": {
+      "uci_train": {
+        "path": "data/processed/train.csv",
+        "expected_sha256": "1278901b9f35d2c5b7ccc73e018953450dcaf58beec0771df143a7f8c0b056ab",
+        "actual_sha256": "1278901b9f35d2c5b7ccc73e018953450dcaf58beec0771df143a7f8c0b056ab",
+        "match": true,
+        "records": 3612
+      },
+      "uci_val": {
+        "path": "data/processed/val.csv",
+        "expected_sha256": "79e31eb379e1c8f73e473160a5630fcb8d0ed27b4b4ecfb677d7ab6216e7d1e3",
+        "actual_sha256": "79e31eb379e1c8f73e473160a5630fcb8d0ed27b4b4ecfb677d7ab6216e7d1e3",
+        "match": true,
+        "records": 774
+      },
+      "uci_test": {
+        "path": "data/processed/test.csv",
+        "expected_sha256": "75d4e1122de5610620ea200a6c482142b542774d9ddf9efda9da7426a0952677",
+        "actual_sha256": "75d4e1122de5610620ea200a6c482142b542774d9ddf9efda9da7426a0952677",
+        "match": true,
+        "records": 774
+      },
+      "augmented_train": {
+        "path": "data/augmented/augmented_train.csv",
+        "expected_sha256": "b29c370b29230a1118f7538c837cc52a7dc30075d7981d042b39fb012781e2a0",
+        "actual_sha256": "b29c370b29230a1118f7538c837cc52a7dc30075d7981d042b39fb012781e2a0",
+        "match": true,
+        "records": 3190
+      },
+      "augmented_val": {
+        "path": "data/augmented/augmented_val.csv",
+        "expected_sha256": "bb519e02d6b48d69c1f3db3195a0ed62e7e3c86fb4c69fc1cbb0dcb434edd4de",
+        "actual_sha256": "bb519e02d6b48d69c1f3db3195a0ed62e7e3c86fb4c69fc1cbb0dcb434edd4de",
+        "match": true,
+        "records": 562
+      },
+      "external_v1": {
+        "path": "data/external/real_world_eval.csv",
+        "expected_sha256": "13ebe0569bc83c89d0295e83d41684cff9c9354fb52ec360036830dbc1085d40",
+        "actual_sha256": "13ebe0569bc83c89d0295e83d41684cff9c9354fb52ec360036830dbc1085d40",
+        "match": true,
+        "records": 34
+      },
+      "external_v2_benchmark": {
+        "path": "data/external_v2/benchmark.csv",
+        "expected_sha256": "deba58149b1df16807e209e1c1b94041aa71e20d4cb50b585de6e0b99db59694",
+        "actual_sha256": "deba58149b1df16807e209e1c1b94041aa71e20d4cb50b585de6e0b99db59694",
+        "match": true,
+        "records": 220
+      },
+      "robustness_fixtures": {
+        "path": "data/robustness/robustness_fixtures.csv",
+        "expected_sha256": "97c1034cc0f0ff8fe0927922d2d58c44f7f78338409778a4df25c0651435eba9",
+        "actual_sha256": "97c1034cc0f0ff8fe0927922d2d58c44f7f78338409778a4df25c0651435eba9",
+        "match": true,
+        "records": 50
+      }
+    },
+    "checkpoints": {
+      "full_finetuning_v1": {
+        "path": "experiments\\full_finetuning\\model\\model.safetensors",
+        "exists": true,
+        "size_bytes": 437958624,
+        "size_mb": 417.67,
+        "sha256": "dff04c90f201d0f4a695f3bfdc1daffb0a9307775a6b3a8b50da2df76fb1f688"
+      },
+      "lora_v1": {
+        "path": "experiments\\lora\\model\\adapter_model.safetensors",
+        "exists": true,
+        "size_bytes": 1192672,
+        "size_mb": 1.14,
+        "sha256": "f903b261e9e72bea44568a8764decafc53b0a916a8e6ec30098da53dab5bb052"
+      },
+      "dora_v1": {
+        "path": "experiments\\dora\\model\\adapter_model.safetensors",
+        "exists": true,
+        "size_bytes": 1269880,
+        "size_mb": 1.21,
+        "sha256": "cfe84bd70b5588cbec98264bae7ec153f389b1fdd20ba0b9a27753f30f36c48d"
+      },
+      "full_finetuning_v2": {
+        "path": "experiments\\full_finetuning_v2\\model\\model.safetensors",
+        "exists": true,
+        "size_bytes": 437958624,
+        "size_mb": 417.67,
+        "sha256": "3c24024053635fcaed948a60c27a560d736bc31be9663206aa4b3a96b4e94277"
+      },
+      "lora_v2": {
+        "path": "experiments\\lora_v2\\model\\adapter_model.safetensors",
+        "exists": true,
+        "size_bytes": 1192672,
+        "size_mb": 1.14,
+        "sha256": "ebf9a34b5f401a83a8800bd518c7464833eb7fac0d9752afc6fff3a714119aae"
+      },
+      "dora_v2": {
+        "path": "experiments\\dora_v2\\model\\adapter_model.safetensors",
+        "exists": true,
+        "size_bytes": 1269880,
+        "size_mb": 1.21,
+        "sha256": "4ed6ec894f8f8895ae29bc085eaf06dd66edf1fdb44bb5c3e7347f69fc53f410"
+      }
+    },
+    "abstention_policy": {
+      "baseline_models_intact": true,
+      "lora_v3_added": true,
+      "lora_v3_spec": {
+        "tau_base": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "description": "Remediation candidate threshold 0.50; symmetric review zone [0.25, 0.75)"
+      }
+    }
+  },
+  "check2_training_provenance": {
+    "train_rows": 3253,
+    "val_rows": 574,
+    "bench_rows": 220,
+    "train_val_overlap": 0,
+    "train_bench_overlap": 0,
+    "fixture_leakage": false,
+    "epochs": 2,
+    "batch_size": 16,
+    "total_optimizer_steps": 408
+  },
+  "check3_metrics_reproduction": {
+    "validation": {
+      "brier_score": 0.0269,
+      "expected_calibration_error": 0.024,
+      "sweep": {
+        "tau_0.10": {
+          "accuracy": 0.9704,
+          "macro_f1": 0.9442,
+          "ham_recall": 0.9814,
+          "spam_recall": 0.9111,
+          "confusion_matrix": {
+            "true_negative": 475,
+            "false_positive": 9,
+            "false_negative": 8,
+            "true_positive": 82,
+            "matrix": [
+              [
+                475,
+                9
+              ],
+              [
+                8,
+                82
+              ]
+            ]
+          }
+        },
+        "tau_0.18": {
+          "accuracy": 0.9704,
+          "macro_f1": 0.9437,
+          "ham_recall": 0.9835,
+          "spam_recall": 0.9,
+          "confusion_matrix": {
+            "true_negative": 476,
+            "false_positive": 8,
+            "false_negative": 9,
+            "true_positive": 81,
+            "matrix": [
+              [
+                476,
+                8
+              ],
+              [
+                9,
+                81
+              ]
+            ]
+          }
+        },
+        "tau_0.30": {
+          "accuracy": 0.9686,
+          "macro_f1": 0.9402,
+          "ham_recall": 0.9835,
+          "spam_recall": 0.8889,
+          "confusion_matrix": {
+            "true_negative": 476,
+            "false_positive": 8,
+            "false_negative": 10,
+            "true_positive": 80,
+            "matrix": [
+              [
+                476,
+                8
+              ],
+              [
+                10,
+                80
+              ]
+            ]
+          }
+        },
+        "tau_0.50": {
+          "accuracy": 0.9686,
+          "macro_f1": 0.9396,
+          "ham_recall": 0.9855,
+          "spam_recall": 0.8778,
+          "confusion_matrix": {
+            "true_negative": 477,
+            "false_positive": 7,
+            "false_negative": 11,
+            "true_positive": 79,
+            "matrix": [
+              [
+                477,
+                7
+              ],
+              [
+                11,
+                79
+              ]
+            ]
+          }
+        },
+        "tau_0.70": {
+          "accuracy": 0.9686,
+          "macro_f1": 0.9396,
+          "ham_recall": 0.9855,
+          "spam_recall": 0.8778,
+          "confusion_matrix": {
+            "true_negative": 477,
+            "false_positive": 7,
+            "false_negative": 11,
+            "true_positive": 79,
+            "matrix": [
+              [
+                477,
+                7
+              ],
+              [
+                11,
+                79
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "original_test_set": {
+      "recomputed_accuracy": 0.9703,
+      "recomputed_macro_f1": 0.9319,
+      "recomputed_ham_recall": 0.9838,
+      "recomputed_spam_recall": 0.8763,
+      "confusion_matrix": {
+        "true_negative": 666,
+        "false_positive": 11,
+        "false_negative": 12,
+        "true_positive": 85,
+        "matrix": [
+          [
+            666,
+            11
+          ],
+          [
+            12,
+            85
+          ]
+        ]
+      },
+      "matches_recorded": true
+    },
+    "external_benchmark": {
+      "recomputed_accuracy": 0.8318,
+      "recomputed_macro_f1": 0.831,
+      "recomputed_ham_recall": 0.9,
+      "recomputed_spam_recall": 0.7636,
+      "confusion_matrix": {
+        "true_negative": 99,
+        "false_positive": 11,
+        "false_negative": 26,
+        "true_positive": 84,
+        "matrix": [
+          [
+            99,
+            11
+          ],
+          [
+            26,
+            84
+          ]
+        ]
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "accuracy": 0.9333
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "accuracy": 0.9333
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "accuracy": 0.9333
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 13,
+          "fp": 2,
+          "fn": 0,
+          "accuracy": 0.8667
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "accuracy": 1.0
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "accuracy": 1.0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 4,
+          "fp": 6,
+          "fn": 0,
+          "accuracy": 0.4
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "accuracy": 0.72
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 23,
+          "fp": 0,
+          "fn": 2,
+          "accuracy": 0.92
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "accuracy": 0.88
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 31,
+          "fp": 0,
+          "fn": 14,
+          "accuracy": 0.6889
+        }
+      },
+      "matches_recorded": true
+    }
+  },
+  "check4_live_inference": [
+    {
+      "name": "UPI BOB Fixture A",
+      "expected_label": "HAM",
+      "predicted_label": "HAM",
+      "decision": "HAM",
+      "p_ham": 0.9924,
+      "p_spam": 0.0076,
+      "threshold_used": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "matches": true
+    },
+    {
+      "name": "Jio Rev Fixture B",
+      "expected_label": "HAM",
+      "predicted_label": "HAM",
+      "decision": "HAM",
+      "p_ham": 0.8343,
+      "p_spam": 0.1657,
+      "threshold_used": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "matches": true
+    },
+    {
+      "name": "UPI BOB Redacted",
+      "expected_label": "HAM",
+      "predicted_label": "HAM",
+      "decision": "HAM",
+      "p_ham": 0.9704,
+      "p_spam": 0.0296,
+      "threshold_used": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "matches": true
+    },
+    {
+      "name": "Jio Rev Redacted",
+      "expected_label": "HAM",
+      "predicted_label": "HAM",
+      "decision": "HAM",
+      "p_ham": 0.7851,
+      "p_spam": 0.2149,
+      "threshold_used": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "matches": true
+    },
+    {
+      "name": "SBI UPI Debit",
+      "expected_label": "HAM",
+      "predicted_label": "HAM",
+      "decision": "HAM",
+      "p_ham": 0.9962,
+      "p_spam": 0.0038,
+      "threshold_used": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "matches": true
+    },
+    {
+      "name": "Phishing KYC Scam",
+      "expected_label": "SPAM",
+      "predicted_label": "SPAM",
+      "decision": "SUSPECTED_SPAM",
+      "p_ham": 0.0177,
+      "p_spam": 0.9823,
+      "threshold_used": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "matches": true
+    },
+    {
+      "name": "Electricity Scam",
+      "expected_label": "SPAM",
+      "predicted_label": "SPAM",
+      "decision": "SUSPECTED_SPAM",
+      "p_ham": 0.0087,
+      "p_spam": 0.9913,
+      "threshold_used": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "matches": true
+    }
+  ]
+}

@@ -1,0 +1,930 @@
+{
+  "full_finetuning_v2": {
+    "display_name": "Full Fine-Tuning v2",
+    "configured_threshold": 0.1,
+    "abstention_band": [
+      0.05,
+      0.35
+    ],
+    "latency": {
+      "cold_load_ms": 753.56,
+      "warm_mean_ms": 459.01
+    },
+    "test_set_774": {
+      "configured_threshold": {
+        "tau": 0.1,
+        "accuracy": 0.9858,
+        "macro_f1": 0.9674,
+        "ham_precision": 0.9912,
+        "ham_recall": 0.9926,
+        "ham_f1": 0.9919,
+        "spam_precision": 0.9479,
+        "spam_recall": 0.9381,
+        "spam_f1": 0.943,
+        "confusion_matrix": {
+          "true_negative": 672,
+          "false_positive": 5,
+          "false_negative": 6,
+          "true_positive": 91,
+          "matrix": [
+            [
+              672,
+              5
+            ],
+            [
+              6,
+              91
+            ]
+          ]
+        }
+      },
+      "default_threshold_0_50": {
+        "accuracy": 0.9871,
+        "macro_f1": 0.97,
+        "ham_precision": 0.9897,
+        "ham_recall": 0.9956,
+        "ham_f1": 0.9926,
+        "spam_precision": 0.9677,
+        "spam_recall": 0.9278,
+        "spam_f1": 0.9474,
+        "confusion_matrix": {
+          "true_negative": 674,
+          "false_positive": 3,
+          "false_negative": 7,
+          "true_positive": 90,
+          "matrix": [
+            [
+              674,
+              3
+            ],
+            [
+              7,
+              90
+            ]
+          ]
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "configured_threshold": {
+        "tau": 0.1,
+        "accuracy": 0.8773,
+        "macro_f1": 0.8772,
+        "ham_precision": 0.8609,
+        "ham_recall": 0.9,
+        "ham_f1": 0.88,
+        "spam_precision": 0.8952,
+        "spam_recall": 0.8545,
+        "spam_f1": 0.8744,
+        "confusion_matrix": {
+          "true_negative": 99,
+          "false_positive": 11,
+          "false_negative": 16,
+          "true_positive": 94,
+          "matrix": [
+            [
+              99,
+              11
+            ],
+            [
+              16,
+              94
+            ]
+          ]
+        }
+      },
+      "default_threshold_0_50": {
+        "accuracy": 0.8636,
+        "macro_f1": 0.8631,
+        "confusion_matrix": {
+          "true_negative": 102,
+          "false_positive": 8,
+          "false_negative": 22,
+          "true_positive": 88,
+          "matrix": [
+            [
+              102,
+              8
+            ],
+            [
+              22,
+              88
+            ]
+          ]
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 1.0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 1.0
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 1.0
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.8
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 13,
+          "fp": 2,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.8667
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 1.0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 4,
+          "fp": 6,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.4
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 24,
+          "fp": 0,
+          "fn": 1,
+          "class": "HAM",
+          "accuracy": 0.96
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 24,
+          "fp": 0,
+          "fn": 1,
+          "class": "SPAM",
+          "accuracy": 0.96
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "class": "SPAM",
+          "accuracy": 0.72
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 38,
+          "fp": 0,
+          "fn": 7,
+          "class": "SPAM",
+          "accuracy": 0.8444
+        }
+      }
+    },
+    "regression_fixtures": {
+      "fixture_a_upi": {
+        "p_ham": 0.001,
+        "p_spam": 0.999,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      },
+      "fixture_b_jio": {
+        "p_ham": 0.0011,
+        "p_spam": 0.9989,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      },
+      "fixture_a_redacted": {
+        "p_ham": 0.0009,
+        "p_spam": 0.9991,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      },
+      "fixture_b_redacted": {
+        "p_ham": 0.001,
+        "p_spam": 0.999,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      }
+    }
+  },
+  "lora_v2": {
+    "display_name": "LoRA v2 (r=8)",
+    "configured_threshold": 0.18,
+    "abstention_band": [
+      0.08,
+      0.45
+    ],
+    "latency": {
+      "cold_load_ms": 1341.55,
+      "warm_mean_ms": 100.29
+    },
+    "test_set_774": {
+      "configured_threshold": {
+        "tau": 0.18,
+        "accuracy": 0.9806,
+        "macro_f1": 0.9544,
+        "ham_precision": 0.9839,
+        "ham_recall": 0.9941,
+        "ham_f1": 0.989,
+        "spam_precision": 0.9556,
+        "spam_recall": 0.8866,
+        "spam_f1": 0.9198,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 11,
+          "true_positive": 86,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              11,
+              86
+            ]
+          ]
+        }
+      },
+      "default_threshold_0_50": {
+        "accuracy": 0.9767,
+        "macro_f1": 0.9445,
+        "ham_precision": 0.9796,
+        "ham_recall": 0.9941,
+        "ham_f1": 0.9868,
+        "spam_precision": 0.954,
+        "spam_recall": 0.8557,
+        "spam_f1": 0.9022,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 14,
+          "true_positive": 83,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              14,
+              83
+            ]
+          ]
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "configured_threshold": {
+        "tau": 0.18,
+        "accuracy": 0.7682,
+        "macro_f1": 0.7681,
+        "ham_precision": 0.781,
+        "ham_recall": 0.7455,
+        "ham_f1": 0.7628,
+        "spam_precision": 0.7565,
+        "spam_recall": 0.7909,
+        "spam_f1": 0.7733,
+        "confusion_matrix": {
+          "true_negative": 82,
+          "false_positive": 28,
+          "false_negative": 23,
+          "true_positive": 87,
+          "matrix": [
+            [
+              82,
+              28
+            ],
+            [
+              23,
+              87
+            ]
+          ]
+        }
+      },
+      "default_threshold_0_50": {
+        "accuracy": 0.7409,
+        "macro_f1": 0.7375,
+        "confusion_matrix": {
+          "true_negative": 94,
+          "false_positive": 16,
+          "false_negative": 41,
+          "true_positive": 69,
+          "matrix": [
+            [
+              94,
+              16
+            ],
+            [
+              41,
+              69
+            ]
+          ]
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 1.0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.8
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 10,
+          "fp": 5,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.6667
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 7,
+          "fp": 8,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.4667
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 11,
+          "fp": 4,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.7333
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.9333
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 3,
+          "fp": 7,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.3
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "class": "HAM",
+          "accuracy": 0.88
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "class": "SPAM",
+          "accuracy": 0.88
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "class": "SPAM",
+          "accuracy": 0.72
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 35,
+          "fp": 0,
+          "fn": 10,
+          "class": "SPAM",
+          "accuracy": 0.7778
+        }
+      }
+    },
+    "regression_fixtures": {
+      "fixture_a_upi": {
+        "p_ham": 0.0069,
+        "p_spam": 0.9931,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      },
+      "fixture_b_jio": {
+        "p_ham": 0.0108,
+        "p_spam": 0.9892,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      },
+      "fixture_a_redacted": {
+        "p_ham": 0.0075,
+        "p_spam": 0.9925,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      },
+      "fixture_b_redacted": {
+        "p_ham": 0.0103,
+        "p_spam": 0.9897,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      }
+    }
+  },
+  "dora_v2": {
+    "display_name": "DoRA v2 (r=8, use_dora=True)",
+    "configured_threshold": 0.18,
+    "abstention_band": [
+      0.08,
+      0.45
+    ],
+    "latency": {
+      "cold_load_ms": 1244.19,
+      "warm_mean_ms": 140.92
+    },
+    "test_set_774": {
+      "configured_threshold": {
+        "tau": 0.18,
+        "accuracy": 0.9806,
+        "macro_f1": 0.9544,
+        "ham_precision": 0.9839,
+        "ham_recall": 0.9941,
+        "ham_f1": 0.989,
+        "spam_precision": 0.9556,
+        "spam_recall": 0.8866,
+        "spam_f1": 0.9198,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 11,
+          "true_positive": 86,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              11,
+              86
+            ]
+          ]
+        }
+      },
+      "default_threshold_0_50": {
+        "accuracy": 0.9767,
+        "macro_f1": 0.9445,
+        "ham_precision": 0.9796,
+        "ham_recall": 0.9941,
+        "ham_f1": 0.9868,
+        "spam_precision": 0.954,
+        "spam_recall": 0.8557,
+        "spam_f1": 0.9022,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 14,
+          "true_positive": 83,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              14,
+              83
+            ]
+          ]
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "configured_threshold": {
+        "tau": 0.18,
+        "accuracy": 0.7773,
+        "macro_f1": 0.7772,
+        "ham_precision": 0.785,
+        "ham_recall": 0.7636,
+        "ham_f1": 0.7742,
+        "spam_precision": 0.7699,
+        "spam_recall": 0.7909,
+        "spam_f1": 0.7803,
+        "confusion_matrix": {
+          "true_negative": 84,
+          "false_positive": 26,
+          "false_negative": 23,
+          "true_positive": 87,
+          "matrix": [
+            [
+              84,
+              26
+            ],
+            [
+              23,
+              87
+            ]
+          ]
+        }
+      },
+      "default_threshold_0_50": {
+        "accuracy": 0.7364,
+        "macro_f1": 0.7326,
+        "confusion_matrix": {
+          "true_negative": 94,
+          "false_positive": 16,
+          "false_negative": 42,
+          "true_positive": 68,
+          "matrix": [
+            [
+              94,
+              16
+            ],
+            [
+              42,
+              68
+            ]
+          ]
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 1.0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.8
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.8
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 7,
+          "fp": 8,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.4667
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 11,
+          "fp": 4,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.7333
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.9333
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 3,
+          "fp": 7,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.3
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "class": "HAM",
+          "accuracy": 0.88
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "class": "SPAM",
+          "accuracy": 0.88
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "class": "SPAM",
+          "accuracy": 0.72
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 35,
+          "fp": 0,
+          "fn": 10,
+          "class": "SPAM",
+          "accuracy": 0.7778
+        }
+      }
+    },
+    "regression_fixtures": {
+      "fixture_a_upi": {
+        "p_ham": 0.0071,
+        "p_spam": 0.9929,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      },
+      "fixture_b_jio": {
+        "p_ham": 0.0114,
+        "p_spam": 0.9886,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      },
+      "fixture_a_redacted": {
+        "p_ham": 0.0079,
+        "p_spam": 0.9921,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      },
+      "fixture_b_redacted": {
+        "p_ham": 0.0107,
+        "p_spam": 0.9893,
+        "predicted_label": "SPAM",
+        "decision": "SUSPECTED_SPAM"
+      }
+    }
+  },
+  "lora_v3": {
+    "display_name": "LoRA v3 (Candidate)",
+    "configured_threshold": 0.5,
+    "abstention_band": [
+      0.25,
+      0.75
+    ],
+    "latency": {
+      "cold_load_ms": 1066.89,
+      "warm_mean_ms": 84.97
+    },
+    "test_set_774": {
+      "configured_threshold": {
+        "tau": 0.5,
+        "accuracy": 0.9703,
+        "macro_f1": 0.9319,
+        "ham_precision": 0.9823,
+        "ham_recall": 0.9838,
+        "ham_f1": 0.983,
+        "spam_precision": 0.8854,
+        "spam_recall": 0.8763,
+        "spam_f1": 0.8808,
+        "confusion_matrix": {
+          "true_negative": 666,
+          "false_positive": 11,
+          "false_negative": 12,
+          "true_positive": 85,
+          "matrix": [
+            [
+              666,
+              11
+            ],
+            [
+              12,
+              85
+            ]
+          ]
+        }
+      },
+      "default_threshold_0_50": {
+        "accuracy": 0.9703,
+        "macro_f1": 0.9319,
+        "ham_precision": 0.9823,
+        "ham_recall": 0.9838,
+        "ham_f1": 0.983,
+        "spam_precision": 0.8854,
+        "spam_recall": 0.8763,
+        "spam_f1": 0.8808,
+        "confusion_matrix": {
+          "true_negative": 666,
+          "false_positive": 11,
+          "false_negative": 12,
+          "true_positive": 85,
+          "matrix": [
+            [
+              666,
+              11
+            ],
+            [
+              12,
+              85
+            ]
+          ]
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "configured_threshold": {
+        "tau": 0.5,
+        "accuracy": 0.8318,
+        "macro_f1": 0.831,
+        "ham_precision": 0.792,
+        "ham_recall": 0.9,
+        "ham_f1": 0.8426,
+        "spam_precision": 0.8842,
+        "spam_recall": 0.7636,
+        "spam_f1": 0.8195,
+        "confusion_matrix": {
+          "true_negative": 99,
+          "false_positive": 11,
+          "false_negative": 26,
+          "true_positive": 84,
+          "matrix": [
+            [
+              99,
+              11
+            ],
+            [
+              26,
+              84
+            ]
+          ]
+        }
+      },
+      "default_threshold_0_50": {
+        "accuracy": 0.8318,
+        "macro_f1": 0.831,
+        "confusion_matrix": {
+          "true_negative": 99,
+          "false_positive": 11,
+          "false_negative": 26,
+          "true_positive": 84,
+          "matrix": [
+            [
+              99,
+              11
+            ],
+            [
+              26,
+              84
+            ]
+          ]
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.9333
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.9333
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.9333
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 13,
+          "fp": 2,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.8667
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 1.0
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 1.0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 4,
+          "fp": 6,
+          "fn": 0,
+          "class": "HAM",
+          "accuracy": 0.4
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "class": "HAM",
+          "accuracy": 0.72
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 23,
+          "fp": 0,
+          "fn": 2,
+          "class": "SPAM",
+          "accuracy": 0.92
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "class": "SPAM",
+          "accuracy": 0.88
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 31,
+          "fp": 0,
+          "fn": 14,
+          "class": "SPAM",
+          "accuracy": 0.6889
+        }
+      }
+    },
+    "regression_fixtures": {
+      "fixture_a_upi": {
+        "p_ham": 0.9924,
+        "p_spam": 0.0076,
+        "predicted_label": "HAM",
+        "decision": "HAM"
+      },
+      "fixture_b_jio": {
+        "p_ham": 0.8343,
+        "p_spam": 0.1657,
+        "predicted_label": "HAM",
+        "decision": "HAM"
+      },
+      "fixture_a_redacted": {
+        "p_ham": 0.9704,
+        "p_spam": 0.0296,
+        "predicted_label": "HAM",
+        "decision": "HAM"
+      },
+      "fixture_b_redacted": {
+        "p_ham": 0.7851,
+        "p_spam": 0.2149,
+        "predicted_label": "HAM",
+        "decision": "HAM"
+      }
+    }
+  }
+}

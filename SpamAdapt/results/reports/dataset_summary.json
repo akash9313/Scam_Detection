@@ -1,0 +1,199 @@
+{
+  "inspection": {
+    "dataset_name": "Raw UCI SMS Spam Collection",
+    "total_rows": 5574,
+    "columns": [
+      "sms",
+      "label"
+    ],
+    "dtypes": {
+      "sms": "str",
+      "label": "int64"
+    },
+    "null_counts": {
+      "sms": 0,
+      "label": 0
+    },
+    "unique_values_per_column": {
+      "sms": 5171,
+      "label": 2
+    }
+  },
+  "cleaning_statistics": {
+    "initial_count": 5574,
+    "after_dropna": 5574,
+    "dropped_nulls": 0,
+    "after_empty_removal": 5574,
+    "dropped_empty": 0,
+    "duplicate_count": 414,
+    "final_clean_count": 5160
+  },
+  "overall_statistics": {
+    "total_samples": 5160,
+    "class_distribution": {
+      "ham_count (0)": 4518,
+      "spam_count (1)": 642,
+      "ham_percentage": 87.56,
+      "spam_percentage": 12.44,
+      "imbalance_ratio_ham_to_spam": 7.04
+    },
+    "character_length": {
+      "min": 2,
+      "mean": 78.68,
+      "median": 60.0,
+      "max": 910
+    },
+    "word_count": {
+      "min": 1,
+      "mean": 15.41,
+      "median": 12.0,
+      "max": 171
+    },
+    "ham_statistics": {
+      "char_length_mean": 70.34,
+      "char_length_median": 52.0,
+      "word_count_mean": 14.23,
+      "word_count_median": 11.0
+    },
+    "spam_statistics": {
+      "char_length_mean": 137.41,
+      "char_length_median": 148.0,
+      "word_count_mean": 23.7,
+      "word_count_median": 25.0
+    }
+  },
+  "manifest": {
+    "dataset_name": "ucirvine/sms_spam",
+    "random_seed": 42,
+    "target_split_ratios": {
+      "train": 0.7,
+      "val": 0.15,
+      "test": 0.15
+    },
+    "cleaning_summary": {
+      "initial_count": 5574,
+      "after_dropna": 5574,
+      "dropped_nulls": 0,
+      "after_empty_removal": 5574,
+      "dropped_empty": 0,
+      "duplicate_count": 414,
+      "final_clean_count": 5160
+    },
+    "splits": {
+      "train": {
+        "file": "train.csv",
+        "sha256": "1278901b9f35d2c5b7ccc73e018953450dcaf58beec0771df143a7f8c0b056ab",
+        "statistics": {
+          "total_samples": 3612,
+          "class_distribution": {
+            "ham_count (0)": 3163,
+            "spam_count (1)": 449,
+            "ham_percentage": 87.57,
+            "spam_percentage": 12.43,
+            "imbalance_ratio_ham_to_spam": 7.04
+          },
+          "character_length": {
+            "min": 2,
+            "mean": 78.63,
+            "median": 60.0,
+            "max": 910
+          },
+          "word_count": {
+            "min": 1,
+            "mean": 15.4,
+            "median": 12.0,
+            "max": 171
+          },
+          "ham_statistics": {
+            "char_length_mean": 70.38,
+            "char_length_median": 53.0,
+            "word_count_mean": 14.25,
+            "word_count_median": 11.0
+          },
+          "spam_statistics": {
+            "char_length_mean": 136.78,
+            "char_length_median": 148.0,
+            "word_count_mean": 23.52,
+            "word_count_median": 25.0
+          }
+        }
+      },
+      "val": {
+        "file": "val.csv",
+        "sha256": "79e31eb379e1c8f73e473160a5630fcb8d0ed27b4b4ecfb677d7ab6216e7d1e3",
+        "statistics": {
+          "total_samples": 774,
+          "class_distribution": {
+            "ham_count (0)": 678,
+            "spam_count (1)": 96,
+            "ham_percentage": 87.6,
+            "spam_percentage": 12.4,
+            "imbalance_ratio_ham_to_spam": 7.06
+          },
+          "character_length": {
+            "min": 6,
+            "mean": 79.33,
+            "median": 61.0,
+            "max": 485
+          },
+          "word_count": {
+            "min": 1,
+            "mean": 15.44,
+            "median": 12.0,
+            "max": 103
+          },
+          "ham_statistics": {
+            "char_length_mean": 71.2,
+            "char_length_median": 51.5,
+            "word_count_mean": 14.3,
+            "word_count_median": 10.0
+          },
+          "spam_statistics": {
+            "char_length_mean": 136.76,
+            "char_length_median": 149.0,
+            "word_count_mean": 23.49,
+            "word_count_median": 25.0
+          }
+        }
+      },
+      "test": {
+        "file": "test.csv",
+        "sha256": "75d4e1122de5610620ea200a6c482142b542774d9ddf9efda9da7426a0952677",
+        "statistics": {
+          "total_samples": 774,
+          "class_distribution": {
+            "ham_count (0)": 677,
+            "spam_count (1)": 97,
+            "ham_percentage": 87.47,
+            "spam_percentage": 12.53,
+            "imbalance_ratio_ham_to_spam": 6.98
+          },
+          "character_length": {
+            "min": 2,
+            "mean": 78.27,
+            "median": 59.0,
+            "max": 446
+          },
+          "word_count": {
+            "min": 1,
+            "mean": 15.42,
+            "median": 12.0,
+            "max": 96
+          },
+          "ham_statistics": {
+            "char_length_mean": 69.28,
+            "char_length_median": 52.0,
+            "word_count_mean": 14.09,
+            "word_count_median": 11.0
+          },
+          "spam_statistics": {
+            "char_length_mean": 141.0,
+            "char_length_median": 147.0,
+            "word_count_mean": 24.72,
+            "word_count_median": 25.0
+          }
+        }
+      }
+    }
+  }
+}

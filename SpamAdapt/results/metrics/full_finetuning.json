@@ -1,0 +1,71 @@
+{
+  "experiment": "full_finetuning",
+  "run_type": "full_epoch_baseline",
+  "model_name": "google-bert/bert-base-uncased",
+  "parameters": {
+    "total_parameters": 109483778,
+    "trainable_parameters": 109483778,
+    "frozen_parameters": 0,
+    "trainable_percentage": 100.0
+  },
+  "hardware": {
+    "device": "cpu",
+    "gpu_name": "CPU",
+    "total_gpu_memory_mb": 0.0,
+    "peak_gpu_memory_mb": 0.0,
+    "cuda_available": false
+  },
+  "training_tracking": {
+    "total_training_time_seconds": 1464.86,
+    "formatted_training_time": "24m 24s",
+    "num_epochs": 1,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "max_length": 128,
+    "seed": 42,
+    "epoch_history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.0991,
+        "val_loss": 0.0402974800527239,
+        "val_accuracy": 0.9922,
+        "val_f1_spam": 0.9677,
+        "val_macro_f1": 0.9817,
+        "duration_seconds": 1404.12
+      }
+    ]
+  },
+  "test_metrics": {
+    "accuracy": 0.9845,
+    "precision": 0.957,
+    "recall": 0.9175,
+    "f1": 0.9368,
+    "macro_f1": 0.964,
+    "macro_precision": 0.9726,
+    "macro_recall": 0.9558,
+    "ham_f1": 0.9912,
+    "confusion_matrix": {
+      "true_negative": 673,
+      "false_positive": 4,
+      "false_negative": 8,
+      "true_positive": 89,
+      "matrix": [
+        [
+          673,
+          4
+        ],
+        [
+          8,
+          89
+        ]
+      ]
+    },
+    "loss": 0.0701
+  },
+  "saved_artifacts": {
+    "model_dir": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning\\model",
+    "confusion_matrix_plot": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\results\\plots\\full_finetuning_confusion_matrix.png"
+  }
+}

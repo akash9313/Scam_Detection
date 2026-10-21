@@ -1,0 +1,74 @@
+{
+  "dataset_name": "SpamAdapt-Candidate-v3.0",
+  "version": "3.0.0",
+  "date_created": "2026-10-19",
+  "random_seed": 42,
+  "purpose": "Remediate domain generalization false positives on legitimate banking UPI and telecom reverification SMS",
+  "files": {
+    "augmented_train": {
+      "path": "data/augmented_v3/augmented_train.csv",
+      "sha256": "84c72eec7f262a53e10cd9f1c0a8e1d0d0204597be3b913992d0e190f0794be6",
+      "stats": {
+        "total": 3253,
+        "ham": 2809,
+        "spam": 444,
+        "ham_pct": 86.35,
+        "spam_pct": 13.65,
+        "categories": {
+          "commercial_spam": 372,
+          "personal_chat": 2694,
+          "customer_care": 12,
+          "bank_otp": 16,
+          "upi_transaction": 37,
+          "telecom_service": 37,
+          "phishing_kyc": 20,
+          "parcel_delivery": 13,
+          "hinglish_scam": 8,
+          "job_loan_scam": 16,
+          "impersonation_link": 19,
+          "fake_delivery": 9
+        }
+      }
+    },
+    "augmented_val": {
+      "path": "data/augmented_v3/augmented_val.csv",
+      "sha256": "5d535942e89828f53c50d8b8197097247f69bd9a2bc43c1e25e7f322646d547a",
+      "stats": {
+        "total": 574,
+        "ham": 484,
+        "spam": 90,
+        "ham_pct": 84.32,
+        "spam_pct": 15.68,
+        "categories": {
+          "commercial_spam": 77,
+          "personal_chat": 469,
+          "customer_care": 2,
+          "upi_transaction": 7,
+          "hinglish_scam": 2,
+          "telecom_service": 3,
+          "job_loan_scam": 2,
+          "phishing_kyc": 5,
+          "fake_delivery": 3,
+          "parcel_delivery": 1,
+          "bank_otp": 2,
+          "impersonation_link": 1
+        }
+      }
+    }
+  },
+  "curation_summary": {
+    "total_curated_records_pool": 215,
+    "v3_new_remediation_records": 75,
+    "provenance": {
+      "bank_transaction_template_curation": 28,
+      "telecom_transaction_template_curation": 21,
+      "cybercrime_advisories": 25
+    }
+  },
+  "isolation_guarantees": {
+    "external_benchmark_overlaps": 0,
+    "regression_fixture_overlaps": 0,
+    "baseline_test_set_overlaps": 0,
+    "status": "STRICTLY_ISOLATED_VERIFIED"
+  }
+}

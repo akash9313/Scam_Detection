@@ -1,0 +1,257 @@
+{
+  "stage": 5,
+  "experiment": "computational_and_efficiency_benchmarking",
+  "benchmark_environment": {
+    "hardware": {
+      "device_type": "cpu",
+      "device_name": "CPU",
+      "total_memory_mb": 0.0,
+      "cuda_available": false
+    },
+    "pytorch_version": "2.14.0+cpu",
+    "cuda_available": false,
+    "os_process_memory_tool": "psutil 7.2.2",
+    "test_split_samples": 774,
+    "max_sequence_length": 128,
+    "per_message_repetitions": 1,
+    "batched_repetitions": 2,
+    "eval_batch_size": 2
+  },
+  "benchmarks": {
+    "full_finetuning": {
+      "method": "full_finetuning",
+      "metadata": {
+        "method": "full_finetuning",
+        "base_model": "google-bert/bert-base-uncased",
+        "checkpoint_dir": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning\\model",
+        "adapter_type": "none (full_finetuning)"
+      },
+      "parameters": {
+        "total_parameters": 109483778,
+        "trainable_parameters": 109483778,
+        "frozen_parameters": 0,
+        "trainable_percentage": 100.0
+      },
+      "storage": {
+        "checkpoint_weights_mb": 417.67,
+        "directory_total_mb": 418.35,
+        "total_deployed_footprint_mb": 417.67
+      },
+      "runtime_efficiency": {
+        "model_loading_time_seconds": 0.514,
+        "memory_delta_mb": 419.43,
+        "measurement_device": "cpu",
+        "cuda_available": false,
+        "peak_cuda_memory_mb": 0.0,
+        "per_message_latency": {
+          "num_measurements": 774,
+          "mean_latency_ms": 99.479,
+          "median_latency_ms": 97.554,
+          "p95_latency_ms": 120.365,
+          "p99_latency_ms": 136.044,
+          "min_latency_ms": 76.926,
+          "max_latency_ms": 151.296,
+          "std_latency_ms": 11.822
+        },
+        "batched_evaluation": {
+          "batch_size": 2,
+          "num_repetitions": 2,
+          "total_inference_time_seconds": 60.902,
+          "throughput_messages_per_sec": 12.71
+        }
+      },
+      "predictive_metrics": {
+        "accuracy": 0.9845,
+        "precision": 0.957,
+        "recall": 0.9175,
+        "f1": 0.9368,
+        "macro_f1": 0.964,
+        "macro_precision": 0.9726,
+        "macro_recall": 0.9558,
+        "ham_f1": 0.9912,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 8,
+          "true_positive": 89,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              8,
+              89
+            ]
+          ]
+        },
+        "loss": 0.0701
+      }
+    },
+    "lora": {
+      "method": "lora",
+      "metadata": {
+        "method": "lora",
+        "base_model": "google-bert/bert-base-uncased",
+        "checkpoint_dir": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora\\model",
+        "adapter_type": "LORA",
+        "use_dora": false
+      },
+      "parameters": {
+        "total_parameters": 109780228,
+        "trainable_parameters": 0,
+        "frozen_parameters": 109780228,
+        "trainable_percentage": 0.0
+      },
+      "storage": {
+        "checkpoint_weights_mb": 1.137,
+        "directory_total_mb": 1.823,
+        "total_deployed_footprint_mb": 439.097
+      },
+      "runtime_efficiency": {
+        "model_loading_time_seconds": 1.268,
+        "memory_delta_mb": 417.82,
+        "measurement_device": "cpu",
+        "cuda_available": false,
+        "peak_cuda_memory_mb": 0.0,
+        "per_message_latency": {
+          "num_measurements": 774,
+          "mean_latency_ms": 92.051,
+          "median_latency_ms": 90.668,
+          "p95_latency_ms": 102.079,
+          "p99_latency_ms": 109.049,
+          "min_latency_ms": 84.471,
+          "max_latency_ms": 122.057,
+          "std_latency_ms": 4.771
+        },
+        "batched_evaluation": {
+          "batch_size": 2,
+          "num_repetitions": 2,
+          "total_inference_time_seconds": 60.759,
+          "throughput_messages_per_sec": 12.74
+        }
+      },
+      "predictive_metrics": {
+        "accuracy": 0.9832,
+        "precision": 0.9468,
+        "recall": 0.9175,
+        "f1": 0.9319,
+        "macro_f1": 0.9612,
+        "macro_precision": 0.9675,
+        "macro_recall": 0.9551,
+        "ham_f1": 0.9904,
+        "confusion_matrix": {
+          "true_negative": 672,
+          "false_positive": 5,
+          "false_negative": 8,
+          "true_positive": 89,
+          "matrix": [
+            [
+              672,
+              5
+            ],
+            [
+              8,
+              89
+            ]
+          ]
+        },
+        "loss": 0.0783
+      }
+    },
+    "dora": {
+      "method": "dora",
+      "metadata": {
+        "method": "dora",
+        "base_model": "google-bert/bert-base-uncased",
+        "checkpoint_dir": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora\\model",
+        "adapter_type": "LORA",
+        "use_dora": true
+      },
+      "parameters": {
+        "total_parameters": 109798660,
+        "trainable_parameters": 0,
+        "frozen_parameters": 109798660,
+        "trainable_percentage": 0.0
+      },
+      "storage": {
+        "checkpoint_weights_mb": 1.211,
+        "directory_total_mb": 1.896,
+        "total_deployed_footprint_mb": 439.171
+      },
+      "runtime_efficiency": {
+        "model_loading_time_seconds": 1.254,
+        "memory_delta_mb": 426.99,
+        "measurement_device": "cpu",
+        "cuda_available": false,
+        "peak_cuda_memory_mb": 0.0,
+        "per_message_latency": {
+          "num_measurements": 774,
+          "mean_latency_ms": 110.001,
+          "median_latency_ms": 107.865,
+          "p95_latency_ms": 124.717,
+          "p99_latency_ms": 135.37,
+          "min_latency_ms": 98.996,
+          "max_latency_ms": 164.313,
+          "std_latency_ms": 7.163
+        },
+        "batched_evaluation": {
+          "batch_size": 2,
+          "num_repetitions": 2,
+          "total_inference_time_seconds": 68.368,
+          "throughput_messages_per_sec": 11.32
+        }
+      },
+      "predictive_metrics": {
+        "accuracy": 0.9819,
+        "precision": 0.9368,
+        "recall": 0.9175,
+        "f1": 0.9271,
+        "macro_f1": 0.9584,
+        "macro_precision": 0.9625,
+        "macro_recall": 0.9543,
+        "ham_f1": 0.9897,
+        "confusion_matrix": {
+          "true_negative": 671,
+          "false_positive": 6,
+          "false_negative": 8,
+          "true_positive": 89,
+          "matrix": [
+            [
+              671,
+              6
+            ],
+            [
+              8,
+              89
+            ]
+          ]
+        },
+        "loss": 0.0779
+      }
+    }
+  },
+  "cross_verification": {
+    "full_finetuning": {
+      "original_macro_f1": 0.964,
+      "recalculated_macro_f1": 0.964,
+      "macro_f1_exact_match": true,
+      "accuracy_exact_match": true,
+      "spam_f1_exact_match": true
+    },
+    "lora": {
+      "original_macro_f1": 0.9612,
+      "recalculated_macro_f1": 0.9612,
+      "macro_f1_exact_match": true,
+      "accuracy_exact_match": true,
+      "spam_f1_exact_match": true
+    },
+    "dora": {
+      "original_macro_f1": 0.9584,
+      "recalculated_macro_f1": 0.9584,
+      "macro_f1_exact_match": true,
+      "accuracy_exact_match": true,
+      "spam_f1_exact_match": true
+    }
+  }
+}

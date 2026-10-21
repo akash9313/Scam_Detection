@@ -1,0 +1,149 @@
+{
+  "dataset_name": "SpamAdapt-Augmented-v1.0",
+  "timestamp_created": "2026-10-15",
+  "random_seed": 42,
+  "clustering_threshold_jaccard": 0.85,
+  "files": {
+    "annotation_review": {
+      "path": "data\\augmented\\annotation_review.csv",
+      "records": 140,
+      "sha256": "aaf824652b3b45c1eac68966e54563c7a744293984f1fd4560008c8cdafe01be"
+    },
+    "augmented_pool": {
+      "path": "data\\augmented\\augmented_pool.csv",
+      "records": 3752,
+      "sha256": "fb4a1344a9f9cec4ecf4c6c4ae887375859c139be8134b9e33482f90d6c7d5c7",
+      "stats": {
+        "total": 3752,
+        "ham": 3243,
+        "spam": 509,
+        "ham_pct": 86.43,
+        "spam_pct": 13.57,
+        "synthetic_count": 24,
+        "category_distribution": {
+          "personal_chat": 3163,
+          "commercial_spam": 449,
+          "telecom_service": 18,
+          "bank_otp": 18,
+          "upi_transaction": 16,
+          "parcel_delivery": 14,
+          "customer_care": 14,
+          "phishing_kyc": 14,
+          "impersonation_link": 14,
+          "fake_delivery": 11,
+          "job_loan_scam": 11,
+          "hinglish_scam": 10
+        },
+        "source_distribution": {
+          "uci": 3612,
+          "enterprise_transactional_curation": 77,
+          "public_security_advisories": 39,
+          "contrastive_curation": 24
+        }
+      }
+    },
+    "augmented_train": {
+      "path": "data\\augmented\\augmented_train.csv",
+      "records": 3190,
+      "sha256": "b29c370b29230a1118f7538c837cc52a7dc30075d7981d042b39fb012781e2a0",
+      "stats": {
+        "total": 3190,
+        "ham": 2768,
+        "spam": 422,
+        "ham_pct": 86.77,
+        "spam_pct": 13.23,
+        "synthetic_count": 20,
+        "category_distribution": {
+          "personal_chat": 2700,
+          "commercial_spam": 372,
+          "impersonation_link": 12,
+          "fake_delivery": 8,
+          "customer_care": 13,
+          "upi_transaction": 14,
+          "bank_otp": 16,
+          "phishing_kyc": 13,
+          "job_loan_scam": 9,
+          "hinglish_scam": 8,
+          "parcel_delivery": 12,
+          "telecom_service": 13
+        },
+        "source_distribution": {
+          "uci": 3072,
+          "public_security_advisories": 32,
+          "contrastive_curation": 20,
+          "enterprise_transactional_curation": 66
+        }
+      }
+    },
+    "augmented_val": {
+      "path": "data\\augmented\\augmented_val.csv",
+      "records": 562,
+      "sha256": "bb519e02d6b48d69c1f3db3195a0ed62e7e3c86fb4c69fc1cbb0dcb434edd4de",
+      "stats": {
+        "total": 562,
+        "ham": 475,
+        "spam": 87,
+        "ham_pct": 84.52,
+        "spam_pct": 15.48,
+        "synthetic_count": 4,
+        "category_distribution": {
+          "personal_chat": 463,
+          "commercial_spam": 77,
+          "telecom_service": 5,
+          "customer_care": 1,
+          "upi_transaction": 2,
+          "impersonation_link": 2,
+          "job_loan_scam": 2,
+          "parcel_delivery": 2,
+          "hinglish_scam": 2,
+          "fake_delivery": 3,
+          "bank_otp": 2,
+          "phishing_kyc": 1
+        },
+        "source_distribution": {
+          "uci": 540,
+          "enterprise_transactional_curation": 11,
+          "public_security_advisories": 7,
+          "contrastive_curation": 4
+        }
+      }
+    }
+  },
+  "curated_records_breakdown": {
+    "total_curated": 140,
+    "ham_count": 80,
+    "spam_count": 60,
+    "manually_curated_count": 116,
+    "synthetic_contrastive_count": 24,
+    "categories": {
+      "telecom_service": 18,
+      "bank_otp": 18,
+      "upi_transaction": 16,
+      "parcel_delivery": 14,
+      "customer_care": 14,
+      "phishing_kyc": 14,
+      "impersonation_link": 14,
+      "fake_delivery": 11,
+      "job_loan_scam": 11,
+      "hinglish_scam": 10
+    },
+    "sources": {
+      "enterprise_transactional_curation": 77,
+      "public_security_advisories": 39,
+      "contrastive_curation": 24
+    }
+  },
+  "external_benchmark_isolation": {
+    "path": "data\\external\\real_world_eval.csv",
+    "records": 34,
+    "exact_matches_with_augmented_pool": 0,
+    "template_leakage_with_augmented_pool": 0,
+    "status": "STRICTLY_ISOLATED"
+  },
+  "baseline_preservation": {
+    "train_sha256": "1278901b9f35d2c5b7ccc73e018953450dcaf58beec0771df143a7f8c0b056ab",
+    "val_sha256": "79e31eb379e1c8f73e473160a5630fcb8d0ed27b4b4ecfb677d7ab6216e7d1e3",
+    "test_sha256": "75d4e1122de5610620ea200a6c482142b542774d9ddf9efda9da7426a0952677",
+    "status": "VERIFIED_UNTOUCHED"
+  }
+}

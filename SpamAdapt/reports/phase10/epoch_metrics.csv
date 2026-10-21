@@ -1,0 +1,10 @@
+model_key,architecture,epoch,train_loss,val_loss,val_accuracy,val_macro_f1,val_ham_recall,val_spam_recall,duration_seconds,cumulative_optimizer_steps
+lora_v4,lora,1,0.236,0.0873,0.9774,0.9566,0.9897,0.9111,914.35,204
+lora_v4,lora,2,0.0734,0.0728,0.9843,0.9699,0.9938,0.9333,908.07,408
+lora_v4,lora,3,0.0481,0.0752,0.9861,0.9732,0.9959,0.9333,899.84,612
+dora_v3,dora,1,0.2359,0.0892,0.9791,0.9597,0.9917,0.9111,1271.55,204
+dora_v3,dora,2,0.0729,0.0721,0.9843,0.9699,0.9938,0.9333,2023.26,408
+dora_v3,dora,3,0.0478,0.0747,0.9878,0.9766,0.9959,0.9444,2072.96,612
+full_finetuning_v3,full_finetuning,1,0.1872,0.062,0.9895,0.9801,0.9959,0.9556,1105.24,204
+full_finetuning_v3,full_finetuning,2,0.0375,0.0753,0.9878,0.9766,0.9959,0.9444,1128.12,408
+full_finetuning_v3,full_finetuning,3,0.0119,0.0788,0.9878,0.9766,0.9959,0.9444,1043.57,612

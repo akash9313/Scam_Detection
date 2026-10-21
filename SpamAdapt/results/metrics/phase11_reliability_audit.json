@@ -1,0 +1,1703 @@
+{
+  "lora_v3": {
+    "model_key": "lora_v3",
+    "policy": {
+      "tau_base": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "provenance": "Validation Split Selection Only"
+    },
+    "validation_metrics": {
+      "accuracy": 0.9686,
+      "macro_f1": 0.9396,
+      "ham_recall": 0.9855,
+      "spam_recall": 0.8778
+    },
+    "test_set_774": {
+      "binary_metrics": {
+        "accuracy": 0.9703,
+        "precision": 0.8854,
+        "recall": 0.8763,
+        "f1": 0.8808,
+        "macro_f1": 0.9319,
+        "macro_precision": 0.9339,
+        "macro_recall": 0.93,
+        "ham_f1": 0.983,
+        "confusion_matrix": {
+          "true_negative": 666,
+          "false_positive": 11,
+          "false_negative": 12,
+          "true_positive": 85,
+          "matrix": [
+            [
+              666,
+              11
+            ],
+            [
+              12,
+              85
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 774,
+        "decided_count": 771,
+        "review_count": 3,
+        "coverage_rate": 0.9961,
+        "abstention_rate": 0.0039,
+        "decided_accuracy": 0.9728,
+        "decided_fpr": 0.0148,
+        "decided_fnr": 0.1158,
+        "decided_confusion_matrix": {
+          "tn": 666,
+          "fp": 10,
+          "fn": 11,
+          "tp": 84
+        },
+        "review_averted_errors": {
+          "fps_averted": 1,
+          "fns_averted": 1
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "binary_metrics": {
+        "accuracy": 0.8318,
+        "precision": 0.8842,
+        "recall": 0.7636,
+        "f1": 0.8195,
+        "macro_f1": 0.831,
+        "macro_precision": 0.8381,
+        "macro_recall": 0.8318,
+        "ham_f1": 0.8426,
+        "confusion_matrix": {
+          "true_negative": 99,
+          "false_positive": 11,
+          "false_negative": 26,
+          "true_positive": 84,
+          "matrix": [
+            [
+              99,
+              11
+            ],
+            [
+              26,
+              84
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 220,
+        "decided_count": 200,
+        "review_count": 20,
+        "coverage_rate": 0.9091,
+        "abstention_rate": 0.0909,
+        "decided_accuracy": 0.86,
+        "decided_fpr": 0.0693,
+        "decided_fnr": 0.2121,
+        "decided_confusion_matrix": {
+          "tn": 94,
+          "fp": 7,
+          "fn": 21,
+          "tp": 78
+        },
+        "review_averted_errors": {
+          "fps_averted": 4,
+          "fns_averted": 5
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 14,
+          "tp": 0,
+          "reviews": 0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 14,
+          "tp": 0,
+          "reviews": 2
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 14,
+          "tp": 0,
+          "reviews": 0
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 13,
+          "fp": 2,
+          "fn": 0,
+          "tn": 13,
+          "tp": 0,
+          "reviews": 0
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 1
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 4,
+          "fp": 6,
+          "fn": 0,
+          "tn": 4,
+          "tp": 0,
+          "reviews": 6
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "tn": 10,
+          "tp": 8,
+          "reviews": 2
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 23,
+          "fp": 0,
+          "fn": 2,
+          "tn": 0,
+          "tp": 23,
+          "reviews": 3
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "tn": 0,
+          "tp": 22,
+          "reviews": 1
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 31,
+          "fp": 0,
+          "fn": 14,
+          "tn": 0,
+          "tp": 31,
+          "reviews": 5
+        }
+      },
+      "provenance_breakdown": {
+        "unknown": {
+          "total": 220,
+          "correct": 183,
+          "accuracy": 0.8318,
+          "fp": 11,
+          "fn": 26
+        }
+      }
+    },
+    "regression_fixtures": {
+      "upi_bob": {
+        "spam_probability": 0.0076,
+        "predicted_label": "HAM",
+        "abstention_tier": "HAM"
+      },
+      "jio_reverification": {
+        "spam_probability": 0.1657,
+        "predicted_label": "HAM",
+        "abstention_tier": "HAM"
+      },
+      "upi_bob_redacted": {
+        "spam_probability": 0.0296,
+        "predicted_label": "HAM",
+        "abstention_tier": "HAM"
+      },
+      "jio_reverification_redacted": {
+        "spam_probability": 0.2149,
+        "predicted_label": "HAM",
+        "abstention_tier": "HAM"
+      }
+    }
+  },
+  "dora_v2": {
+    "model_key": "dora_v2",
+    "policy": {
+      "tau_base": 0.18,
+      "tau_low": 0.08,
+      "tau_high": 0.45,
+      "provenance": "Validation Split Selection Only"
+    },
+    "validation_metrics": {
+      "accuracy": 0.9756,
+      "macro_f1": 0.9547,
+      "ham_recall": 0.9814,
+      "spam_recall": 0.9444
+    },
+    "test_set_774": {
+      "binary_metrics": {
+        "accuracy": 0.9806,
+        "precision": 0.9556,
+        "recall": 0.8866,
+        "f1": 0.9198,
+        "macro_f1": 0.9544,
+        "macro_precision": 0.9697,
+        "macro_recall": 0.9403,
+        "ham_f1": 0.989,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 11,
+          "true_positive": 86,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              11,
+              86
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 774,
+        "decided_count": 766,
+        "review_count": 8,
+        "coverage_rate": 0.9897,
+        "abstention_rate": 0.0103,
+        "decided_accuracy": 0.983,
+        "decided_fpr": 0.0059,
+        "decided_fnr": 0.0978,
+        "decided_confusion_matrix": {
+          "tn": 670,
+          "fp": 4,
+          "fn": 9,
+          "tp": 83
+        },
+        "review_averted_errors": {
+          "fps_averted": 0,
+          "fns_averted": 4
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "binary_metrics": {
+        "accuracy": 0.7773,
+        "precision": 0.7699,
+        "recall": 0.7909,
+        "f1": 0.7803,
+        "macro_f1": 0.7772,
+        "macro_precision": 0.7775,
+        "macro_recall": 0.7773,
+        "ham_f1": 0.7742,
+        "confusion_matrix": {
+          "true_negative": 84,
+          "false_positive": 26,
+          "false_negative": 23,
+          "true_positive": 87,
+          "matrix": [
+            [
+              84,
+              26
+            ],
+            [
+              23,
+              87
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 220,
+        "decided_count": 174,
+        "review_count": 46,
+        "coverage_rate": 0.7909,
+        "abstention_rate": 0.2091,
+        "decided_accuracy": 0.8506,
+        "decided_fpr": 0.1702,
+        "decided_fnr": 0.125,
+        "decided_confusion_matrix": {
+          "tn": 78,
+          "fp": 16,
+          "fn": 10,
+          "tp": 70
+        },
+        "review_averted_errors": {
+          "fps_averted": 5,
+          "fns_averted": 19
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "tn": 12,
+          "tp": 0,
+          "reviews": 3
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "tn": 12,
+          "tp": 0,
+          "reviews": 5
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 7,
+          "fp": 8,
+          "fn": 0,
+          "tn": 7,
+          "tp": 0,
+          "reviews": 2
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 11,
+          "fp": 4,
+          "fn": 0,
+          "tn": 11,
+          "tp": 0,
+          "reviews": 1
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 14,
+          "tp": 0,
+          "reviews": 1
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 3,
+          "fp": 7,
+          "fn": 0,
+          "tn": 3,
+          "tp": 0,
+          "reviews": 4
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "tn": 10,
+          "tp": 12,
+          "reviews": 5
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "tn": 0,
+          "tp": 22,
+          "reviews": 6
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "tn": 0,
+          "tp": 18,
+          "reviews": 10
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 35,
+          "fp": 0,
+          "fn": 10,
+          "tn": 0,
+          "tp": 35,
+          "reviews": 9
+        }
+      },
+      "provenance_breakdown": {
+        "unknown": {
+          "total": 220,
+          "correct": 171,
+          "accuracy": 0.7773,
+          "fp": 26,
+          "fn": 23
+        }
+      }
+    },
+    "regression_fixtures": {
+      "upi_bob": {
+        "spam_probability": 0.9929,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "jio_reverification": {
+        "spam_probability": 0.9886,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "upi_bob_redacted": {
+        "spam_probability": 0.9921,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "jio_reverification_redacted": {
+        "spam_probability": 0.9893,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      }
+    }
+  },
+  "full_finetuning_v2": {
+    "model_key": "full_finetuning_v2",
+    "policy": {
+      "tau_base": 0.1,
+      "tau_low": 0.05,
+      "tau_high": 0.35,
+      "provenance": "Validation Split Selection Only"
+    },
+    "validation_metrics": {
+      "accuracy": 0.9826,
+      "macro_f1": 0.9674,
+      "ham_recall": 0.9876,
+      "spam_recall": 0.9556
+    },
+    "test_set_774": {
+      "binary_metrics": {
+        "accuracy": 0.9858,
+        "precision": 0.9479,
+        "recall": 0.9381,
+        "f1": 0.943,
+        "macro_f1": 0.9674,
+        "macro_precision": 0.9695,
+        "macro_recall": 0.9654,
+        "ham_f1": 0.9919,
+        "confusion_matrix": {
+          "true_negative": 672,
+          "false_positive": 5,
+          "false_negative": 6,
+          "true_positive": 91,
+          "matrix": [
+            [
+              672,
+              5
+            ],
+            [
+              6,
+              91
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 774,
+        "decided_count": 769,
+        "review_count": 5,
+        "coverage_rate": 0.9935,
+        "abstention_rate": 0.0065,
+        "decided_accuracy": 0.9896,
+        "decided_fpr": 0.0045,
+        "decided_fnr": 0.0521,
+        "decided_confusion_matrix": {
+          "tn": 670,
+          "fp": 3,
+          "fn": 5,
+          "tp": 91
+        },
+        "review_averted_errors": {
+          "fps_averted": 0,
+          "fns_averted": 1
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "binary_metrics": {
+        "accuracy": 0.8773,
+        "precision": 0.8952,
+        "recall": 0.8545,
+        "f1": 0.8744,
+        "macro_f1": 0.8772,
+        "macro_precision": 0.8781,
+        "macro_recall": 0.8773,
+        "ham_f1": 0.88,
+        "confusion_matrix": {
+          "true_negative": 99,
+          "false_positive": 11,
+          "false_negative": 16,
+          "true_positive": 94,
+          "matrix": [
+            [
+              99,
+              11
+            ],
+            [
+              16,
+              94
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 220,
+        "decided_count": 209,
+        "review_count": 11,
+        "coverage_rate": 0.95,
+        "abstention_rate": 0.05,
+        "decided_accuracy": 0.8947,
+        "decided_fpr": 0.0755,
+        "decided_fnr": 0.1359,
+        "decided_confusion_matrix": {
+          "tn": 98,
+          "fp": 8,
+          "fn": 14,
+          "tp": 89
+        },
+        "review_averted_errors": {
+          "fps_averted": 1,
+          "fns_averted": 3
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "tn": 12,
+          "tp": 0,
+          "reviews": 0
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 13,
+          "fp": 2,
+          "fn": 0,
+          "tn": 13,
+          "tp": 0,
+          "reviews": 2
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 4,
+          "fp": 6,
+          "fn": 0,
+          "tn": 4,
+          "tp": 0,
+          "reviews": 2
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 24,
+          "fp": 0,
+          "fn": 1,
+          "tn": 10,
+          "tp": 14,
+          "reviews": 0
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 24,
+          "fp": 0,
+          "fn": 1,
+          "tn": 0,
+          "tp": 24,
+          "reviews": 1
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "tn": 0,
+          "tp": 18,
+          "reviews": 5
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 38,
+          "fp": 0,
+          "fn": 7,
+          "tn": 0,
+          "tp": 38,
+          "reviews": 1
+        }
+      },
+      "provenance_breakdown": {
+        "unknown": {
+          "total": 220,
+          "correct": 193,
+          "accuracy": 0.8773,
+          "fp": 11,
+          "fn": 16
+        }
+      }
+    },
+    "regression_fixtures": {
+      "upi_bob": {
+        "spam_probability": 0.999,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "jio_reverification": {
+        "spam_probability": 0.9989,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "upi_bob_redacted": {
+        "spam_probability": 0.9991,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "jio_reverification_redacted": {
+        "spam_probability": 0.999,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      }
+    }
+  },
+  "lora_v2": {
+    "model_key": "lora_v2",
+    "policy": {
+      "tau_base": 0.18,
+      "tau_low": 0.08,
+      "tau_high": 0.45,
+      "provenance": "Validation Split Selection Only"
+    },
+    "validation_metrics": {
+      "accuracy": 0.9756,
+      "macro_f1": 0.9547,
+      "ham_recall": 0.9814,
+      "spam_recall": 0.9444
+    },
+    "test_set_774": {
+      "binary_metrics": {
+        "accuracy": 0.9806,
+        "precision": 0.9556,
+        "recall": 0.8866,
+        "f1": 0.9198,
+        "macro_f1": 0.9544,
+        "macro_precision": 0.9697,
+        "macro_recall": 0.9403,
+        "ham_f1": 0.989,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 11,
+          "true_positive": 86,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              11,
+              86
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 774,
+        "decided_count": 766,
+        "review_count": 8,
+        "coverage_rate": 0.9897,
+        "abstention_rate": 0.0103,
+        "decided_accuracy": 0.983,
+        "decided_fpr": 0.0059,
+        "decided_fnr": 0.0978,
+        "decided_confusion_matrix": {
+          "tn": 670,
+          "fp": 4,
+          "fn": 9,
+          "tp": 83
+        },
+        "review_averted_errors": {
+          "fps_averted": 0,
+          "fns_averted": 3
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "binary_metrics": {
+        "accuracy": 0.7682,
+        "precision": 0.7565,
+        "recall": 0.7909,
+        "f1": 0.7733,
+        "macro_f1": 0.7681,
+        "macro_precision": 0.7687,
+        "macro_recall": 0.7682,
+        "ham_f1": 0.7628,
+        "confusion_matrix": {
+          "true_negative": 82,
+          "false_positive": 28,
+          "false_negative": 23,
+          "true_positive": 87,
+          "matrix": [
+            [
+              82,
+              28
+            ],
+            [
+              23,
+              87
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 220,
+        "decided_count": 179,
+        "review_count": 41,
+        "coverage_rate": 0.8136,
+        "abstention_rate": 0.1864,
+        "decided_accuracy": 0.838,
+        "decided_fpr": 0.1979,
+        "decided_fnr": 0.1205,
+        "decided_confusion_matrix": {
+          "tn": 77,
+          "fp": 19,
+          "fn": 10,
+          "tp": 73
+        },
+        "review_averted_errors": {
+          "fps_averted": 4,
+          "fns_averted": 19
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "tn": 12,
+          "tp": 0,
+          "reviews": 3
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 10,
+          "fp": 5,
+          "fn": 0,
+          "tn": 10,
+          "tp": 0,
+          "reviews": 6
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 7,
+          "fp": 8,
+          "fn": 0,
+          "tn": 7,
+          "tp": 0,
+          "reviews": 1
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 11,
+          "fp": 4,
+          "fn": 0,
+          "tn": 11,
+          "tp": 0,
+          "reviews": 1
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 14,
+          "tp": 0,
+          "reviews": 0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 3,
+          "fp": 7,
+          "fn": 0,
+          "tn": 3,
+          "tp": 0,
+          "reviews": 3
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "tn": 10,
+          "tp": 12,
+          "reviews": 4
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 22,
+          "fp": 0,
+          "fn": 3,
+          "tn": 0,
+          "tp": 22,
+          "reviews": 6
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "tn": 0,
+          "tp": 18,
+          "reviews": 8
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 35,
+          "fp": 0,
+          "fn": 10,
+          "tn": 0,
+          "tp": 35,
+          "reviews": 9
+        }
+      },
+      "provenance_breakdown": {
+        "unknown": {
+          "total": 220,
+          "correct": 169,
+          "accuracy": 0.7682,
+          "fp": 28,
+          "fn": 23
+        }
+      }
+    },
+    "regression_fixtures": {
+      "upi_bob": {
+        "spam_probability": 0.9931,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "jio_reverification": {
+        "spam_probability": 0.9892,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "upi_bob_redacted": {
+        "spam_probability": 0.9925,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "jio_reverification_redacted": {
+        "spam_probability": 0.9897,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      }
+    }
+  },
+  "lora_v4": {
+    "model_key": "lora_v4",
+    "policy": {
+      "tau_base": 0.38,
+      "tau_low": 0.2,
+      "tau_high": 0.65,
+      "provenance": "Validation Split Selection Only"
+    },
+    "validation_metrics": {
+      "accuracy": 0.9878,
+      "macro_f1": 0.9766,
+      "ham_recall": 0.9959,
+      "spam_recall": 0.9444
+    },
+    "test_set_774": {
+      "binary_metrics": {
+        "accuracy": 0.9858,
+        "precision": 0.9674,
+        "recall": 0.9175,
+        "f1": 0.9418,
+        "macro_f1": 0.9669,
+        "macro_precision": 0.9778,
+        "macro_recall": 0.9565,
+        "ham_f1": 0.9919,
+        "confusion_matrix": {
+          "true_negative": 674,
+          "false_positive": 3,
+          "false_negative": 8,
+          "true_positive": 89,
+          "matrix": [
+            [
+              674,
+              3
+            ],
+            [
+              8,
+              89
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 774,
+        "decided_count": 768,
+        "review_count": 6,
+        "coverage_rate": 0.9922,
+        "abstention_rate": 0.0078,
+        "decided_accuracy": 0.987,
+        "decided_fpr": 0.0045,
+        "decided_fnr": 0.0745,
+        "decided_confusion_matrix": {
+          "tn": 671,
+          "fp": 3,
+          "fn": 7,
+          "tp": 87
+        },
+        "review_averted_errors": {
+          "fps_averted": 0,
+          "fns_averted": 2
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "binary_metrics": {
+        "accuracy": 0.8182,
+        "precision": 0.8977,
+        "recall": 0.7182,
+        "f1": 0.798,
+        "macro_f1": 0.8163,
+        "macro_precision": 0.8314,
+        "macro_recall": 0.8182,
+        "ham_f1": 0.8347,
+        "confusion_matrix": {
+          "true_negative": 101,
+          "false_positive": 9,
+          "false_negative": 31,
+          "true_positive": 79,
+          "matrix": [
+            [
+              101,
+              9
+            ],
+            [
+              31,
+              79
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 220,
+        "decided_count": 193,
+        "review_count": 27,
+        "coverage_rate": 0.8773,
+        "abstention_rate": 0.1227,
+        "decided_accuracy": 0.8653,
+        "decided_fpr": 0.0495,
+        "decided_fnr": 0.2283,
+        "decided_confusion_matrix": {
+          "tn": 96,
+          "fp": 5,
+          "fn": 21,
+          "tp": 71
+        },
+        "review_averted_errors": {
+          "fps_averted": 3,
+          "fns_averted": 11
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 1
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 14,
+          "tp": 0,
+          "reviews": 2
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "tn": 12,
+          "tp": 0,
+          "reviews": 2
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 1
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 5,
+          "fp": 5,
+          "fn": 0,
+          "tn": 5,
+          "tp": 0,
+          "reviews": 3
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 24,
+          "fp": 0,
+          "fn": 1,
+          "tn": 10,
+          "tp": 14,
+          "reviews": 1
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 19,
+          "fp": 0,
+          "fn": 6,
+          "tn": 0,
+          "tp": 19,
+          "reviews": 3
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 16,
+          "fp": 0,
+          "fn": 9,
+          "tn": 0,
+          "tp": 16,
+          "reviews": 6
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 30,
+          "fp": 0,
+          "fn": 15,
+          "tn": 0,
+          "tp": 30,
+          "reviews": 8
+        }
+      },
+      "provenance_breakdown": {
+        "unknown": {
+          "total": 220,
+          "correct": 180,
+          "accuracy": 0.8182,
+          "fp": 9,
+          "fn": 31
+        }
+      }
+    },
+    "regression_fixtures": {
+      "upi_bob": {
+        "spam_probability": 0.6041,
+        "predicted_label": "SPAM",
+        "abstention_tier": "REVIEW_REQUIRED"
+      },
+      "jio_reverification": {
+        "spam_probability": 0.8139,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "upi_bob_redacted": {
+        "spam_probability": 0.7031,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "jio_reverification_redacted": {
+        "spam_probability": 0.8567,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      }
+    }
+  },
+  "dora_v3": {
+    "model_key": "dora_v3",
+    "policy": {
+      "tau_base": 0.36,
+      "tau_low": 0.18,
+      "tau_high": 0.65,
+      "provenance": "Validation Split Selection Only"
+    },
+    "validation_metrics": {
+      "accuracy": 0.9878,
+      "macro_f1": 0.9766,
+      "ham_recall": 0.9959,
+      "spam_recall": 0.9444
+    },
+    "test_set_774": {
+      "binary_metrics": {
+        "accuracy": 0.9845,
+        "precision": 0.957,
+        "recall": 0.9175,
+        "f1": 0.9368,
+        "macro_f1": 0.964,
+        "macro_precision": 0.9726,
+        "macro_recall": 0.9558,
+        "ham_f1": 0.9912,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 8,
+          "true_positive": 89,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              8,
+              89
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 774,
+        "decided_count": 766,
+        "review_count": 8,
+        "coverage_rate": 0.9897,
+        "abstention_rate": 0.0103,
+        "decided_accuracy": 0.9883,
+        "decided_fpr": 0.003,
+        "decided_fnr": 0.0745,
+        "decided_confusion_matrix": {
+          "tn": 670,
+          "fp": 2,
+          "fn": 7,
+          "tp": 87
+        },
+        "review_averted_errors": {
+          "fps_averted": 1,
+          "fns_averted": 1
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "binary_metrics": {
+        "accuracy": 0.8364,
+        "precision": 0.9022,
+        "recall": 0.7545,
+        "f1": 0.8218,
+        "macro_f1": 0.8353,
+        "macro_precision": 0.8456,
+        "macro_recall": 0.8364,
+        "ham_f1": 0.8487,
+        "confusion_matrix": {
+          "true_negative": 101,
+          "false_positive": 9,
+          "false_negative": 27,
+          "true_positive": 83,
+          "matrix": [
+            [
+              101,
+              9
+            ],
+            [
+              27,
+              83
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 220,
+        "decided_count": 192,
+        "review_count": 28,
+        "coverage_rate": 0.8727,
+        "abstention_rate": 0.1273,
+        "decided_accuracy": 0.875,
+        "decided_fpr": 0.0707,
+        "decided_fnr": 0.1828,
+        "decided_confusion_matrix": {
+          "tn": 92,
+          "fp": 7,
+          "fn": 17,
+          "tp": 76
+        },
+        "review_averted_errors": {
+          "fps_averted": 1,
+          "fns_averted": 12
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 1
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 1
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 14,
+          "tp": 0,
+          "reviews": 3
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "tn": 12,
+          "tp": 0,
+          "reviews": 0
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 14,
+          "tp": 0,
+          "reviews": 1
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 6,
+          "fp": 4,
+          "fn": 0,
+          "tn": 6,
+          "tp": 0,
+          "reviews": 5
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 24,
+          "fp": 0,
+          "fn": 1,
+          "tn": 10,
+          "tp": 14,
+          "reviews": 1
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 20,
+          "fp": 0,
+          "fn": 5,
+          "tn": 0,
+          "tp": 20,
+          "reviews": 4
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 18,
+          "fp": 0,
+          "fn": 7,
+          "tn": 0,
+          "tp": 18,
+          "reviews": 4
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 31,
+          "fp": 0,
+          "fn": 14,
+          "tn": 0,
+          "tp": 31,
+          "reviews": 8
+        }
+      },
+      "provenance_breakdown": {
+        "unknown": {
+          "total": 220,
+          "correct": 184,
+          "accuracy": 0.8364,
+          "fp": 9,
+          "fn": 27
+        }
+      }
+    },
+    "regression_fixtures": {
+      "upi_bob": {
+        "spam_probability": 0.7835,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "jio_reverification": {
+        "spam_probability": 0.8222,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "upi_bob_redacted": {
+        "spam_probability": 0.9088,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "jio_reverification_redacted": {
+        "spam_probability": 0.872,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      }
+    }
+  },
+  "full_finetuning_v3": {
+    "model_key": "full_finetuning_v3",
+    "policy": {
+      "tau_base": 0.18,
+      "tau_low": 0.08,
+      "tau_high": 0.45,
+      "provenance": "Validation Split Selection Only"
+    },
+    "validation_metrics": {
+      "accuracy": 0.9895,
+      "macro_f1": 0.9801,
+      "ham_recall": 0.9959,
+      "spam_recall": 0.9556
+    },
+    "test_set_774": {
+      "binary_metrics": {
+        "accuracy": 0.9871,
+        "precision": 0.9579,
+        "recall": 0.9381,
+        "f1": 0.9479,
+        "macro_f1": 0.9703,
+        "macro_precision": 0.9745,
+        "macro_recall": 0.9661,
+        "ham_f1": 0.9926,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 6,
+          "true_positive": 91,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              6,
+              91
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 774,
+        "decided_count": 771,
+        "review_count": 3,
+        "coverage_rate": 0.9961,
+        "abstention_rate": 0.0039,
+        "decided_accuracy": 0.9896,
+        "decided_fpr": 0.0044,
+        "decided_fnr": 0.0526,
+        "decided_confusion_matrix": {
+          "tn": 673,
+          "fp": 3,
+          "fn": 5,
+          "tp": 90
+        },
+        "review_averted_errors": {
+          "fps_averted": 0,
+          "fns_averted": 1
+        }
+      }
+    },
+    "external_benchmark_220": {
+      "binary_metrics": {
+        "accuracy": 0.9182,
+        "precision": 0.871,
+        "recall": 0.9818,
+        "f1": 0.9231,
+        "macro_f1": 0.9178,
+        "macro_precision": 0.9251,
+        "macro_recall": 0.9182,
+        "ham_f1": 0.9126,
+        "confusion_matrix": {
+          "true_negative": 94,
+          "false_positive": 16,
+          "false_negative": 2,
+          "true_positive": 108,
+          "matrix": [
+            [
+              94,
+              16
+            ],
+            [
+              2,
+              108
+            ]
+          ]
+        }
+      },
+      "abstention_metrics": {
+        "total_samples": 220,
+        "decided_count": 207,
+        "review_count": 13,
+        "coverage_rate": 0.9409,
+        "abstention_rate": 0.0591,
+        "decided_accuracy": 0.9372,
+        "decided_fpr": 0.1176,
+        "decided_fnr": 0.0095,
+        "decided_confusion_matrix": {
+          "tn": 90,
+          "fp": 12,
+          "fn": 1,
+          "tp": 104
+        },
+        "review_averted_errors": {
+          "fps_averted": 3,
+          "fns_averted": 5
+        }
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 14,
+          "fp": 1,
+          "fn": 0,
+          "tn": 14,
+          "tp": 0,
+          "reviews": 1
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 1
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 12,
+          "fp": 3,
+          "fn": 0,
+          "tn": 12,
+          "tp": 0,
+          "reviews": 0
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 13,
+          "fp": 2,
+          "fn": 0,
+          "tn": 13,
+          "tp": 0,
+          "reviews": 2
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "fp": 0,
+          "fn": 0,
+          "tn": 15,
+          "tp": 0,
+          "reviews": 1
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 1,
+          "fp": 9,
+          "fn": 0,
+          "tn": 1,
+          "tp": 0,
+          "reviews": 2
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 24,
+          "fp": 1,
+          "fn": 0,
+          "tn": 9,
+          "tp": 15,
+          "reviews": 1
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 25,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "tp": 25,
+          "reviews": 0
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 25,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "tp": 25,
+          "reviews": 2
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 43,
+          "fp": 0,
+          "fn": 2,
+          "tn": 0,
+          "tp": 43,
+          "reviews": 3
+        }
+      },
+      "provenance_breakdown": {
+        "unknown": {
+          "total": 220,
+          "correct": 202,
+          "accuracy": 0.9182,
+          "fp": 16,
+          "fn": 2
+        }
+      }
+    },
+    "regression_fixtures": {
+      "upi_bob": {
+        "spam_probability": 0.0929,
+        "predicted_label": "HAM",
+        "abstention_tier": "REVIEW_REQUIRED"
+      },
+      "jio_reverification": {
+        "spam_probability": 0.8626,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      },
+      "upi_bob_redacted": {
+        "spam_probability": 0.332,
+        "predicted_label": "SPAM",
+        "abstention_tier": "REVIEW_REQUIRED"
+      },
+      "jio_reverification_redacted": {
+        "spam_probability": 0.9313,
+        "predicted_label": "SPAM",
+        "abstention_tier": "SUSPECTED_SPAM"
+      }
+    }
+  }
+}

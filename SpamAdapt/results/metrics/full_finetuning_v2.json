@@ -1,0 +1,316 @@
+{
+  "experiment": "full_finetuning_v2",
+  "method": "full_finetuning",
+  "version": "2.0-generalization-retrained",
+  "timestamp": "2026-10-15",
+  "parameters": {
+    "total_parameters": 109483778,
+    "trainable_parameters": 109483778,
+    "frozen_parameters": 0,
+    "trainable_percentage": 100.0
+  },
+  "hardware": {
+    "device": "cpu",
+    "device_name": "CPU",
+    "cuda_available": false
+  },
+  "training_tracking": {
+    "total_training_time_seconds": 2519.29,
+    "formatted_training_time": "41m 59s",
+    "epochs": 1,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "max_length": 128,
+    "seed": 42,
+    "epoch_histories": [
+      {
+        "epoch": 1,
+        "train_loss": 0.1351,
+        "val_loss": 0.0546,
+        "val_accuracy": 0.9893,
+        "val_macro_f1": 0.979,
+        "val_spam_precision": 1.0,
+        "val_spam_recall": 0.931,
+        "val_spam_f1": 0.9643,
+        "val_ham_recall": 1.0,
+        "duration_seconds": 2430.72
+      }
+    ]
+  },
+  "threshold_tuning": {
+    "selected_threshold": 0.1,
+    "calibration": {
+      "brier_score": 0.0098,
+      "expected_calibration_error": 0.0094
+    },
+    "report_path": "experiments\\full_finetuning_v2\\threshold_report.json"
+  },
+  "preserved_original_test_evaluation": {
+    "description": "Preserved 774-sample test split from original 2011 UCI SMS Spam Collection",
+    "at_default_threshold_50": {
+      "accuracy": 0.9871,
+      "precision": 0.9677,
+      "recall": 0.9278,
+      "f1": 0.9474,
+      "macro_f1": 0.97,
+      "macro_precision": 0.9787,
+      "macro_recall": 0.9617,
+      "ham_f1": 0.9926,
+      "confusion_matrix": {
+        "true_negative": 674,
+        "false_positive": 3,
+        "false_negative": 7,
+        "true_positive": 90,
+        "matrix": [
+          [
+            674,
+            3
+          ],
+          [
+            7,
+            90
+          ]
+        ]
+      },
+      "threshold": 0.5
+    },
+    "at_tuned_threshold": {
+      "accuracy": 0.9858,
+      "precision": 0.9479,
+      "recall": 0.9381,
+      "f1": 0.943,
+      "macro_f1": 0.9674,
+      "macro_precision": 0.9695,
+      "macro_recall": 0.9654,
+      "ham_f1": 0.9919,
+      "confusion_matrix": {
+        "true_negative": 672,
+        "false_positive": 5,
+        "false_negative": 6,
+        "true_positive": 91,
+        "matrix": [
+          [
+            672,
+            5
+          ],
+          [
+            6,
+            91
+          ]
+        ]
+      },
+      "threshold": 0.1
+    }
+  },
+  "augmented_validation_evaluation": {
+    "description": "Cluster-aware 562-sample validation split from augmented dataset",
+    "at_default_threshold_50": {
+      "accuracy": 0.9893,
+      "precision": 1.0,
+      "recall": 0.931,
+      "f1": 0.9643,
+      "macro_f1": 0.979,
+      "macro_precision": 0.9938,
+      "macro_recall": 0.9655,
+      "ham_f1": 0.9937,
+      "confusion_matrix": {
+        "true_negative": 475,
+        "false_positive": 0,
+        "false_negative": 6,
+        "true_positive": 81,
+        "matrix": [
+          [
+            475,
+            0
+          ],
+          [
+            6,
+            81
+          ]
+        ]
+      },
+      "threshold": 0.5
+    },
+    "at_tuned_threshold": {
+      "accuracy": 0.9929,
+      "precision": 1.0,
+      "recall": 0.954,
+      "f1": 0.9765,
+      "macro_f1": 0.9861,
+      "macro_precision": 0.9958,
+      "macro_recall": 0.977,
+      "ham_f1": 0.9958,
+      "confusion_matrix": {
+        "true_negative": 475,
+        "false_positive": 0,
+        "false_negative": 4,
+        "true_positive": 83,
+        "matrix": [
+          [
+            475,
+            0
+          ],
+          [
+            4,
+            83
+          ]
+        ]
+      },
+      "threshold": 0.1
+    }
+  },
+  "external_benchmark_evaluation": {
+    "description": "Untouched 34-sample real-world evaluation benchmark across 11 categories",
+    "at_default_threshold_50": {
+      "accuracy": 0.9706,
+      "precision": 0.9231,
+      "recall": 1.0,
+      "f1": 0.96,
+      "macro_f1": 0.9684,
+      "macro_precision": 0.9615,
+      "macro_recall": 0.9773,
+      "ham_f1": 0.9767,
+      "confusion_matrix": {
+        "true_negative": 21,
+        "false_positive": 1,
+        "false_negative": 0,
+        "true_positive": 12,
+        "matrix": [
+          [
+            21,
+            1
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      },
+      "threshold": 0.5
+    },
+    "at_tuned_threshold": {
+      "accuracy": 0.9706,
+      "precision": 0.9231,
+      "recall": 1.0,
+      "f1": 0.96,
+      "macro_f1": 0.9684,
+      "macro_precision": 0.9615,
+      "macro_recall": 0.9773,
+      "ham_f1": 0.9767,
+      "confusion_matrix": {
+        "true_negative": 21,
+        "false_positive": 1,
+        "false_negative": 0,
+        "true_positive": 12,
+        "matrix": [
+          [
+            21,
+            1
+          ],
+          [
+            0,
+            12
+          ]
+        ]
+      },
+      "threshold": 0.1
+    },
+    "category_breakdown": {
+      "telecom_service": {
+        "total_samples": 4,
+        "correct_predictions": 3,
+        "accuracy": 0.75,
+        "expected_class": "HAM"
+      },
+      "bank_otp": {
+        "total_samples": 3,
+        "correct_predictions": 3,
+        "accuracy": 1.0,
+        "expected_class": "HAM"
+      },
+      "upi_transaction": {
+        "total_samples": 3,
+        "correct_predictions": 3,
+        "accuracy": 1.0,
+        "expected_class": "HAM"
+      },
+      "parcel_delivery": {
+        "total_samples": 3,
+        "correct_predictions": 3,
+        "accuracy": 1.0,
+        "expected_class": "HAM"
+      },
+      "customer_care": {
+        "total_samples": 3,
+        "correct_predictions": 3,
+        "accuracy": 1.0,
+        "expected_class": "HAM"
+      },
+      "personal_chat": {
+        "total_samples": 6,
+        "correct_predictions": 6,
+        "accuracy": 1.0,
+        "expected_class": "HAM"
+      },
+      "phishing_kyc": {
+        "total_samples": 3,
+        "correct_predictions": 3,
+        "accuracy": 1.0,
+        "expected_class": "SPAM"
+      },
+      "impersonation_link": {
+        "total_samples": 2,
+        "correct_predictions": 2,
+        "accuracy": 1.0,
+        "expected_class": "SPAM"
+      },
+      "fake_delivery": {
+        "total_samples": 2,
+        "correct_predictions": 2,
+        "accuracy": 1.0,
+        "expected_class": "SPAM"
+      },
+      "job_loan_scam": {
+        "total_samples": 3,
+        "correct_predictions": 3,
+        "accuracy": 1.0,
+        "expected_class": "SPAM"
+      },
+      "hinglish_scam": {
+        "total_samples": 2,
+        "correct_predictions": 2,
+        "accuracy": 1.0,
+        "expected_class": "SPAM"
+      }
+    },
+    "baseline_comparison": {
+      "baseline_accuracy": 0.5588,
+      "baseline_ham_recall": 0.3182,
+      "new_accuracy": 0.9706,
+      "new_ham_recall": 0.9545,
+      "accuracy_improvement": 0.4118
+    }
+  },
+  "telecom_fixture_evaluation": {
+    "fixture_text": "Dear Customer, your mobile number reverification request has been successfully submitted. You will receive an SMS confirmation once the verification process is complete. For customer care assistance, please call 198 or +91-98765XXXXX or email care@telecom-service.com. Thank you for staying with us.",
+    "expected_label": "HAM (0)",
+    "logits": [
+      -0.4603,
+      -0.1505
+    ],
+    "ham_probability": 0.4231,
+    "spam_probability": 0.5769,
+    "prediction_at_default_50": "SPAM",
+    "prediction_at_tuned_threshold": "SPAM",
+    "tuned_threshold_used": 0.1,
+    "is_correct_at_default": false,
+    "is_correct_at_tuned": false
+  },
+  "saved_artifacts": {
+    "model_dir": "experiments\\full_finetuning_v2\\model",
+    "checkpoint_size_mb": 418.35,
+    "confusion_matrix_plot": "results\\plots\\full_finetuning_v2_confusion_matrix.png"
+  }
+}

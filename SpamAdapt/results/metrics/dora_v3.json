@@ -1,0 +1,340 @@
+{
+  "model_key": "dora_v3",
+  "architecture": "dora",
+  "target_experiment_dir": "experiments/dora_v3",
+  "parameters": {
+    "total_parameters": 109798660,
+    "trainable_parameters": 314882,
+    "frozen_parameters": 109483778,
+    "trainable_percentage": 0.2868
+  },
+  "training_metadata": {
+    "max_epochs_requested": 3,
+    "completed_epochs": 3,
+    "best_epoch_selected": 3,
+    "total_optimizer_steps": 612,
+    "batch_size": 16,
+    "gradient_accumulation_steps": 1,
+    "learning_rate": 0.0002,
+    "seed": 42,
+    "duration_seconds": 5711.81,
+    "device": "cpu",
+    "hardware": {
+      "device_type": "cpu",
+      "device_name": "CPU",
+      "total_memory_mb": 0.0,
+      "cuda_available": false
+    }
+  },
+  "epoch_histories": [
+    {
+      "model_key": "dora_v3",
+      "architecture": "dora",
+      "epoch": 1,
+      "train_loss": 0.2359,
+      "val_loss": 0.0892,
+      "val_accuracy": 0.9791,
+      "val_macro_f1": 0.9597,
+      "val_ham_recall": 0.9917,
+      "val_spam_recall": 0.9111,
+      "duration_seconds": 1271.55,
+      "cumulative_optimizer_steps": 204
+    },
+    {
+      "model_key": "dora_v3",
+      "architecture": "dora",
+      "epoch": 2,
+      "train_loss": 0.0729,
+      "val_loss": 0.0721,
+      "val_accuracy": 0.9843,
+      "val_macro_f1": 0.9699,
+      "val_ham_recall": 0.9938,
+      "val_spam_recall": 0.9333,
+      "duration_seconds": 2023.26,
+      "cumulative_optimizer_steps": 408
+    },
+    {
+      "model_key": "dora_v3",
+      "architecture": "dora",
+      "epoch": 3,
+      "train_loss": 0.0478,
+      "val_loss": 0.0747,
+      "val_accuracy": 0.9878,
+      "val_macro_f1": 0.9766,
+      "val_ham_recall": 0.9959,
+      "val_spam_recall": 0.9444,
+      "duration_seconds": 2072.96,
+      "cumulative_optimizer_steps": 612
+    }
+  ],
+  "selected_validation_threshold": 0.36,
+  "calibration": {
+    "brier_score": 0.0131,
+    "expected_calibration_error": 0.0125
+  },
+  "evaluation_results": {
+    "original_test_set_774": {
+      "at_default_0_50": {
+        "accuracy": 0.9858,
+        "precision": 0.9674,
+        "recall": 0.9175,
+        "f1": 0.9418,
+        "macro_f1": 0.9669,
+        "macro_precision": 0.9778,
+        "macro_recall": 0.9565,
+        "ham_f1": 0.9919,
+        "confusion_matrix": {
+          "true_negative": 674,
+          "false_positive": 3,
+          "false_negative": 8,
+          "true_positive": 89,
+          "matrix": [
+            [
+              674,
+              3
+            ],
+            [
+              8,
+              89
+            ]
+          ]
+        },
+        "threshold": 0.5
+      },
+      "at_tuned_threshold": {
+        "accuracy": 0.9845,
+        "precision": 0.957,
+        "recall": 0.9175,
+        "f1": 0.9368,
+        "macro_f1": 0.964,
+        "macro_precision": 0.9726,
+        "macro_recall": 0.9558,
+        "ham_f1": 0.9912,
+        "confusion_matrix": {
+          "true_negative": 673,
+          "false_positive": 4,
+          "false_negative": 8,
+          "true_positive": 89,
+          "matrix": [
+            [
+              673,
+              4
+            ],
+            [
+              8,
+              89
+            ]
+          ]
+        },
+        "threshold": 0.36
+      }
+    },
+    "external_benchmark_220": {
+      "at_default_0_50": {
+        "accuracy": 0.8227,
+        "precision": 0.908,
+        "recall": 0.7182,
+        "f1": 0.802,
+        "macro_f1": 0.8208,
+        "macro_precision": 0.8375,
+        "macro_recall": 0.8227,
+        "ham_f1": 0.8395,
+        "confusion_matrix": {
+          "true_negative": 102,
+          "false_positive": 8,
+          "false_negative": 31,
+          "true_positive": 79,
+          "matrix": [
+            [
+              102,
+              8
+            ],
+            [
+              31,
+              79
+            ]
+          ]
+        },
+        "threshold": 0.5
+      },
+      "at_tuned_threshold": {
+        "accuracy": 0.8364,
+        "precision": 0.9022,
+        "recall": 0.7545,
+        "f1": 0.8218,
+        "macro_f1": 0.8353,
+        "macro_precision": 0.8456,
+        "macro_recall": 0.8364,
+        "ham_f1": 0.8487,
+        "confusion_matrix": {
+          "true_negative": 101,
+          "false_positive": 9,
+          "false_negative": 27,
+          "true_positive": 83,
+          "matrix": [
+            [
+              101,
+              9
+            ],
+            [
+              27,
+              83
+            ]
+          ]
+        },
+        "threshold": 0.36
+      },
+      "category_breakdown": {
+        "personal_conversation": {
+          "total": 15,
+          "correct": 15,
+          "accuracy": 1.0,
+          "tn": 15,
+          "fp": 0,
+          "fn": 0,
+          "tp": 0
+        },
+        "telecom_service": {
+          "total": 15,
+          "correct": 15,
+          "accuracy": 1.0,
+          "tn": 15,
+          "fp": 0,
+          "fn": 0,
+          "tp": 0
+        },
+        "bank_otp": {
+          "total": 15,
+          "correct": 14,
+          "accuracy": 0.9333,
+          "tn": 14,
+          "fp": 1,
+          "fn": 0,
+          "tp": 0
+        },
+        "upi_transaction": {
+          "total": 15,
+          "correct": 12,
+          "accuracy": 0.8,
+          "tn": 12,
+          "fp": 3,
+          "fn": 0,
+          "tp": 0
+        },
+        "delivery_tracking": {
+          "total": 15,
+          "correct": 14,
+          "accuracy": 0.9333,
+          "tn": 14,
+          "fp": 1,
+          "fn": 0,
+          "tp": 0
+        },
+        "appointment_account": {
+          "total": 15,
+          "correct": 15,
+          "accuracy": 1.0,
+          "tn": 15,
+          "fp": 0,
+          "fn": 0,
+          "tp": 0
+        },
+        "legitimate_promotional": {
+          "total": 10,
+          "correct": 6,
+          "accuracy": 0.6,
+          "tn": 6,
+          "fp": 4,
+          "fn": 0,
+          "tp": 0
+        },
+        "hinglish_code_mixed": {
+          "total": 25,
+          "correct": 24,
+          "accuracy": 0.96,
+          "tn": 10,
+          "fp": 0,
+          "fn": 1,
+          "tp": 14
+        },
+        "phishing_credential_theft": {
+          "total": 25,
+          "correct": 20,
+          "accuracy": 0.8,
+          "tn": 0,
+          "fp": 0,
+          "fn": 5,
+          "tp": 20
+        },
+        "kyc_account_blocking": {
+          "total": 25,
+          "correct": 18,
+          "accuracy": 0.72,
+          "tn": 0,
+          "fp": 0,
+          "fn": 7,
+          "tp": 18
+        },
+        "fake_jobs_loans_prizes": {
+          "total": 45,
+          "correct": 31,
+          "accuracy": 0.6889,
+          "tn": 0,
+          "fp": 0,
+          "fn": 14,
+          "tp": 31
+        }
+      }
+    },
+    "regression_fixtures": {
+      "upi_bob": {
+        "text": "Rs.1000.00 Dr. from A/C XXXXXXXXX3220 and Cr. to 9313357315@upi. Ref:075319983737. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+        "clean_text": "Rs.1000.00 Dr. from A/C XXXXXXXXX3220 and Cr. to 9313357315@upi. Ref:075319983737. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+        "logits": [
+          -0.6046,
+          0.6818
+        ],
+        "ham_probability": 0.2165,
+        "spam_probability": 0.7835,
+        "predicted_label": "SPAM",
+        "threshold_used": 0.36
+      },
+      "jio_reverification": {
+        "text": "Reverification process of your Jio Number 9313357315 has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+        "clean_text": "Reverification process of your Jio Number 9313357315 has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+        "logits": [
+          -0.7426,
+          0.7884
+        ],
+        "ham_probability": 0.1778,
+        "spam_probability": 0.8222,
+        "predicted_label": "SPAM",
+        "threshold_used": 0.36
+      },
+      "upi_bob_redacted": {
+        "text": "Rs.1000.00 Dr. from A/C XXXXXXXXX0000 and Cr. to user@upi. Ref:000000000000. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+        "clean_text": "Rs.1000.00 Dr. from A/C XXXXXXXXX0000 and Cr. to user@upi. Ref:000000000000. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+        "logits": [
+          -1.1274,
+          1.1714
+        ],
+        "ham_probability": 0.0912,
+        "spam_probability": 0.9088,
+        "predicted_label": "SPAM",
+        "threshold_used": 0.36
+      },
+      "jio_reverification_redacted": {
+        "text": "Reverification process of your Jio Number 9876543210 has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+        "clean_text": "Reverification process of your Jio Number 9876543210 has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+        "logits": [
+          -0.9409,
+          0.9779
+        ],
+        "ham_probability": 0.128,
+        "spam_probability": 0.872,
+        "predicted_label": "SPAM",
+        "threshold_used": 0.36
+      }
+    }
+  }
+}

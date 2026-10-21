@@ -1,0 +1,54 @@
+{
+  "benchmark_name": "SpamAdapt-External-Benchmark-v2",
+  "version": "2.0",
+  "creation_date": "2026-10-16",
+  "total_samples": 220,
+  "class_distribution": {
+    "ham_count": 110,
+    "spam_count": 110,
+    "ham_percentage": 50.0,
+    "spam_percentage": 50.0
+  },
+  "category_distribution": {
+    "personal_conversation": 15,
+    "telecom_service": 15,
+    "bank_otp": 15,
+    "upi_transaction": 15,
+    "delivery_tracking": 15,
+    "appointment_account": 15,
+    "legitimate_promotional": 10,
+    "hinglish_code_mixed": 25,
+    "phishing_credential_theft": 25,
+    "kyc_account_blocking": 25,
+    "fake_jobs_loans_prizes": 45
+  },
+  "provenance_distribution": {
+    "verified_real_world": 15,
+    "enterprise_template_redacted": 85,
+    "contrastive_curated": 10,
+    "regulatory_advisory_exhibit": 110
+  },
+  "language_distribution": {
+    "en": 195,
+    "hi-en": 25
+  },
+  "files": {
+    "benchmark_csv": {
+      "path": "data\\external_v2\\benchmark.csv",
+      "records": 220,
+      "sha256": "deba58149b1df16807e209e1c1b94041aa71e20d4cb50b585de6e0b99db59694"
+    },
+    "source_manifest_csv": {
+      "path": "data\\external_v2\\source_manifest.csv",
+      "records": 12,
+      "sha256": "0d51df16d7d5aaebc6e0712ecd23fc0eae4255eb4a28cc6131bb8823f781658d"
+    }
+  },
+  "leakage_audit_summary": {
+    "exact_matches_against_training": 0,
+    "exact_matches_against_validation": 0,
+    "exact_matches_against_test": 0,
+    "exact_matches_against_external_v1": 0,
+    "leakage_free": true
+  }
+}
