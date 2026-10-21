@@ -1,0 +1,15 @@
+{
+  "method": "lora",
+  "version": "v3_candidate",
+  "selected_threshold": 0.5,
+  "objective": "Validation balanced threshold tau=0.50 with >=98.0% HAM recall",
+  "calibration_metrics": {
+    "brier_score": 0.0269,
+    "expected_calibration_error": 0.024
+  },
+  "validation_metrics_at_selected_threshold": {
+    "accuracy": 0.9686,
+    "macro_f1": 0.9396,
+    "ham_recall": 0.9855
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "augmented_train_v3 vs augmented_val_v3": {
+    "exact_matches_count": 0,
+    "near_duplicates_count": 0,
+    "exact_matches": [],
+    "near_duplicates": []
+  },
+  "augmented_train_v3 vs original_uci_test": {
+    "exact_matches_count": 0,
+    "near_duplicates_count": 29,
+    "exact_matches": [],
+    "near_duplicates": [
+      {
+        "index_a": 447,
+        "index_b": 498,
+        "similarity": 0.9286,
+        "text_a": "URGENT, IMPORTANT INFORMATION FOR O2 USER. TODAY IS YOUR LUC",
+        "text_b": "URGENT. Important information for 02 user. Today is your luc"
+      },
+      {
+        "index_a": 448,
+        "index_b": 498,
+        "similarity": 0.8621,
+        "text_a": "Message Important information for O2 user. Today is your luc",
+        "text_b": "URGENT. Important information for 02 user. Today is your luc"
+      },
+      {
+        "index_a": 643,
+        "index_b": 706,
+        "similarity": 0.8846,
+        "text_a": "UR awarded a City Break and could WIN a \u00a3200 Summer Shopping",
+        "text_b": "Promotion Number: 8714714 - UR awarded a City Break and coul"
+      },
+      {
+        "index_a": 771,
+        "index_b": 622,
+        "similarity": 1.0,
+        "text_a": "Had your contract mobile 11 Mnths? Latest Motorola, Nokia et",
+        "text_b": "Had your contract mobile 11 Mnths? Latest Motorola, Nokia et"
+      },
+      {
+        "index_a": 1258,
+        "index_b": 729,
+        "similarity": 0.8966,
+        "text_a": "Do you want 750 anytime any network mins 150 text and a NEW ",
+        "text_b": "Do you want 750 anytime any network mins 150 text and a NEW "
+      }
+    ]
+  },
+  "augmented_train_v3 vs external_benchmark_v2": {
+    "exact_matches_count": 0,
+    "near_duplicates_count": 0,
+    "exact_matches": [],
+    "near_duplicates": []
+  },
+  "augmented_train_v3 vs regression_fixtures": {
+    "exact_matches_count": 0,
+    "near_duplicates_count": 0,
+    "exact_matches": [],
+    "near_duplicates": []
+  },
+  "augmented_val_v3 vs original_uci_test": {
+    "exact_matches_count": 0,
+    "near_duplicates_count": 5,
+    "exact_matches": [],
+    "near_duplicates": [
+      {
+        "index_a": 16,
+        "index_b": 539,
+        "similarity": 1.0,
+        "text_a": "Camera - You are awarded a SiPix Digital Camera! call 090612",
+        "text_b": "Camera - You are awarded a SiPix Digital Camera! call 090612"
+      },
+      {
+        "index_a": 90,
+        "index_b": 295,
+        "similarity": 0.96,
+        "text_a": "Ur cash-balance is currently 500 pounds - to maximize ur cas",
+        "text_b": "Ur cash-balance is currently 500 pounds - to maximize ur cas"
+      },
+      {
+        "index_a": 90,
+        "index_b": 488,
+        "similarity": 0.8519,
+        "text_a": "Ur cash-balance is currently 500 pounds - to maximize ur cas",
+        "text_b": "Ur cash-balance is currently 500 pounds - to maximize ur cas"
+      },
+      {
+        "index_a": 131,
+        "index_b": 16,
+        "similarity": 0.92,
+        "text_a": "You have won a guaranteed \u00a3200 award or even \u00a31000 cashto cl",
+        "text_b": "You have won a guaranteed \u00a3200 award or even \u00a31000 cashto cl"
+      },
+      {
+        "index_a": 208,
+        "index_b": 352,
+        "similarity": 0.8846,
+        "text_a": "Dorothy@kiefer.com (Bank of Granite issues Strong-Buy) EXPLO",
+        "text_b": "(Bank of Granite issues Strong-Buy) EXPLOSIVE PICK FOR OUR M"
+      }
+    ]
+  },
+  "augmented_val_v3 vs external_benchmark_v2": {
+    "exact_matches_count": 0,
+    "near_duplicates_count": 0,
+    "exact_matches": [],
+    "near_duplicates": []
+  },
+  "augmented_val_v3 vs regression_fixtures": {
+    "exact_matches_count": 0,
+    "near_duplicates_count": 0,
+    "exact_matches": [],
+    "near_duplicates": []
+  },
+  "original_uci_test vs external_benchmark_v2": {
+    "exact_matches_count": 0,
+    "near_duplicates_count": 0,
+    "exact_matches": [],
+    "near_duplicates": []
+  }
+}

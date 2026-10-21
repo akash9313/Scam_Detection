@@ -1,0 +1,35 @@
+sms,label,source,category,language,is_synthetic
+"Dear Customer, your mobile number reverification request has been successfully submitted. You will receive an SMS confirmation once the verification process is complete. For customer care assistance, please call 198 or +91-98765XXXXX or email care@telecom-service.com. Thank you for staying with us.",0,telecom_benchmark,telecom_service,en,False
+"Your plan of Rs 299 with 1.5GB/day and unlimited calls has been activated successfully. Validity: 28 days. Check balance on your telecom app.",0,telecom_benchmark,telecom_service,en,False
+"Dear user, you have consumed 50% of your daily high-speed data limit. To add more data, recharge with a data pack from your telecom app.",0,telecom_benchmark,telecom_service,en,False
+"Your international roaming pack has been activated for USA. For customer support abroad call +91-98200XXXXX. Standard roaming terms apply.",0,telecom_benchmark,telecom_service,en,False
+"Dear Customer, 482019 is your OTP for transaction of INR 2,450.00 at AMAZON. Valid for 10 mins. Do not share with anyone.",0,banking_benchmark,bank_otp,en,False
+"739102 is your Secret OTP for Login to SBI NetBanking. Never share OTP or password with bank staff or anyone. If not requested by you, call 1800-11-2211.",0,banking_benchmark,bank_otp,en,False
+"Your HDFC Bank Credit Card ending 4012 was charged INR 1,120.00 at SWIGGY on 14-OCT-26. Available limit: INR 84,300.00.",0,banking_benchmark,bank_otp,en,False
+"Sent Rs.150.00 from Bank A/c xx4012 to Akash on 14-10-26. UPI Ref 4281940182. Check balance in your app.",0,upi_benchmark,upi_transaction,en,False
+"Received Rs. 1,500.00 from Rahul via PhonePe. UPI Ref: 42910481920. Updated balance in your linked account.",0,upi_benchmark,upi_transaction,en,False
+"Paid Rs. 45.00 to Chai Point via GPay. UPI Ref ID 4910291048. Balance in A/c ending 9014 is Rs. 12,450.00.",0,upi_benchmark,upi_transaction,en,False
+"Your Amazon package with tracking ID 49102819 has been delivered to your front door. Thanks for shopping with us!",0,logistics_benchmark,parcel_delivery,en,False
+"Out for delivery: Your BlueDart shipment 74910281 is out for delivery today by agent Suresh (Call: 9811XXXXXX). Share OTP 4910 upon delivery.",0,logistics_benchmark,parcel_delivery,en,False
+"Your Flipkart order containing boAt Headphones will arrive by 7 PM today. Please be available at your registered delivery address.",0,logistics_benchmark,parcel_delivery,en,False
+"Dear Akash, your support ticket #84910 regarding broadband service has been resolved. If you need further help, reply to this message.",0,support_benchmark,customer_care,en,False
+"Your dentist appointment with Dr. Mehta is confirmed for tomorrow at 4:30 PM. For cancellations, call the clinic at 022-261XXXXX.",0,support_benchmark,customer_care,en,False
+"Flight 6E-204 from Mumbai to Delhi is on schedule. Web check-in closes 60 mins before departure. Terminal 2, Gate 42.",0,support_benchmark,customer_care,en,False
+"Hey, are we still meeting up for coffee tomorrow afternoon around 3pm?",0,chat_benchmark,personal_chat,en,False
+"I will be home in about 20 minutes, traffic is a bit slow near the bridge.",0,chat_benchmark,personal_chat,en,False
+"Ok",0,chat_benchmark,personal_chat,en,False
+"Yes sure, let me know when you reach.",0,chat_benchmark,personal_chat,en,False
+"Call me later",0,chat_benchmark,personal_chat,en,False
+"Bhai kal subah college aayega kya? Assignments submit karne hain.",0,chat_benchmark,personal_chat,hinglish,False
+"Dear user your SBI YONO account will be blocked today! Update your PAN immediately to avoid suspension: http://sbi-kyc-update.xyz/login",1,smishing_benchmark,phishing_kyc,en,False
+"URGENT: Your mobile number will be disconnected within 24 hours due to pending KYC verification. Call telecom officer at 09061234567 immediately to avoid SIM deactivation.",1,smishing_benchmark,phishing_kyc,en,False
+"Your ICICI Bank NetBanking has been deactivated due to suspicious activity. Reactivate your access by submitting KYC here: http://icici-auth-verify.top",1,smishing_benchmark,phishing_kyc,en,False
+"Dear customer, you have won a cash reward of Rs. 4,999 on PhonePe scratch card! Click to transfer instantly to your bank: http://phonepe-reward-claim.online",1,smishing_benchmark,impersonation_link,en,False
+"Congratulations! Your mobile number won 1st prize of 2,50,000 in UK National Lottery. Send email to claim-officer@lottery-winner-portal.com.",1,smishing_benchmark,impersonation_link,en,False
+"Your parcel could not be delivered due to incomplete address. Please update your delivery address and pay Rs 35 redelivery charge: http://indiapost-redelivery.biz",1,smishing_benchmark,fake_delivery,en,False
+"DHL Express: Package on hold at customs hub. Pay clearance fee of $2.99 within 12 hours or item will be returned: http://dhl-customs-hold.info",1,smishing_benchmark,fake_delivery,en,False
+"Dear consumer, your electricity power will be disconnected tonight at 9:30 PM because previous month bill was not updated. Contact officer at 9876543210 immediately.",1,smishing_benchmark,job_loan_scam,en,False
+"Earn Rs. 3000 to 5000 daily from home by liking YouTube videos and rating hotels on Google. WhatsApp HR at +91-9123456789.",1,smishing_benchmark,job_loan_scam,en,False
+"Congratulations! Pre-approved personal loan of Rs 5,00,000 at 0% interest without CIBIL score. Apply now on WhatsApp: http://wa.me/919988776655",1,smishing_benchmark,job_loan_scam,en,False
+"Aapka electricity connection aaj raat 9 baje cut ho jayega. Bill update karne ke liye turant call karein electricity officer ko: 09812345678.",1,smishing_benchmark,hinglish_scam,hinglish,False
+"Aapka lottery prize Rs 25,00,000 claim karein turant. Abhi call karein 09812345678 par ya WhatsApp karein.",1,smishing_benchmark,hinglish_scam,hinglish,False

@@ -1,0 +1,63 @@
+flowchart TD
+    %% -------------------------------------------------------------------------
+    %% SpamAdapt End-to-End Experimental & Research Workflow
+    %% -------------------------------------------------------------------------
+
+    subgraph Data_Preparation["1. Dataset Preparation & Ingestion"]
+        D1["UCI SMS Spam Collection<br/>(5,160 Cleaned Messages)"] --> D2["Stratified Split (Seed 42)<br/>70% Train, 15% Val, 15% Test"]
+        D3["Curated Domain Additions<br/>(116 Enterprise Templates + 24 Contrastive Pairs)"] --> D4["Token-Jaccard Clustering & Deduplication<br/>Zero Template Leakage Guard"]
+        D2 --> D5["Augmented Retraining Splits<br/>Train: 3,190 | Val: 562"]
+        D4 --> D5
+    end
+
+    subgraph Pre_Training_Audit["2. Pre-Training Leakage & Provenance Audit"]
+        D5 --> A1["Cryptographic SHA-256 Hashing<br/>Baseline Preservation Check"]
+        A1 --> A2["Benchmark Isolation Verification<br/>Zero Curated Matches in Test/Benchmark"]
+    end
+
+    subgraph Retraining["3. Controlled Retraining (Phase 3)"]
+        A2 --> T1["google-bert/bert-base-uncased Backbone<br/>(1 Epoch, AdamW, Batch Size 16)"]
+        T1 --> T2["Full Fine-Tuning v2<br/>(LR = 2e-5, All 109.5M Weights)"]
+        T1 --> T3["LoRA v2 (PEFT)<br/>(LR = 2e-4, r=8, alpha=16 on Q,V)"]
+        T1 --> T4["DoRA v2 (PEFT)<br/>(LR = 2e-4, Magnitude-Direction Decoupled)"]
+    end
+
+    subgraph Threshold_Optimization["4. Validation-Only Threshold Tuning"]
+        T2 --> O1["Validation Score Sweep (augmented_val.csv)<br/>tau in [0.02, 0.98], step 0.02"]
+        T3 --> O1
+        T4 --> O1
+        
+        O1 --> O2["Constrained Objective Function<br/>Maximize Macro F1 subject to HAM Recall >= 98%"]
+        O2 --> O3["Selected Operating Thresholds<br/>Full FT v2: tau=0.10<br/>LoRA v2 / DoRA v2: tau=0.18"]
+        O3 --> O4["Permanent Freezing of Checkpoints & Thresholds<br/>(Serialized in threshold_report.json)"]
+    end
+
+    subgraph Independent_Evaluation["5. Independent Benchmark Evaluation (Phase 4)"]
+        O4 --> B1["Benchmark v2 Construction (N=220)<br/>110 HAM / 110 SPAM Across 11 Categories"]
+        B1 --> B2["Multi-Stage Leakage Audit<br/>(Exact, Normalized, Jaccard >= 0.85 & 0.70)<br/>Outcome: 0 Leaks Detected"]
+        B2 --> B3["Frozen Model Benchmark Evaluation<br/>(Fixed Thresholds: 0.10, 0.18, 0.18)<br/>Metrics: Acc, Macro F1, Recall, Confusion Matrix, 95% Wilson CI"]
+    end
+
+    subgraph Robustness_And_Safety["6. Robustness Testing & Abstention (Phase 5)"]
+        B3 --> R1["Robustness Testing (data/robustness/)<br/>40 Perturbations (Casing, Punctuation, Paraphrase, Redaction, Hinglish)"]
+        R1 --> R2["Validation-Derived Abstention Policy<br/>Three-Tier Rules: HAM, SUSPECTED_SPAM, REVIEW_REQUIRED"]
+        R2 --> R3["Streamlit Demo Hardening<br/>(Score Transparency, No Silent Fallback, Zero Disk Persistence)"]
+    end
+
+    subgraph Acceptance_Packaging["7. Final Verification & Packaging (Phase 6)"]
+        R3 --> V1["Comprehensive Test Suite Execution<br/>(Phase 3, Phase 4, Phase 5, Phase 6 Smoke Tests)"]
+        V1 --> V2["Final Reproducibility Package<br/>(reproducibility_manifest.json, Reports, Diagrams, Viva Guide)"]
+        V2 --> V3["Academic Viva & College Demonstration Ready"]
+    end
+
+    classDef dataStyle fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
+    classDef trainStyle fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#f8fafc;
+    classDef optStyle fill:#1e1b4b,stroke:#c084fc,stroke-width:2px,color:#f8fafc;
+    classDef evalStyle fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#ecfdf5;
+    classDef packStyle fill:#312e81,stroke:#a855f7,stroke-width:2px,color:#f8fafc;
+
+    class D1,D2,D3,D4,D5,A1,A2 dataStyle;
+    class T1,T2,T3,T4 trainStyle;
+    class O1,O2,O3,O4 optStyle;
+    class B1,B2,B3,R1,R2,R3 evalStyle;
+    class V1,V2,V3 packStyle;

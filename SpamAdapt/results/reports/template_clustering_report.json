@@ -1,0 +1,309 @@
+{
+  "analysis_name": "SpamAdapt Baseline Template Clustering & Leakage Audit",
+  "dataset": "UCI SMS Spam Collection (Cleaned N=5,160)",
+  "train_set_size": 3612,
+  "val_set_size": 774,
+  "test_set_size": 774,
+  "train_internal_clustering": {
+    "total_clusters": 3546,
+    "multi_item_template_clusters": 55,
+    "largest_cluster_size": 4
+  },
+  "train_to_test_leakage": {
+    "train_record_count": 3612,
+    "test_record_count": 774,
+    "jaccard_similarity_threshold": 0.85,
+    "exact_duplicate_count": 0,
+    "normalized_near_duplicate_count": 6,
+    "template_leakage_count": 22,
+    "leakage_percentage_of_test": 2.84,
+    "sample_template_leakages": [
+      {
+        "test_index": 16,
+        "train_index": 2821,
+        "similarity": 0.92,
+        "test_text": "You have won a guaranteed \u00a3200 award or even \u00a31000 cashto claim UR award call free on 08000407165 (18+) 2 stop getstop on 88222 PHP",
+        "train_text": "You have won a guaranteed \u00a3200 award or even \u00a31000 cashto claim UR award call free on 08000407165 (18+) 2 stop getstop on 88222 PHP. RG21 4JX",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 63,
+        "train_index": 1083,
+        "similarity": 1.0,
+        "test_text": "Send a logo 2 ur lover - 2 names joined by a heart. Txt LOVE NAME1 NAME2 MOBNO eg LOVE ADAM EVE 07123456789 to 87077 Yahoo! POBox36504W45WQ TxtNO 4 no ads 150p",
+        "train_text": "Send a logo 2 ur lover - 2 names joined by a heart. Txt LOVE NAME1 NAME2 MOBNO eg LOVE ADAM EVE 07123456789 to 87077 Yahoo! POBox36504W45WQ TxtNO 4 no ads 150p.",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 80,
+        "train_index": 3222,
+        "similarity": 0.9259,
+        "test_text": "ree entry in 2 a weekly comp for a chance to win an ipod. Txt POD to 80182 to get entry (std txt rate) T&C's apply 08452810073 for details 18+",
+        "train_text": "Free entry in 2 a weekly comp for a chance to win an ipod. Txt POD to 80182 to get entry (std txt rate) T&C's apply 08452810073 for details 18+",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 151,
+        "train_index": 471,
+        "similarity": 0.92,
+        "test_text": "U have a secret admirer who is looking 2 make contact with U-find out who they R*reveal who thinks UR so special-call on 09058094599",
+        "train_text": "U have a secret admirer who is looking 2 make contact with U-find out who they R*reveal who thinks UR so special-call on 09058094565",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 216,
+        "train_index": 2234,
+        "similarity": 0.8571,
+        "test_text": "So when do you wanna gym?",
+        "train_text": "So when do you wanna gym harri",
+        "test_label": "0",
+        "train_label": "0"
+      },
+      {
+        "test_index": 285,
+        "train_index": 381,
+        "similarity": 0.9231,
+        "test_text": "Do you want a New Nokia 3510i Colour Phone Delivered Tomorrow? With 200 FREE minutes to any mobile + 100 FREE text + FREE camcorder Reply or Call 8000930705",
+        "train_text": "Do you want a New Nokia 3510i Colour Phone Delivered Tomorrow? With 200 FREE minutes to any mobile + 100 FREE text + FREE camcorder Reply or Call 08000930705",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 295,
+        "train_index": 2909,
+        "similarity": 0.96,
+        "test_text": "Ur cash-balance is currently 500 pounds - to maximize ur cash-in now send CASH to 86688 only 150p/msg. CC: 08718720201 PO BOX 114/14 TCR/W1",
+        "train_text": "Ur cash-balance is currently 500 pounds - to maximize ur cash-in now send GO to 86688 only 150p/msg. CC: 08718720201 PO BOX 114/14 TCR/W1",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 352,
+        "train_index": 3326,
+        "similarity": 0.8846,
+        "test_text": "(Bank of Granite issues Strong-Buy) EXPLOSIVE PICK FOR OUR MEMBERS *****UP OVER 300% *********** Nasdaq Symbol CDGT That is a $5.00 per..",
+        "train_text": "Dorothy@kiefer.com (Bank of Granite issues Strong-Buy) EXPLOSIVE PICK FOR OUR MEMBERS *****UP OVER 300% *********** Nasdaq Symbol CDGT That is a $5.00 per..",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 397,
+        "train_index": 2210,
+        "similarity": 0.9091,
+        "test_text": "December only! Had your mobile 11mths+? You are entitled to update to the latest colour camera mobile for Free! Call The Mobile Update Co FREE on 08002986906",
+        "train_text": "December only! Had your mobile 11mths+? You are entitled to update to the latest colour camera mobile for Free! Call The Mobile Update VCo FREE on 08002986906",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 462,
+        "train_index": 1086,
+        "similarity": 0.875,
+        "test_text": "URGENT! Your Mobile number has been awarded with a \u00a32000 prize GUARANTEED. Call 09061790126 from land line. Claim 3030. Valid 12hrs only 150ppm",
+        "train_text": "URGENT! Your Mobile number has been awarded with a \u00a32000 prize GUARANTEED. Call 09058094454 from land line. Claim 3030. Valid 12hrs only",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 486,
+        "train_index": 609,
+        "similarity": 0.9231,
+        "test_text": "You are guaranteed the latest Nokia Phone, a 40GB iPod MP3 player or a \u00a3500 prize! Txt word: COLLECT to No: 83355! IBHltd LdnW15H 150p/Mtmsgrcvd18",
+        "train_text": "ou are guaranteed the latest Nokia Phone, a 40GB iPod MP3 player or a \u00a3500 prize! Txt word: COLLECT to No: 83355! IBHltd LdnW15H 150p/Mtmsgrcvd18",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 488,
+        "train_index": 2909,
+        "similarity": 0.8519,
+        "test_text": "Ur cash-balance is currently 500 pounds - to maximize ur cash-in now send COLLECT to 83600 only 150p/msg. CC: 08718720201 PO BOX 114/14 TCR/W1",
+        "train_text": "Ur cash-balance is currently 500 pounds - to maximize ur cash-in now send GO to 86688 only 150p/msg. CC: 08718720201 PO BOX 114/14 TCR/W1",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 498,
+        "train_index": 1625,
+        "similarity": 0.9286,
+        "test_text": "URGENT. Important information for 02 user. Today is your lucky day! 2 find out why , log onto http://www.urawinner.com there is a fantastic surprise awaiting you !",
+        "train_text": "URGENT, IMPORTANT INFORMATION FOR O2 USER. TODAY IS YOUR LUCKY DAY! 2 FIND OUT WHY LOG ONTO HTTP://WWW.URAWINNER.COM THERE IS A FANTASTIC SURPRISE AWAITING FOR YOU",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 539,
+        "train_index": 2375,
+        "similarity": 1.0,
+        "test_text": "Camera - You are awarded a SiPix Digital Camera! call 09061221066 fromm landline. Delivery within 28 days",
+        "train_text": "Camera - You are awarded a SiPix Digital Camera! call 09061221066 fromm landline. Delivery within 28 days.",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 594,
+        "train_index": 1579,
+        "similarity": 1.0,
+        "test_text": "I am waiting for your call sir.",
+        "train_text": "Sir, i am waiting for your call.",
+        "test_label": "0",
+        "train_label": "0"
+      }
+    ]
+  },
+  "train_to_val_leakage": {
+    "train_record_count": 3612,
+    "test_record_count": 774,
+    "jaccard_similarity_threshold": 0.85,
+    "exact_duplicate_count": 0,
+    "normalized_near_duplicate_count": 8,
+    "template_leakage_count": 24,
+    "leakage_percentage_of_test": 3.1,
+    "sample_template_leakages": [
+      {
+        "test_index": 10,
+        "train_index": 98,
+        "similarity": 0.963,
+        "test_text": "Hi. Customer Loyalty Offer:The NEW Nokia6650 Mobile from ONLY \u00a310 at TXTAUCTION! Txt word: START to No: 81151 & get yours Now! 4T&Ctxt TC 150p/MTmsg",
+        "train_text": "Customer Loyalty Offer:The NEW Nokia6650 Mobile from ONLY \u00a310 at TXTAUCTION! Txt word: START to No: 81151 & get yours Now! 4T&Ctxt TC 150p/MTmsg",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 31,
+        "train_index": 697,
+        "similarity": 0.88,
+        "test_text": "PRIVATE! Your 2003 Account Statement for shows 800 un-redeemed S. I. M. points. Call 08715203694 Identifier Code: 40533 Expires 31/10/04",
+        "train_text": "PRIVATE! Your 2003 Account Statement for 07973788240 shows 800 un-redeemed S. I. M. points. Call 08715203649 Identifier Code: 40533 Expires 31/10/04",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 61,
+        "train_index": 589,
+        "similarity": 1.0,
+        "test_text": "Goodmorning today i am late for <DECIMAL> min.",
+        "train_text": "Goodmorning, today i am late for <DECIMAL> min.",
+        "test_label": "0",
+        "train_label": "0"
+      },
+      {
+        "test_index": 121,
+        "train_index": 304,
+        "similarity": 0.8621,
+        "test_text": "URGENT!! Your 4* Costa Del Sol Holiday or \u00a35000 await collection. Call 09050090044 Now toClaim. SAE, TC s, POBox334, Stockport, SK38xh, Cost\u00a31.50/pm, Max10mins",
+        "train_text": "YOU VE WON! Your 4* Costa Del Sol Holiday or \u00a35000 await collection. Call 09050090044 Now toClaim. SAE, TC s, POBox334, Stockport, SK38xh, Cost\u00a31.50/pm, Max10mins",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 128,
+        "train_index": 1228,
+        "similarity": 1.0,
+        "test_text": "Sorry, I'll call later in meeting",
+        "train_text": "Sorry,in meeting I'll call later",
+        "test_label": "0",
+        "train_label": "0"
+      },
+      {
+        "test_index": 200,
+        "train_index": 3286,
+        "similarity": 0.931,
+        "test_text": "09066362231 URGENT! Your mobile No 07xxxxxxxxx won a \u00a32,000 bonus caller prize on 02/06/03! this is the 2nd attempt to reach YOU! call 09066362231 ASAP!",
+        "train_text": "URGENT! Your mobile No 07xxxxxxxxx won a \u00a32,000 bonus caller prize on 02/06/03! this is the 2nd attempt to reach YOU! call 09066362231 ASAP! BOX97N7QP, 150PPM",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 243,
+        "train_index": 101,
+        "similarity": 1.0,
+        "test_text": "I anything lor.",
+        "train_text": "I anything lor...",
+        "test_label": "0",
+        "train_label": "0"
+      },
+      {
+        "test_index": 273,
+        "train_index": 744,
+        "similarity": 1.0,
+        "test_text": "This message is free. Welcome to the new & improved Sex & Dogging club! To unsubscribe from this service reply STOP. msgs@150p 18 only",
+        "train_text": "This message is free. Welcome to the new & improved Sex & Dogging club! To unsubscribe from this service reply STOP. msgs@150p 18+only",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 311,
+        "train_index": 2143,
+        "similarity": 0.8571,
+        "test_text": "Please CALL 08712402972 immediately as there is an urgent message waiting for you",
+        "train_text": "Please CALL 08712402779 immediately as there is an urgent message waiting for you",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 318,
+        "train_index": 1559,
+        "similarity": 0.8868,
+        "test_text": "Sorry i cant take your call right now. It so happens that there r 2waxsto do wat you want. She can come and ill get her medical insurance. And she'll be able to deliver and have basic care. I'm currently shopping for the right medical insurance for her. So just give me til friday morning. Thats when i.ll see the major person that can guide me to the right insurance.",
+        "train_text": "It so happens that there r 2waxsto do wat you want. She can come and ill get her medical insurance. And she'll be able to deliver and have basic care. I'm currently shopping for the right medical insurance for her. So just give me til friday morning. Thats when i.ll see the major person that can guide me to the right insurance.",
+        "test_label": "0",
+        "train_label": "0"
+      },
+      {
+        "test_index": 369,
+        "train_index": 833,
+        "similarity": 0.871,
+        "test_text": "FREE for 1st week! No1 Nokia tone 4 ur mob every week just txt NOKIA to 8007 Get txting and tell ur mates www.getzed.co.uk POBox 36504 W45WQ norm150p/tone 16+",
+        "train_text": "FREE for 1st week! No1 Nokia tone 4 ur mobile every week just txt NOKIA to 8077 Get txting and tell ur mates. www.getzed.co.uk POBox 36504 W45WQ 16+ norm150p/tone",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 383,
+        "train_index": 142,
+        "similarity": 1.0,
+        "test_text": "YOUR CHANCE TO BE ON A REALITY FANTASY SHOW call now = 08707509020 Just 20p per min NTT Ltd, PO Box 1327 Croydon CR9 5WB 0870 is a national = rate call.",
+        "train_text": "YOUR CHANCE TO BE ON A REALITY FANTASY SHOW call now = 08707509020 Just 20p per min NTT Ltd, PO Box 1327 Croydon CR9 5WB 0870 is a national = rate call",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 391,
+        "train_index": 2143,
+        "similarity": 0.8571,
+        "test_text": "Please CALL 08712402578 immediately as there is an urgent message waiting for you",
+        "train_text": "Please CALL 08712402779 immediately as there is an urgent message waiting for you",
+        "test_label": "1",
+        "train_label": "1"
+      },
+      {
+        "test_index": 393,
+        "train_index": 1228,
+        "similarity": 0.875,
+        "test_text": "Sorry, in meeting I'll call you later",
+        "train_text": "Sorry,in meeting I'll call later",
+        "test_label": "0",
+        "train_label": "0"
+      },
+      {
+        "test_index": 423,
+        "train_index": 195,
+        "similarity": 0.9032,
+        "test_text": "URGENT!: Your Mobile No. was awarded a \u00a32,000 Bonus Caller Prize on 02/09/03! This is our 2nd attempt to contact YOU! Call 0871-872-9755 BOX95QU",
+        "train_text": "URGENT! Your Mobile No 07808726822 was awarded a \u00a32,000 Bonus Caller Prize on 02/09/03! This is our 2nd attempt to contact YOU! Call 0871-872-9758 BOX95QU",
+        "test_label": "1",
+        "train_label": "1"
+      }
+    ]
+  },
+  "methodology_recommendations": [
+    "Use cluster-aware / group-aware splitting for future training so that identical campaign templates are never split between train and test.",
+    "Maintain an isolated external benchmark containing completely unseen sources, zero template overlap with train.",
+    "Do not delete legitimate distinct messages merely because they contain common formal phrases like 'Dear Customer'."
+  ]
+}

@@ -1,0 +1,60 @@
+graph TD
+    %% -------------------------------------------------------------------------
+    %% SpamAdapt System Architecture Flow
+    %% -------------------------------------------------------------------------
+    subgraph UI_Input["Client Input Layer"]
+        A["Raw SMS Message Text"] --> B["Input Validation & Sanitization<br/>(Safety Limit: 2,000 Chars)"]
+    end
+
+    subgraph Preprocessing["NLP Preprocessing & Feature Extraction"]
+        B --> C["WordPiece Tokenizer<br/>(bert-base-uncased, Vocab: 30,522)"]
+        C --> D["Token Tensor Encoding<br/>(Max Sequence Length = 128 tokens)"]
+        D --> E["Embedding Layer<br/>(Token + Position + Segment)"]
+    end
+
+    subgraph Model_Backbone["Transformer Adaptation Layer (Frozen Weights)"]
+        E --> F["BERT-Base Encoder<br/>(12 Bidirectional Transformer Blocks)"]
+        
+        F -.-> G1["Full Fine-Tuning v2<br/>(109.5M Dense Weights, 418 MB)"]
+        F -.-> G2["LoRA v2 Adapter<br/>(Rank r=8, alpha=16 on Q,V, 1.82 MB)"]
+        F -.-> G3["DoRA v2 Adapter<br/>(Magnitude & Direction Decoupled, 1.90 MB)"]
+        
+        G1 --> H["[CLS] Representation Pooling"]
+        G2 --> H
+        G3 --> H
+        
+        H --> I["Linear Classification Head<br/>(768 -> 2 Class Logits)"]
+        I --> J["Softmax Layer<br/>P(HAM), P(SPAM)"]
+    end
+
+    subgraph Decision_Engine["Conservative Abstention & Policy Engine"]
+        J --> K{"Validation-Derived Policy Engine<br/>Threshold tau_base & Abstention Band"}
+        
+        K -->|"P(SPAM) < tau_low"| L1["Outcome: HAM<br/>(Likely Legitimate Notice)"]
+        K -->|"tau_low <= P(SPAM) < tau_high"| L2["Outcome: REVIEW_REQUIRED<br/>(Boundary Uncertainty Zone)"]
+        K -->|"P(SPAM) >= tau_high"| L3["Outcome: SUSPECTED_SPAM<br/>(High Confidence Fraud / Scam)"]
+    end
+
+    subgraph UI_Presentation["Streamlit Web Presentation Layer"]
+        L1 --> M1["Emerald Banner<br/>✅ HAM / LIKELY LEGITIMATE<br/>Threshold Display & Scores"]
+        L2 --> M2["Amber Banner<br/>⚠️ REVIEW REQUIRED / UNCERTAIN<br/>Manual Triage Recommendation"]
+        L3 --> M3["Crimson Banner<br/>🚨 SUSPECTED SPAM / FRAUD<br/>Risk Explanation & Threat Signals"]
+        
+        M1 --> N["Session History Log<br/>(Volatile RAM Only - Zero Disk Persistence)"]
+        M2 --> N
+        M3 --> N
+    end
+
+    classDef inputStyle fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
+    classDef modelStyle fill:#0f172a,stroke:#818cf8,stroke-width:2px,color:#f8fafc;
+    classDef decisionStyle fill:#1e1b4b,stroke:#c084fc,stroke-width:2px,color:#f8fafc;
+    classDef hamStyle fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#ecfdf5;
+    classDef reviewStyle fill:#78350f,stroke:#fbbf24,stroke-width:2px,color:#fefce8;
+    classDef spamStyle fill:#7f1d1d,stroke:#f87171,stroke-width:2px,color:#fef2f2;
+
+    class A,B,C,D,E inputStyle;
+    class F,G1,G2,G3,H,I,J modelStyle;
+    class K decisionStyle;
+    class L1,M1 hamStyle;
+    class L2,M2 reviewStyle;
+    class L3,M3 spamStyle;

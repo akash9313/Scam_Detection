@@ -1,0 +1,149 @@
+{
+  "manifest_name": "SpamAdapt Phase 6 Complete Reproducibility Manifest",
+  "project_title": "SpamAdapt: Comparative Analysis of Full Fine-Tuning, LoRA, and DoRA for SMS Spam Detection Using Pretrained BERT",
+  "version": "6.0.0",
+  "generated_at": "2026-10-16T22:18:00+05:30",
+  "environment": {
+    "os": "Windows 11 (AMD64)",
+    "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+    "torch_version": "2.14.0+cpu",
+    "transformers_version": "5.17.0",
+    "peft_version": "0.21.2",
+    "streamlit_version": "1.65.0",
+    "scikit_learn_version": "1.9.1",
+    "execution_device": "CPU (Intel / AMD x86_64 host)",
+    "cuda_available": false,
+    "known_environmental_limitations": [
+      "Inference executes on CPU; PyTorch is built with CPU-only wheels (torch 2.14.0+cpu).",
+      "Average CPU inference latency is approximately 190ms to 250ms per SMS.",
+      "No GPU tensor acceleration or mixed-precision FP16 execution available in runtime environment.",
+      "Pytest is not installed in global environment; all test suites run via standard Python executable."
+    ]
+  },
+  "base_model": {
+    "model_identifier": "google-bert/bert-base-uncased",
+    "vocabulary_size": 30522,
+    "hidden_size": 768,
+    "num_hidden_layers": 12,
+    "num_attention_heads": 12,
+    "max_position_embeddings": 512,
+    "classifier_architecture": "Single-layer Linear classification head (768 -> 2)",
+    "sequence_length": 128
+  },
+  "datasets": {
+    "uci_train": {
+      "path": "data/processed/train.csv",
+      "records": 3612,
+      "sha256": "1278901b9f35d2c5b7ccc73e018953450dcaf58beec0771df143a7f8c0b056ab",
+      "description": "Original UCI SMS Spam Collection 70% stratified training split"
+    },
+    "uci_val": {
+      "path": "data/processed/val.csv",
+      "records": 774,
+      "sha256": "79e31eb379e1c8f73e473160a5630fcb8d0ed27b4b4ecfb677d7ab6216e7d1e3",
+      "description": "Original UCI SMS Spam Collection 15% stratified validation split"
+    },
+    "uci_test": {
+      "path": "data/processed/test.csv",
+      "records": 774,
+      "sha256": "75d4e1122de5610620ea200a6c482142b542774d9ddf9efda9da7426a0952677",
+      "description": "Original UCI SMS Spam Collection 15% stratified held-out test split"
+    },
+    "augmented_train": {
+      "path": "data/augmented/augmented_train.csv",
+      "records": 3190,
+      "sha256": "b29c370b29230a1118f7538c837cc52a7dc30075d7981d042b39fb012781e2a0",
+      "description": "Augmented retraining training split (UCI train + 116 curated templates + 24 synthetic pairs - duplicate clusters)"
+    },
+    "augmented_val": {
+      "path": "data/augmented/augmented_val.csv",
+      "records": 562,
+      "sha256": "bb519e02d6b48d69c1f3db3195a0ed62e7e3c86fb4c69fc1cbb0dcb434edd4de",
+      "description": "Augmented validation split used exclusively for threshold selection and abstention policy"
+    },
+    "external_v1": {
+      "path": "data/external/real_world_eval.csv",
+      "records": 34,
+      "sha256": "13ebe0569bc83c89d0295e83d41684cff9c9354fb52ec360036830dbc1085d40",
+      "description": "Phase 2 baseline external evaluation dataset (contains telecom reverification fixture)"
+    },
+    "external_v2_benchmark": {
+      "path": "data/external_v2/benchmark.csv",
+      "records": 220,
+      "sha256": "deba58149b1df16807e209e1c1b94041aa71e20d4cb50b585de6e0b99db59694",
+      "description": "Phase 4 independent benchmark (110 HAM / 110 SPAM, 11 categories, 0 leakage)"
+    },
+    "robustness_fixtures": {
+      "path": "data/robustness/robustness_fixtures.csv",
+      "records": 50,
+      "sha256": "97c1034cc0f0ff8fe0927922d2d58c44f7f78338409778a4df25c0651435eba9",
+      "description": "Phase 5 perturbation test fixtures across 7 controlled transformation categories"
+    }
+  },
+  "model_checkpoints": {
+    "full_finetuning_v2": {
+      "directory": "experiments/full_finetuning_v2/model",
+      "sha256_tree": "eb063a54adf3fe9a3f4b63a94e76dd63a0bf61b6ac7f503fe703cafd2bf891a9",
+      "trainable_parameters": 109483778,
+      "trainable_percentage": 100.0,
+      "adapter_size_mb": 418.35,
+      "frozen_threshold": 0.10,
+      "abstention_band": [0.05, 0.35]
+    },
+    "lora_v2": {
+      "directory": "experiments/lora_v2/model",
+      "sha256_tree": "a883a9a82379f917e15da41f789c01ee510130b3cd31a13599a98595f2fe9521",
+      "trainable_parameters": 296450,
+      "trainable_percentage": 0.2708,
+      "adapter_size_mb": 1.82,
+      "peft_config": {"r": 8, "lora_alpha": 16, "lora_dropout": 0.1, "target_modules": ["query", "value"]},
+      "frozen_threshold": 0.18,
+      "abstention_band": [0.08, 0.45]
+    },
+    "dora_v2": {
+      "directory": "experiments/dora_v2/model",
+      "sha256_tree": "740fafa925fd7b2d149d989a446714bf612c07b9524ee7239cba032232f04e7c",
+      "trainable_parameters": 314882,
+      "trainable_percentage": 0.2876,
+      "adapter_size_mb": 1.90,
+      "peft_config": {"r": 8, "lora_alpha": 16, "lora_dropout": 0.1, "use_dora": true, "target_modules": ["query", "value"]},
+      "frozen_threshold": 0.18,
+      "abstention_band": [0.08, 0.45]
+    },
+    "full_finetuning": {
+      "directory": "experiments/full_finetuning/model",
+      "sha256_tree": "9d5a361815b2ca40ebd4508a940a2618d6f25644eb891037d0b8704c93894c68",
+      "adapter_size_mb": 417.67,
+      "frozen_threshold": 0.50,
+      "abstention_band": [0.25, 0.75]
+    },
+    "lora": {
+      "directory": "experiments/lora/model",
+      "sha256_tree": "1322b42d0b46f3e2a04105e951d832c0ae861c73aa5af749e541bf6698beb79b",
+      "adapter_size_mb": 1.14,
+      "frozen_threshold": 0.50,
+      "abstention_band": [0.25, 0.75]
+    },
+    "dora": {
+      "directory": "experiments/dora/model",
+      "sha256_tree": "6b357c0f778e2cab5d7396e2726ca6037e3a9154817d6082b7949ca99d3e91bc",
+      "adapter_size_mb": 1.21,
+      "frozen_threshold": 0.50,
+      "abstention_band": [0.25, 0.75]
+    }
+  },
+  "verified_evaluation_commands": {
+    "evaluate_benchmark_v2": "python experiments/evaluate_external_v2.py",
+    "run_robustness_evaluation": "python experiments/run_robustness_eval.py",
+    "generate_error_analysis": "python audit/phase5/generate_error_analysis.py",
+    "launch_streamlit_app": "streamlit run app/main.py"
+  },
+  "verified_test_commands": {
+    "phase6_app_smoke_test": "python test_phase6_app_smoke.py",
+    "phase5_robustness_test": "python test_phase5_robustness.py",
+    "phase4_benchmark_test": "python test_phase4_benchmark.py",
+    "phase3_augmented_test": "python test_phase3_augmented_dataset.py",
+    "telecom_fixture_regression_test": "python test_telecom_fixture.py",
+    "application_ui_test": "python test_app.py"
+  }
+}

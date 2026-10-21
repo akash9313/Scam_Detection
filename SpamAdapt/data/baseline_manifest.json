@@ -1,0 +1,76 @@
+{
+  "project": "SpamAdapt",
+  "phase": "Phase 1 Baseline Preservation",
+  "dataset_version": "1.0-uci-cleaned",
+  "random_seed": 42,
+  "split_proportions": {
+    "train": 0.70,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "original_splits": {
+    "train": {
+      "path": "data/processed/train.csv",
+      "records": 3612,
+      "sha256": "1278901b9f35d2c5b7ccc73e018953450dcaf58beec0771df143a7f8c0b056ab",
+      "ham_count": 3163,
+      "spam_count": 449
+    },
+    "val": {
+      "path": "data/processed/val.csv",
+      "records": 774,
+      "sha256": "79e31eb379e1c8f73e473160a5630fcb8d0ed27b4b4ecfb677d7ab6216e7d1e3",
+      "ham_count": 678,
+      "spam_count": 96
+    },
+    "test": {
+      "path": "data/processed/test.csv",
+      "records": 774,
+      "sha256": "75d4e1122de5610620ea200a6c482142b542774d9ddf9efda9da7426a0952677",
+      "ham_count": 677,
+      "spam_count": 97
+    }
+  },
+  "verified_baseline_metrics": {
+    "full_finetuning": {
+      "checkpoint": "experiments/full_finetuning/model/model.safetensors",
+      "test_accuracy": 0.9845,
+      "spam_precision": 0.9570,
+      "spam_recall": 0.9175,
+      "spam_f1": 0.9368,
+      "macro_f1": 0.9640,
+      "test_loss": 0.0701,
+      "trainable_parameters": 109483778,
+      "weights_size_mb": 417.67,
+      "mean_latency_ms": 99.48,
+      "confusion_matrix": {"tn": 673, "fp": 4, "fn": 8, "tp": 89}
+    },
+    "lora": {
+      "checkpoint": "experiments/lora/model/adapter_model.safetensors",
+      "test_accuracy": 0.9832,
+      "spam_precision": 0.9468,
+      "spam_recall": 0.9175,
+      "spam_f1": 0.9319,
+      "macro_f1": 0.9612,
+      "test_loss": 0.0783,
+      "trainable_parameters": 296450,
+      "weights_size_mb": 1.14,
+      "mean_latency_ms": 92.05,
+      "confusion_matrix": {"tn": 672, "fp": 5, "fn": 8, "tp": 89}
+    },
+    "dora": {
+      "checkpoint": "experiments/dora/model/adapter_model.safetensors",
+      "test_accuracy": 0.9819,
+      "spam_precision": 0.9368,
+      "spam_recall": 0.9175,
+      "spam_f1": 0.9271,
+      "macro_f1": 0.9584,
+      "test_loss": 0.0779,
+      "trainable_parameters": 314882,
+      "weights_size_mb": 1.21,
+      "mean_latency_ms": 110.00,
+      "confusion_matrix": {"tn": 671, "fp": 6, "fn": 8, "tp": 89}
+    }
+  },
+  "preservation_status": "LOCKED_IMMUTABLE"
+}

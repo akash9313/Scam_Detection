@@ -1,0 +1,116 @@
+{
+  "policy_name": "SpamAdapt Conservative Abstention & Review Policy",
+  "version": "1.0.0",
+  "date_established": "2026-10",
+  "derivation_source": "data/augmented/augmented_val.csv",
+  "description": "Three-tier classification policy for high-reliability SMS spam filtering. Softmax output scores between tau_low and tau_high reflect epistemic or boundary uncertainty and are routed to 'REVIEW_REQUIRED' rather than automated blocking or acceptance.",
+  "calibration_disclaimer": "Softmax outputs reflect model scoring on pre-trained BERT embeddings rather than guaranteed true frequentist probabilities. Calibration metrics (ECE ~ 0.01) on validation do not imply infallible out-of-domain calibration. The abstention window is configurable.",
+  "decision_rules": {
+    "HAM": "P(spam) < tau_low (High confidence legitimate message)",
+    "SUSPECTED_SPAM": "P(spam) >= tau_high (High confidence spam/fraud)",
+    "REVIEW_REQUIRED": "tau_low <= P(spam) < tau_high (Uncertain boundary; manual or secondary triage required)"
+  },
+  "models": {
+    "full_finetuning_v2": {
+      "tau_base": 0.1,
+      "tau_low": 0.05,
+      "tau_high": 0.35,
+      "description": "Validation-tuned threshold 0.10; conservative review zone [0.05, 0.35)"
+    },
+    "lora_v3": {
+      "tau_base": 0.50,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "description": "Remediation candidate threshold 0.50; symmetric review zone [0.25, 0.75)"
+    },
+    "lora_v2": {
+      "tau_base": 0.18,
+      "tau_low": 0.08,
+      "tau_high": 0.45,
+      "description": "Validation-tuned threshold 0.18; conservative review zone [0.08, 0.45)"
+    },
+    "dora_v2": {
+      "tau_base": 0.18,
+      "tau_low": 0.08,
+      "tau_high": 0.45,
+      "description": "Validation-tuned threshold 0.18; conservative review zone [0.08, 0.45)"
+    },
+    "full_finetuning": {
+      "tau_base": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "description": "Baseline v1 default threshold 0.50; symmetric review zone [0.25, 0.75)"
+    },
+    "lora": {
+      "tau_base": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "description": "Baseline v1 default threshold 0.50; symmetric review zone [0.25, 0.75)"
+    },
+    "dora": {
+      "tau_base": 0.5,
+      "tau_low": 0.25,
+      "tau_high": 0.75,
+      "description": "Baseline v1 default threshold 0.50; symmetric review zone [0.25, 0.75)"
+    }
+  },
+  "validation_empirical_validation": {
+    "full_finetuning_v2": {
+      "model_name": "Full Fine-Tuning v2",
+      "tau_base": 0.1,
+      "tau_low": 0.05,
+      "tau_high": 0.35,
+      "total_val_samples": 562,
+      "decisions": {
+        "ham": 478,
+        "suspected_spam": 81,
+        "review_required": 3
+      },
+      "coverage_rate": 0.9947,
+      "abstention_rate": 0.0053,
+      "decided_accuracy": 0.9928,
+      "risks_routed_to_review": {
+        "false_positives_averted": 0,
+        "false_negatives_averted": 0
+      }
+    },
+    "lora_v2": {
+      "model_name": "LoRA v2 (r=8)",
+      "tau_base": 0.18,
+      "tau_low": 0.08,
+      "tau_high": 0.45,
+      "total_val_samples": 562,
+      "decisions": {
+        "ham": 476,
+        "suspected_spam": 82,
+        "review_required": 4
+      },
+      "coverage_rate": 0.9929,
+      "abstention_rate": 0.0071,
+      "decided_accuracy": 0.9839,
+      "risks_routed_to_review": {
+        "false_positives_averted": 0,
+        "false_negatives_averted": 0
+      }
+    },
+    "dora_v2": {
+      "model_name": "DoRA v2 (r=8, use_dora=True)",
+      "tau_base": 0.18,
+      "tau_low": 0.08,
+      "tau_high": 0.45,
+      "total_val_samples": 562,
+      "decisions": {
+        "ham": 476,
+        "suspected_spam": 81,
+        "review_required": 5
+      },
+      "coverage_rate": 0.9911,
+      "abstention_rate": 0.0089,
+      "decided_accuracy": 0.9856,
+      "risks_routed_to_review": {
+        "false_positives_averted": 1,
+        "false_negatives_averted": 0
+      }
+    }
+  }
+}

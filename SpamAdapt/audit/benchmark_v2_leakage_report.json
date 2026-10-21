@@ -1,0 +1,24 @@
+{
+  "audit_name": "SpamAdapt Phase 4 Benchmark v2 Leakage Audit",
+  "benchmark_file": "data/external_v2/benchmark.csv",
+  "total_benchmark_samples": 220,
+  "comparison_datasets": {
+    "uci_train": "data\\processed\\train.csv",
+    "uci_val": "data\\processed\\val.csv",
+    "uci_test": "data\\processed\\test.csv",
+    "augmented_train": "data\\augmented\\augmented_train.csv",
+    "augmented_val": "data\\augmented\\augmented_val.csv",
+    "external_v1": "data\\external\\real_world_eval.csv"
+  },
+  "summary": {
+    "exact_matches_count": 0,
+    "normalized_matches_count": 0,
+    "near_duplicates_0.85_count": 0,
+    "near_duplicates_0.70_count": 0,
+    "is_clean_of_exact_leakage": true
+  },
+  "exact_matches": [],
+  "normalized_matches": [],
+  "near_duplicates_0.85": [],
+  "near_duplicates_0.70": []
+}

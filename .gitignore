@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*.bak
+
+/SpamAdapt/experiments/full_finetuning/model/model.safetensors
+/SpamAdapt/experiments/full_finetuning_v2/model/model.safetensors
+/SpamAdapt/experiments/full_finetuning_v3/model/model.safetensors

@@ -1,0 +1,694 @@
+{
+  "UPI_Transaction_Original": {
+    "text": "Rs.1000.00 Dr. from A/C XXXXXXXXX3220 and Cr. to 9313357315@upi. Ref:075319983737. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+    "models": {
+      "full_finetuning_v2": {
+        "method_name": "Full Fine-Tuning v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 81,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.7636332511901855,
+          3.142381191253662
+        ],
+        "probabilities_ham_spam": [
+          0.0010007398668676615,
+          0.998999297618866
+        ],
+        "effective_threshold": 0.1,
+        "tau_low": 0.05,
+        "tau_high": 0.35,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.9,
+        "direct_latency_ms": 108.19,
+        "app_latency_ms": 114.24,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "lora_v2": {
+        "method_name": "LoRA v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 81,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -2.5241386890411377,
+          2.446486711502075
+        ],
+        "probabilities_ham_spam": [
+          0.006890991702675819,
+          0.9931089878082275
+        ],
+        "effective_threshold": 0.18,
+        "tau_low": 0.08,
+        "tau_high": 0.45,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.31,
+        "direct_latency_ms": 122.4,
+        "app_latency_ms": 123.19,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "dora_v2": {
+        "method_name": "DoRA v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 81,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -2.511841297149658,
+          2.432684898376465
+        ],
+        "probabilities_ham_spam": [
+          0.007071920204907656,
+          0.9929280877113342
+        ],
+        "effective_threshold": 0.18,
+        "tau_low": 0.08,
+        "tau_high": 0.45,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.29,
+        "direct_latency_ms": 133.36,
+        "app_latency_ms": 150.57,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "full_finetuning": {
+        "method_name": "Full Fine-Tuning v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 81,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.9558658599853516,
+          3.4096486568450928
+        ],
+        "probabilities_ham_spam": [
+          0.0006322996341623366,
+          0.9993677735328674
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.94,
+        "direct_latency_ms": 112.73,
+        "app_latency_ms": 122.88,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "lora": {
+        "method_name": "LoRA v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 81,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -4.051666259765625,
+          3.6142890453338623
+        ],
+        "probabilities_ham_spam": [
+          0.00046828947961330414,
+          0.9995317459106445
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.95,
+        "direct_latency_ms": 118.97,
+        "app_latency_ms": 126.05,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "dora": {
+        "method_name": "DoRA v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 81,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -4.06335973739624,
+          3.6236467361450195
+        ],
+        "probabilities_ham_spam": [
+          0.0004585390561260283,
+          0.9995415210723877
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.95,
+        "direct_latency_ms": 139.06,
+        "app_latency_ms": 150.91,
+        "device": "cpu",
+        "direct_matches_app": true
+      }
+    }
+  },
+  "UPI_Transaction_Redacted": {
+    "text": "Rs.1000.00 Dr. from A/C XXXXXXXXX3220 and Cr. to XXXXXXXXXX@upi. Ref:XXXXXXXXXXXX. AvlBal:Rs175527.79(2026:10:17 07:53:20), Not you? Call 18005700/5/5000-BOB",
+    "models": {
+      "full_finetuning_v2": {
+        "method_name": "Full Fine-Tuning v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 79,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.7501208782196045,
+          3.0626227855682373
+        ],
+        "probabilities_ham_spam": [
+          0.0010984635446220636,
+          0.9989014863967896
+        ],
+        "effective_threshold": 0.1,
+        "tau_low": 0.05,
+        "tau_high": 0.35,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.89,
+        "direct_latency_ms": 113.18,
+        "app_latency_ms": 107.56,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "lora_v2": {
+        "method_name": "LoRA v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 79,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -2.6109836101531982,
+          2.5379951000213623
+        ],
+        "probabilities_ham_spam": [
+          0.005771823227405548,
+          0.9942281246185303
+        ],
+        "effective_threshold": 0.18,
+        "tau_low": 0.08,
+        "tau_high": 0.45,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.42,
+        "direct_latency_ms": 130.79,
+        "app_latency_ms": 122.97,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "dora_v2": {
+        "method_name": "DoRA v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 79,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -2.586381435394287,
+          2.5120787620544434
+        ],
+        "probabilities_ham_spam": [
+          0.0060690827667713165,
+          0.9939309358596802
+        ],
+        "effective_threshold": 0.18,
+        "tau_low": 0.08,
+        "tau_high": 0.45,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.39,
+        "direct_latency_ms": 150.97,
+        "app_latency_ms": 156.42,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "full_finetuning": {
+        "method_name": "Full Fine-Tuning v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 79,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.9304912090301514,
+          3.441077709197998
+        ],
+        "probabilities_ham_spam": [
+          0.0006284857518039644,
+          0.9993715882301331
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.94,
+        "direct_latency_ms": 104.71,
+        "app_latency_ms": 109.45,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "lora": {
+        "method_name": "LoRA v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 79,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -4.022114276885986,
+          3.580138921737671
+        ],
+        "probabilities_ham_spam": [
+          0.0004990759771317244,
+          0.9995008707046509
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.95,
+        "direct_latency_ms": 122.97,
+        "app_latency_ms": 115.45,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "dora": {
+        "method_name": "DoRA v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 79,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -4.033998489379883,
+          3.5902814865112305
+        ],
+        "probabilities_ham_spam": [
+          0.0004882083449047059,
+          0.9995118379592896
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.95,
+        "direct_latency_ms": 149.84,
+        "app_latency_ms": 162.02,
+        "device": "cpu",
+        "direct_matches_app": true
+      }
+    }
+  },
+  "Jio_Reverification_Original": {
+    "text": "Reverification process of your Jio Number 9313357315 has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+    "models": {
+      "full_finetuning_v2": {
+        "method_name": "Full Fine-Tuning v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 89,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.6213433742523193,
+          3.1978976726531982
+        ],
+        "probabilities_ham_spam": [
+          0.0010913574369624257,
+          0.9989086389541626
+        ],
+        "effective_threshold": 0.1,
+        "tau_low": 0.05,
+        "tau_high": 0.35,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.89,
+        "direct_latency_ms": 108.38,
+        "app_latency_ms": 114.18,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "lora_v2": {
+        "method_name": "LoRA v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 89,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -2.270833730697632,
+          2.2424557209014893
+        ],
+        "probabilities_ham_spam": [
+          0.010843470692634583,
+          0.9891564846038818
+        ],
+        "effective_threshold": 0.18,
+        "tau_low": 0.08,
+        "tau_high": 0.45,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 98.92,
+        "direct_latency_ms": 120.74,
+        "app_latency_ms": 113.48,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "dora_v2": {
+        "method_name": "DoRA v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 89,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -2.246458053588867,
+          2.220585823059082
+        ],
+        "probabilities_ham_spam": [
+          0.011350883170962334,
+          0.9886491298675537
+        ],
+        "effective_threshold": 0.18,
+        "tau_low": 0.08,
+        "tau_high": 0.45,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 98.86,
+        "direct_latency_ms": 150.88,
+        "app_latency_ms": 147.46,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "full_finetuning": {
+        "method_name": "Full Fine-Tuning v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 89,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.8629794120788574,
+          3.352959632873535
+        ],
+        "probabilities_ham_spam": [
+          0.000734240747988224,
+          0.999265730381012
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.93,
+        "direct_latency_ms": 114.61,
+        "app_latency_ms": 103.86,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "lora": {
+        "method_name": "LoRA v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 89,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.882718324661255,
+          3.474302053451538
+        ],
+        "probabilities_ham_spam": [
+          0.0006376900128088892,
+          0.9993622899055481
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.94,
+        "direct_latency_ms": 120.09,
+        "app_latency_ms": 113.33,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "dora": {
+        "method_name": "DoRA v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 89,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.8948678970336914,
+          3.4820022583007812
+        ],
+        "probabilities_ham_spam": [
+          0.0006251646555028856,
+          0.9993748068809509
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.94,
+        "direct_latency_ms": 149.98,
+        "app_latency_ms": 140.34,
+        "device": "cpu",
+        "direct_matches_app": true
+      }
+    }
+  },
+  "Jio_Reverification_Redacted": {
+    "text": "Reverification process of your Jio Number XXXXXXXXXX has been initiated. You will receive a confirmation notification once the process is successfully completed. Disclaimer: This message has been sent on the basis of contact details shared with us at the time of activation. If you are not the intended recipient, please call us on 18008899999 or send a mail to care@jio.com",
+    "models": {
+      "full_finetuning_v2": {
+        "method_name": "Full Fine-Tuning v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 88,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.698105573654175,
+          3.2052605152130127
+        ],
+        "probabilities_ham_spam": [
+          0.0010033909929916263,
+          0.9989965558052063
+        ],
+        "effective_threshold": 0.1,
+        "tau_low": 0.05,
+        "tau_high": 0.35,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.9,
+        "direct_latency_ms": 114.76,
+        "app_latency_ms": 108.0,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "lora_v2": {
+        "method_name": "LoRA v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 88,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -2.2792999744415283,
+          2.2554824352264404
+        ],
+        "probabilities_ham_spam": [
+          0.010615347884595394,
+          0.9893847107887268
+        ],
+        "effective_threshold": 0.18,
+        "tau_low": 0.08,
+        "tau_high": 0.45,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 98.94,
+        "direct_latency_ms": 127.63,
+        "app_latency_ms": 116.75,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "dora_v2": {
+        "method_name": "DoRA v2",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora_v2\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 88,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -2.262160301208496,
+          2.2395730018615723
+        ],
+        "probabilities_ham_spam": [
+          0.010968123562633991,
+          0.9890318512916565
+        ],
+        "effective_threshold": 0.18,
+        "tau_low": 0.08,
+        "tau_high": 0.45,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 98.9,
+        "direct_latency_ms": 137.35,
+        "app_latency_ms": 140.01,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "full_finetuning": {
+        "method_name": "Full Fine-Tuning v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\full_finetuning\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 88,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.827968120574951,
+          3.3241517543792725
+        ],
+        "probabilities_ham_spam": [
+          0.0007825893117114902,
+          0.9992173910140991
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.92,
+        "direct_latency_ms": 111.17,
+        "app_latency_ms": 108.49,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "lora": {
+        "method_name": "LoRA v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\lora\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 88,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.858722448348999,
+          3.4528279304504395
+        ],
+        "probabilities_ham_spam": [
+          0.0006673354073427618,
+          0.99933260679245
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.93,
+        "direct_latency_ms": 112.46,
+        "app_latency_ms": 112.97,
+        "device": "cpu",
+        "direct_matches_app": true
+      },
+      "dora": {
+        "method_name": "DoRA v1",
+        "checkpoint": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora\\model",
+        "id2label": {
+          "0": "ham",
+          "1": "spam"
+        },
+        "token_count": 88,
+        "truncated": false,
+        "raw_logits_ham_spam": [
+          -3.8738045692443848,
+          3.4625144004821777
+        ],
+        "probabilities_ham_spam": [
+          0.0006510199164040387,
+          0.9993489384651184
+        ],
+        "effective_threshold": 0.5,
+        "tau_low": 0.25,
+        "tau_high": 0.75,
+        "app_predicted_label": "SPAM",
+        "app_decision": "SUSPECTED_SPAM",
+        "app_confidence": 99.93,
+        "direct_latency_ms": 150.03,
+        "app_latency_ms": 141.81,
+        "device": "cpu",
+        "direct_matches_app": true
+      }
+    }
+  }
+}

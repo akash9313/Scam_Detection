@@ -1,0 +1,15 @@
+model_key,dataset,tau_low,tau_high,total_samples,decided_count,review_count,coverage_rate,abstention_rate,decided_accuracy,decided_fpr,decided_fnr,fps_averted,fns_averted
+lora_v3,original_test_774,0.25,0.75,774,771,3,0.9961,0.0039,0.9728,0.0148,0.1158,1,1
+lora_v3,external_benchmark_220,0.25,0.75,220,200,20,0.9091,0.0909,0.86,0.0693,0.2121,4,5
+dora_v2,original_test_774,0.08,0.45,774,766,8,0.9897,0.0103,0.983,0.0059,0.0978,0,4
+dora_v2,external_benchmark_220,0.08,0.45,220,174,46,0.7909,0.2091,0.8506,0.1702,0.125,5,19
+full_finetuning_v2,original_test_774,0.05,0.35,774,769,5,0.9935,0.0065,0.9896,0.0045,0.0521,0,1
+full_finetuning_v2,external_benchmark_220,0.05,0.35,220,209,11,0.95,0.05,0.8947,0.0755,0.1359,1,3
+lora_v2,original_test_774,0.08,0.45,774,766,8,0.9897,0.0103,0.983,0.0059,0.0978,0,3
+lora_v2,external_benchmark_220,0.08,0.45,220,179,41,0.8136,0.1864,0.838,0.1979,0.1205,4,19
+lora_v4,original_test_774,0.2,0.65,774,768,6,0.9922,0.0078,0.987,0.0045,0.0745,0,2
+lora_v4,external_benchmark_220,0.2,0.65,220,193,27,0.8773,0.1227,0.8653,0.0495,0.2283,3,11
+dora_v3,original_test_774,0.18,0.65,774,766,8,0.9897,0.0103,0.9883,0.003,0.0745,1,1
+dora_v3,external_benchmark_220,0.18,0.65,220,192,28,0.8727,0.1273,0.875,0.0707,0.1828,1,12
+full_finetuning_v3,original_test_774,0.08,0.45,774,771,3,0.9961,0.0039,0.9896,0.0044,0.0526,0,1
+full_finetuning_v3,external_benchmark_220,0.08,0.45,220,207,13,0.9409,0.0591,0.9372,0.1176,0.0095,3,5

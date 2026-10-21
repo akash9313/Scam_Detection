@@ -1,0 +1,103 @@
+{
+  "experiment": "dora",
+  "stage": 4,
+  "run_type": "dora_peft",
+  "model_name": "google-bert/bert-base-uncased",
+  "peft_config": {
+    "r": 8,
+    "lora_alpha": 16,
+    "lora_dropout": 0.1,
+    "target_modules": [
+      "query",
+      "value"
+    ],
+    "use_dora": true
+  },
+  "parameters": {
+    "total_parameters": 109798660,
+    "trainable_parameters": 314882,
+    "frozen_parameters": 109483778,
+    "trainable_percentage": 0.2868
+  },
+  "parameter_breakdown": {
+    "adapter_parameters": 294912,
+    "magnitude_parameters": 18432,
+    "classifier_parameters": 1538
+  },
+  "hardware": {
+    "device": "cpu",
+    "gpu_name": "CPU",
+    "total_gpu_memory_mb": 0.0,
+    "peak_gpu_memory_mb": 0.0,
+    "cuda_available": false
+  },
+  "training_tracking": {
+    "total_training_time_seconds": 1255.86,
+    "formatted_training_time": "20m 55s",
+    "num_epochs": 1,
+    "batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "max_length": 128,
+    "seed": 42,
+    "epoch_history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.1277,
+        "val_loss": 0.045902520946097064,
+        "val_accuracy": 0.9858,
+        "val_f1_spam": 0.9418,
+        "val_macro_f1": 0.9669,
+        "duration_seconds": 1186.53
+      }
+    ]
+  },
+  "test_metrics": {
+    "accuracy": 0.9819,
+    "precision": 0.9368,
+    "recall": 0.9175,
+    "f1": 0.9271,
+    "macro_f1": 0.9584,
+    "macro_precision": 0.9625,
+    "macro_recall": 0.9543,
+    "ham_f1": 0.9897,
+    "confusion_matrix": {
+      "true_negative": 671,
+      "false_positive": 6,
+      "false_negative": 8,
+      "true_positive": 89,
+      "matrix": [
+        [
+          671,
+          6
+        ],
+        [
+          8,
+          89
+        ]
+      ]
+    },
+    "loss": 0.0779
+  },
+  "comparisons": {
+    "vs_full_finetuning": {
+      "baseline_macro_f1": 0.964,
+      "delta_macro_f1": -0.0056,
+      "delta_f1": -0.0097,
+      "delta_accuracy": -0.0026,
+      "parameter_reduction_factor": "347.7x fewer parameters"
+    },
+    "vs_lora": {
+      "lora_macro_f1": 0.9612,
+      "delta_macro_f1": -0.0028,
+      "delta_f1": -0.0048,
+      "delta_accuracy": -0.0013,
+      "additional_parameters": 18432
+    }
+  },
+  "saved_artifacts": {
+    "model_dir": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\experiments\\dora\\model",
+    "confusion_matrix_plot": "C:\\Users\\Akash\\Documents\\Scam_Detection\\SpamAdapt\\results\\plots\\dora_confusion_matrix.png"
+  }
+}
