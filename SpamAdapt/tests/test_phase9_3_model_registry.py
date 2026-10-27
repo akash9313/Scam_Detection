@@ -97,25 +97,35 @@ def test_every_registered_model_passes_validation():
 
 
 def test_unknown_and_unsupported_identifiers_rejected():
-    """Confirms that unsupported v3 variants and arbitrary invalid IDs raise descriptive ValueErrors."""
-    # 1. Full Fine-Tuning v3 (non-existent)
+    """Confirms that unsupported experimental variants (full_finetuning_v3, dora_v3, lora_v4) and arbitrary invalid IDs raise descriptive ValueErrors."""
+    # 1. Full Fine-Tuning v3 (isolated experimental checkpoint)
     try:
         get_model_spec("full_finetuning_v3")
         assert False, "Should have raised ValueError for full_finetuning_v3"
     except ValueError as e:
         err_msg = str(e)
         assert "Unknown fine-tuning method: 'full_finetuning_v3'" in err_msg
-        assert "Full Fine-Tuning v3 was not trained" in err_msg
+        assert "Full Fine-Tuning v3 is an isolated Phase 10 experimental checkpoint" in err_msg
         assert "lora_v3" in err_msg
 
-    # 2. DoRA v3 (non-existent)
+    # 2. DoRA v3 (isolated experimental checkpoint)
     try:
         get_model_spec("dora_v3")
         assert False, "Should have raised ValueError for dora_v3"
     except ValueError as e:
         err_msg = str(e)
         assert "Unknown fine-tuning method: 'dora_v3'" in err_msg
-        assert "DoRA v3 was not trained" in err_msg
+        assert "DoRA v3 is an isolated Phase 10 experimental checkpoint" in err_msg
+        assert "lora_v3" in err_msg
+
+    # 2b. LoRA v4 (isolated experimental checkpoint)
+    try:
+        get_model_spec("lora_v4")
+        assert False, "Should have raised ValueError for lora_v4"
+    except ValueError as e:
+        err_msg = str(e)
+        assert "Unknown fine-tuning method: 'lora_v4'" in err_msg
+        assert "LoRA v4 is an isolated Phase 10 experimental checkpoint" in err_msg
         assert "lora_v3" in err_msg
 
     # 3. Arbitrary invalid identifier
@@ -128,7 +138,7 @@ def test_unknown_and_unsupported_identifiers_rejected():
         assert "Registered available models" in err_msg
 
     # 4. Predict message with unsupported method
-    for unsupported in ["full_finetuning_v3", "dora_v3", "unknown_custom"]:
+    for unsupported in ["full_finetuning_v3", "dora_v3", "lora_v4", "unknown_custom"]:
         try:
             predict_message("Valid SMS text", unsupported, str(PROJECT_ROOT))
             assert False, f"predict_message should have raised ValueError for {unsupported}"

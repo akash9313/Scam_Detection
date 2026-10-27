@@ -84,9 +84,9 @@ By decoupling magnitude updates from directional updates, DoRA exhibits optimiza
 
 ### 5.1 In-Distribution Baseline Corpus
 The baseline dataset was derived from the raw UCI SMS Spam Collection (5,574 samples). Following deduplication and standardization, 5,160 clean messages were partitioned into:
-- **UCI Training Split:** 3,612 samples (3,131 HAM, 481 SPAM).
-- **UCI Validation Split:** 774 samples (677 HAM, 97 SPAM).
-- **UCI Preserved Test Split:** 774 samples (678 HAM, 96 SPAM).
+- **UCI Training Split:** 3,612 samples (3,163 HAM, 449 SPAM).
+- **UCI Validation Split:** 774 samples (678 HAM, 96 SPAM).
+- **UCI Preserved Test Split:** 774 samples (677 HAM, 97 SPAM).
 
 ### 5.2 Domain-Augmented Pool Construction (v2 Retraining)
 To address the modern transactional domain gap, we curated an augmented dataset pool comprising **140 modern enterprise and phishing messages** (80 HAM, 60 SPAM) across 10 specific categories:
@@ -175,7 +175,7 @@ The resulting frozen operating thresholds were:
 ## 8. Empirical Results and Model Comparison
 
 ### 8.1 In-Distribution Test Performance (Preserved UCI Test Split, $N=774$)
-On the original test split (678 HAM, 96 SPAM), all models retained near-perfect classification:
+On the original test split (677 HAM, 97 SPAM), all models retained near-perfect classification:
 - **Full Fine-Tuning v2:** Accuracy **98.58%**, Macro F1 **96.74%**, SPAM Recall 93.81%, HAM Recall 99.26% (11 errors).
 - **LoRA v2:** Accuracy **98.06%**, Macro F1 **95.44%**, SPAM Recall 88.66%, HAM Recall 99.41% (15 errors).
 - **DoRA v2:** Accuracy **98.06%**, Macro F1 **95.44%**, SPAM Recall 88.66%, HAM Recall 99.41% (15 errors).
