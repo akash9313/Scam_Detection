@@ -18,9 +18,12 @@ if str(project_root) not in sys.path:
 
 import streamlit as st
 import pandas as pd
+import importlib
 
 import app.inference
 import app.model_registry
+import app.metrics_loader
+importlib.reload(app.metrics_loader)
 
 # Diagnostic output on startup / module import
 print("[DIAGNOSTICS] ==================================================")
@@ -50,6 +53,9 @@ from app.inference import (
 from app.metrics_loader import (
     get_comparison_summary_table,
     load_all_metrics,
+    get_active_models_comparison_table,
+    get_active_models_kpi_cards,
+    get_external_benchmark_provenance_summary,
 )
 from app.model_registry import (
     get_models_for_version,
@@ -385,88 +391,158 @@ def main():
             st.info("No messages analyzed yet in this session. Submit a message above to see history.")
 
     # -------------------------------------------------------------
-    # TAB 2: MODEL COMPARISON & BENCHMARKS
+    # TAB 2: ACTIVE MODEL COMPARISON & BENCHMARKS
     # -------------------------------------------------------------
     with tab_benchmarks:
-        st.markdown("### 🔬 Empirical Benchmarking Comparison")
+        st.markdown("### 🔬 Active Model Evaluation & Benchmark Comparison")
         st.markdown(
-            "Comparative analysis of Full Fine-Tuning, LoRA, and DoRA evaluated on the held-out "
-            "UCI SMS Spam test split ($N = 774$ examples) across predictive performance, storage, and runtime efficiency."
+            "Empirical multi-domain verification of the three active UI models across the preserved UCI SMS Spam "
+            "held-out test split ($N = 774$) and the curated Indian telecom external benchmark ($N = 220$)."
         )
 
-        all_metrics = load_all_metrics(project_root_str)
-        summary_rows = get_comparison_summary_table(all_metrics)
+        # Visible Research & Demonstration Limitation Notice (Task 2 Requirement 5)
+        st.markdown(
+            """
+            <div class="security-notice" style="border-left: 3px solid #f59e0b; background-color: rgba(245, 158, 11, 0.08); margin-bottom: 20px;">
+                <strong style="color: #fbbf24;">⚠️ Research & Demonstration Limitation Notice:</strong>
+                <p style="margin: 4px 0 0 0; color: #cbd5e1; font-size: 0.85rem;">
+                    Empirical metrics reflect evaluated benchmark distributions and <strong>do not guarantee correct classification of every real-world SMS</strong>. 
+                    Adversarial variants, unfamiliar brand formats, or rapid domain shifts can produce false predictions. 
+                    For high-risk decisions or messages falling within the abstention review band, manual verification is strongly advised.
+                </p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-        # High-level KPI Cards
+        # High-level Dynamic KPI Cards (Task 2 Requirement)
+        kpi_cards = get_active_models_kpi_cards(project_root_str)
         col_kpi1, col_kpi2, col_kpi3 = st.columns(3)
+
+        lora_kpi = kpi_cards.get("lora_v3", {})
+        dora_kpi = kpi_cards.get("dora_v2", {})
+        fft_kpi = kpi_cards.get("full_finetuning_v2", {})
+
         with col_kpi1:
             st.markdown(
-                """
-                <div class="stat-box">
-                    <div class="stat-value" style="color: #60a5fa;">96.40%</div>
-                    <div class="stat-label">Full FT Macro-F1</div>
-                    <p style="font-size: 0.75rem; color: #94a3b8; margin: 4px 0 0 0;">109.5M Trainable Params | 417.7 MB</p>
+                f"""
+                <div class="stat-box" style="border-top: 3px solid {lora_kpi.get('color', '#60a5fa')};">
+                    <div style="font-size: 0.70rem; font-weight: 700; color: {lora_kpi.get('color', '#60a5fa')}; letter-spacing: 0.05em; margin-bottom: 4px;">
+                        ★ {lora_kpi.get('badge', 'DEFAULT')}
+                    </div>
+                    <div class="stat-value" style="color: {lora_kpi.get('color', '#60a5fa')};">{lora_kpi.get('benchmark_acc', 'Unavailable')}</div>
+                    <div class="stat-label">Curated Benchmark Acc (N=220)</div>
+                    <p style="font-size: 0.75rem; color: #94a3b8; margin: 4px 0 0 0;">
+                        Decided Acc: <strong>{lora_kpi.get('benchmark_decided_acc', 'Unavailable')}</strong> ({lora_kpi.get('benchmark_coverage', 'Unavailable')} cov)<br>
+                        UCI Test Acc: {lora_kpi.get('uci_accuracy', 'Unavailable')} | Macro-F1: {lora_kpi.get('uci_macro_f1', 'Unavailable')}<br>
+                        296.5k Params (0.27%) | 1.14 MB
+                    </p>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
+
         with col_kpi2:
             st.markdown(
-                """
-                <div class="stat-box">
-                    <div class="stat-value" style="color: #34d399;">96.12%</div>
-                    <div class="stat-label">LoRA Macro-F1 (-0.28%)</div>
-                    <p style="font-size: 0.75rem; color: #94a3b8; margin: 4px 0 0 0;">296.5k Params (0.27%) | 1.14 MB</p>
+                f"""
+                <div class="stat-box" style="border-top: 3px solid {dora_kpi.get('color', '#c084fc')};">
+                    <div style="font-size: 0.70rem; font-weight: 700; color: {dora_kpi.get('color', '#c084fc')}; letter-spacing: 0.05em; margin-bottom: 4px;">
+                        {dora_kpi.get('badge', 'COMPARISON')}
+                    </div>
+                    <div class="stat-value" style="color: {dora_kpi.get('color', '#c084fc')};">{dora_kpi.get('benchmark_acc', 'Unavailable')}</div>
+                    <div class="stat-label">Curated Benchmark Acc (N=220)</div>
+                    <p style="font-size: 0.75rem; color: #94a3b8; margin: 4px 0 0 0;">
+                        Decided Acc: <strong>{dora_kpi.get('benchmark_decided_acc', 'Unavailable')}</strong> ({dora_kpi.get('benchmark_coverage', 'Unavailable')} cov)<br>
+                        UCI Test Acc: {dora_kpi.get('uci_accuracy', 'Unavailable')} | Macro-F1: {dora_kpi.get('uci_macro_f1', 'Unavailable')}<br>
+                        314.9k Params (0.29%) | 1.21 MB
+                    </p>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
+
         with col_kpi3:
             st.markdown(
-                """
-                <div class="stat-box">
-                    <div class="stat-value" style="color: #c084fc;">95.84%</div>
-                    <div class="stat-label">DoRA Macro-F1 (-0.56%)</div>
-                    <p style="font-size: 0.75rem; color: #94a3b8; margin: 4px 0 0 0;">314.9k Params (0.29%) | 1.21 MB</p>
+                f"""
+                <div class="stat-box" style="border-top: 3px solid {fft_kpi.get('color', '#34d399')};">
+                    <div style="font-size: 0.70rem; font-weight: 700; color: {fft_kpi.get('color', '#34d399')}; letter-spacing: 0.05em; margin-bottom: 4px;">
+                        {fft_kpi.get('badge', 'COMPARISON')}
+                    </div>
+                    <div class="stat-value" style="color: {fft_kpi.get('color', '#34d399')};">{fft_kpi.get('benchmark_acc', 'Unavailable')}</div>
+                    <div class="stat-label">Curated Benchmark Acc (N=220)</div>
+                    <p style="font-size: 0.75rem; color: #94a3b8; margin: 4px 0 0 0;">
+                        Decided Acc: <strong>{fft_kpi.get('benchmark_decided_acc', 'Unavailable')}</strong> ({fft_kpi.get('benchmark_coverage', 'Unavailable')} cov)<br>
+                        UCI Test Acc: {fft_kpi.get('uci_accuracy', 'Unavailable')} | Macro-F1: {fft_kpi.get('uci_macro_f1', 'Unavailable')}<br>
+                        109.5M Params (100.0%) | 417.7 MB
+                    </p>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
         st.markdown("<br>", unsafe_allow_html=True)
-        st.markdown("#### 📋 Comprehensive Verification Table")
-        st.dataframe(summary_rows, use_container_width=True, hide_index=True)
 
-        st.markdown("#### 📈 Benchmark Visualizations")
-        col_plot1, col_plot2 = st.columns(2)
+        # Verified Active Models Comparative Table (Task 2 Requirements 1, 2, 3)
+        st.markdown("#### 📋 Verified Active Models Multi-Domain Evaluation Table")
+        st.caption(
+            "Ingested from verified Phase 11 evaluation artifacts (`phase11_reliability_audit.json`). "
+            "All metric names, dataset sizes, and model versions are explicit. "
+            "Decided accuracy reflects performance when ambiguous predictions within the review band are routed for human review."
+        )
+        active_table_data = get_active_models_comparison_table(project_root_str)
+        st.dataframe(active_table_data, use_container_width=True, hide_index=True)
 
-        plots_dir = project_root / "results" / "plots"
-        lat_plot = plots_dir / "inference_latency_comparison.png"
-        tp_plot = plots_dir / "throughput_comparison.png"
-        size_plot = plots_dir / "model_size_comparison.png"
-        param_plot = plots_dir / "parameter_efficiency_comparison.png"
+        st.markdown("<br>", unsafe_allow_html=True)
 
-        with col_plot1:
-            if lat_plot.exists():
-                st.image(str(lat_plot), caption="Per-Message Inference Latency Distribution (ms)")
-            else:
-                st.warning("Latency comparison plot not found.")
+        # Curated External Benchmark Provenance Breakdown (Task 2 Requirement 4)
+        st.markdown("#### 🛡️ Curated External Benchmark Dataset Provenance & Tier Breakdown (N=220)")
+        st.caption(
+            "Transparency disclosure: The 220-example benchmark is a curated multi-tier evaluation set. "
+            "Only 15 messages (6.82%) represent unredacted authentic subscriber SMS captured directly on Indian networks; "
+            "85 are entity-redacted enterprise notifications, 10 are contrastive promotional blasts, and 110 are official regulatory scam exhibits."
+        )
+        provenance_data = get_external_benchmark_provenance_summary(project_root_str)
+        st.dataframe(provenance_data, use_container_width=True, hide_index=True)
 
-            if size_plot.exists():
-                st.image(str(size_plot), caption="Model Storage & Deployed Footprint (MB)")
-            else:
-                st.warning("Model size comparison plot not found.")
+        st.markdown("<br>", unsafe_allow_html=True)
 
-        with col_plot2:
-            if tp_plot.exists():
-                st.image(str(tp_plot), caption="Batched Inference Throughput (msgs/sec)")
-            else:
-                st.warning("Throughput comparison plot not found.")
+        # Expander for Historical Baseline Experiments & Visualizations
+        with st.expander("📊 View Historical Phase 1 Baselines & Runtime Profiling Visualizations", expanded=False):
+            st.markdown(
+                "Historical baseline comparisons on the original UCI test split and runtime profiling artifacts."
+            )
+            all_metrics = load_all_metrics(project_root_str)
+            summary_rows = get_comparison_summary_table(all_metrics)
+            st.dataframe(summary_rows, use_container_width=True, hide_index=True)
 
-            if param_plot.exists():
-                st.image(str(param_plot), caption="Trainable Parameter Footprint (Log Scale)")
-            else:
-                st.warning("Parameter efficiency plot not found.")
+            col_plot1, col_plot2 = st.columns(2)
+            plots_dir = project_root / "results" / "plots"
+            lat_plot = plots_dir / "inference_latency_comparison.png"
+            tp_plot = plots_dir / "throughput_comparison.png"
+            size_plot = plots_dir / "model_size_comparison.png"
+            param_plot = plots_dir / "parameter_efficiency_comparison.png"
+
+            with col_plot1:
+                if lat_plot.exists():
+                    st.image(str(lat_plot), caption="Per-Message Inference Latency Distribution (ms)")
+                else:
+                    st.warning("Latency comparison plot not found.")
+
+                if size_plot.exists():
+                    st.image(str(size_plot), caption="Model Storage & Deployed Footprint (MB)")
+                else:
+                    st.warning("Model size comparison plot not found.")
+
+            with col_plot2:
+                if tp_plot.exists():
+                    st.image(str(tp_plot), caption="Batched Inference Throughput (msgs/sec)")
+                else:
+                    st.warning("Throughput comparison plot not found.")
+
+                if param_plot.exists():
+                    st.image(str(param_plot), caption="Trainable Parameter Footprint (Log Scale)")
+                else:
+                    st.warning("Parameter efficiency plot not found.")
 
     # -------------------------------------------------------------
     # TAB 3: ARCHITECTURE & METHODOLOGY

@@ -119,6 +119,112 @@ class TestPhase11Reliability(unittest.TestCase):
         self.assertEqual(upi_pred, "HAM", "LoRA v3 must predict HAM on UPI BOB fixture")
         self.assertEqual(jio_pred, "HAM", "LoRA v3 must predict HAM on Jio Reverification fixture")
 
+    def test_08_active_models_comparison_table_structure_and_splits(self):
+        from app.metrics_loader import get_active_models_comparison_table
+
+        table_rows = get_active_models_comparison_table(str(PROJECT_ROOT))
+        self.assertEqual(len(table_rows), 3, "Comparison table must contain exactly 3 active models")
+
+        expected_models = ["LoRA v3 (Default)", "DoRA v2", "Full Fine-Tuning v2"]
+        found_models = [r["Model Strategy"] for r in table_rows]
+        self.assertEqual(found_models, expected_models)
+
+        # Check explicit metric headers
+        required_headers = [
+            "Model Strategy",
+            "Role & Verification",
+            "Architecture",
+            "Weights Size",
+            "Trainable Params",
+            "Threshold (τ)",
+            "Review Band",
+            "UCI Test Acc (N=774)",
+            "UCI Test Macro-F1",
+            "UCI HAM Recall",
+            "UCI SPAM Recall",
+            "UCI Decided Acc",
+            "UCI Coverage",
+            "Curated Benchmark Acc (N=220)",
+            "Curated Benchmark Macro-F1",
+            "Benchmark HAM Recall",
+            "Benchmark SPAM Recall",
+            "Benchmark Decided Acc",
+            "Benchmark Coverage",
+            "Errors Averted (Abst.)",
+            "BOB UPI Fixture",
+            "Jio Rev Fixture",
+        ]
+        for row in table_rows:
+            for header in required_headers:
+                self.assertIn(header, row, f"Missing header '{header}' in table row")
+
+        # Verify that splits are distinct and loaded accurately for lora_v3
+        lora_row = table_rows[0]
+        self.assertEqual(lora_row["UCI Test Acc (N=774)"], "97.03%")
+        self.assertEqual(lora_row["UCI Test Macro-F1"], "93.19%")
+        self.assertEqual(lora_row["UCI Decided Acc"], "97.28%")
+        self.assertEqual(lora_row["UCI Coverage"], "99.61%")
+        self.assertEqual(lora_row["Curated Benchmark Acc (N=220)"], "83.18%")
+        self.assertEqual(lora_row["Curated Benchmark Macro-F1"], "83.10%")
+        self.assertEqual(lora_row["Benchmark Decided Acc"], "86.00%")
+        self.assertEqual(lora_row["Benchmark Coverage"], "90.91%")
+        self.assertEqual(lora_row["Errors Averted (Abst.)"], "4 FP / 5 FN")
+        self.assertEqual(lora_row["Weights Size"], "1.14 MB")
+
+    def test_09_kpi_cards_and_benchmark_provenance(self):
+        from app.metrics_loader import (
+            get_active_models_kpi_cards,
+            get_external_benchmark_provenance_summary,
+        )
+
+        kpis = get_active_models_kpi_cards(str(PROJECT_ROOT))
+        self.assertIn("lora_v3", kpis)
+        self.assertIn("dora_v2", kpis)
+        self.assertIn("full_finetuning_v2", kpis)
+        self.assertEqual(kpis["lora_v3"]["badge"], "PRODUCTION DEFAULT")
+        self.assertEqual(kpis["lora_v3"]["benchmark_acc"], "83.18%")
+
+        provenance = get_external_benchmark_provenance_summary(str(PROJECT_ROOT))
+        self.assertEqual(len(provenance), 4, "Expected 4 provenance tiers for external benchmark")
+        self.assertEqual(provenance[0]["Provenance Subset"], "Verified Real-World Subscriber SMS")
+        self.assertEqual(provenance[0]["Sample Count"], 15)
+        self.assertEqual(provenance[0]["Share of Benchmark"], "6.82% (15 / 220)")
+
+    def test_10_missing_metric_keys_graceful_handling(self):
+        from app.metrics_loader import _fmt_pct, _fmt_num, get_active_models_comparison_table
+
+        self.assertEqual(_fmt_pct(None), "Unavailable")
+        self.assertEqual(_fmt_pct("bad_type"), "Unavailable")
+        self.assertEqual(_fmt_num(None), "Unavailable")
+        self.assertEqual(_fmt_num("bad_type"), "Unavailable")
+
+        # Passing an invalid path should not raise an unhandled exception and should populate Unavailable
+        empty_table = get_active_models_comparison_table("non_existent_directory_for_test")
+        self.assertEqual(len(empty_table), 3)
+        for row in empty_table:
+            self.assertEqual(row["UCI Test Acc (N=774)"], "Unavailable")
+            self.assertEqual(row["Curated Benchmark Acc (N=220)"], "Unavailable")
+
+    def test_11_unsupported_models_documentation_and_explicit_errors(self):
+        from app.model_registry import (
+            KNOWN_UNSUPPORTED_MODELS,
+            get_model_spec,
+        )
+
+        # Ensure Phase 10 models have truthful documentation
+        for m_id in ["full_finetuning_v3", "lora_v4", "dora_v3"]:
+            self.assertIn(m_id, KNOWN_UNSUPPORTED_MODELS)
+            doc = KNOWN_UNSUPPORTED_MODELS[m_id]
+            self.assertNotIn("was not trained", doc.lower(), f"{m_id} error must not claim model was never trained")
+            self.assertTrue(
+                "validation-loss divergence" in doc.lower() or "regression" in doc.lower() or "overfitting" in doc.lower(),
+                f"{m_id} error must explain technical reason for exclusion",
+            )
+            with self.assertRaises(ValueError) as ctx:
+                get_model_spec(m_id)
+            self.assertIn("experimental", str(ctx.exception).lower())
+
 
 if __name__ == "__main__":
     unittest.main()
+

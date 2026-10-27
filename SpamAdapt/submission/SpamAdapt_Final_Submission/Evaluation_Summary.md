@@ -21,7 +21,7 @@ All three models were evaluated under identical frozen conditions:
 
 ## 2. In-Distribution Performance: Preserved UCI Test Split ($N=774$)
 
-The original 2011 UCI SMS Spam Collection test set ($678$ HAM, $96$ SPAM) was evaluated to confirm retention of in-distribution accuracy and ensure domain adaptation did not induce catastrophic forgetting.
+The original 2011 UCI SMS Spam Collection test set ($677$ HAM, $97$ SPAM) was evaluated to confirm retention of in-distribution accuracy and ensure domain adaptation did not induce catastrophic forgetting.
 
 | Model / Configuration | Decision Threshold ($\tau$) | Accuracy | Macro F1 | HAM Recall (Specificity) | SPAM Recall (Sensitivity) | Confusion Matrix [TN, FP, FN, TP] | Total Errors |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
