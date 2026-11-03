@@ -388,13 +388,13 @@ def main():
         torch.cuda.empty_cache() if torch.cuda.is_available() else None
 
     # Save output JSON
-    metrics_out = PROJECT_ROOT / "results" / "metrics" / "phase11_reliability_audit.json"
+    metrics_out = PROJECT_ROOT / "results" / "metrics" / "reliability_audit.json"
     with open(metrics_out, "w", encoding="utf-8") as f:
         json.dump(audit_results, f, indent=2)
     print(f"\n[Saved] Comprehensive audit metrics -> {metrics_out.relative_to(PROJECT_ROOT)}")
 
     # Save category breakdown CSV
-    reports_dir = PROJECT_ROOT / "reports" / "phase11"
+    reports_dir = PROJECT_ROOT / "reports" / "reliability"
     reports_dir.mkdir(parents=True, exist_ok=True)
     cat_csv_path = reports_dir / "category_error_analysis.csv"
     with open(cat_csv_path, "w", newline="", encoding="utf-8") as f:

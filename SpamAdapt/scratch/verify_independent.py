@@ -46,7 +46,7 @@ def run_integrity_verification():
     print("=" * 80)
 
     # Load baseline manifest
-    manifest_path = PROJECT_ROOT / "reports" / "phase6" / "reproducibility_manifest.json"
+    manifest_path = PROJECT_ROOT / "reports" / "architecture" / "reproducibility_manifest.json"
     with open(manifest_path, "r", encoding="utf-8") as f:
         manifest = json.load(f)
 
@@ -455,7 +455,7 @@ if __name__ == "__main__":
         "check4_live_inference": res4,
     }
 
-    out_json = PROJECT_ROOT / "reports" / "phase9" / "reproduced_metrics.json"
+    out_json = PROJECT_ROOT / "reports" / "remediation" / "reproduced_metrics.json"
     with open(out_json, "w", encoding="utf-8") as f:
         json.dump(output_payload, f, indent=2)
 

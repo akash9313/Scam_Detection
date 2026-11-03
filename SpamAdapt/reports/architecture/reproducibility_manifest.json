@@ -135,14 +135,14 @@
   "verified_evaluation_commands": {
     "evaluate_benchmark_v2": "python experiments/evaluate_external_v2.py",
     "run_robustness_evaluation": "python experiments/run_robustness_eval.py",
-    "generate_error_analysis": "python audit/phase5/generate_error_analysis.py",
+    "generate_error_analysis": "python audit/error_analysis/generate_error_analysis.py",
     "launch_streamlit_app": "streamlit run app/main.py"
   },
   "verified_test_commands": {
-    "phase6_app_smoke_test": "python test_phase6_app_smoke.py",
-    "phase5_robustness_test": "python test_phase5_robustness.py",
-    "phase4_benchmark_test": "python test_phase4_benchmark.py",
-    "phase3_augmented_test": "python test_phase3_augmented_dataset.py",
+    "app_smoke_test": "python test_app_smoke.py",
+    "robustness_test": "python test_robustness.py",
+    "benchmark_test": "python test_benchmark.py",
+    "augmented_test": "python test_augmented_dataset.py",
     "telecom_fixture_regression_test": "python test_telecom_fixture.py",
     "application_ui_test": "python test_app.py"
   }

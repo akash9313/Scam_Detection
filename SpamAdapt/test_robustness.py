@@ -93,9 +93,9 @@ def test_robustness_fixtures_isolation_and_schema():
 
 
 def test_robustness_metrics_validity():
-    """Verify results/phase5/robustness_metrics.json has non-zero valid evaluations across all 3 models."""
+    """Verify results/robustness/robustness_metrics.json has non-zero valid evaluations across all 3 models."""
     print("\n[TEST 3] Testing Robustness Metrics Payload...")
-    metrics_json = PROJECT_ROOT / "results" / "phase5" / "robustness_metrics.json"
+    metrics_json = PROJECT_ROOT / "results" / "robustness" / "robustness_metrics.json"
     assert metrics_json.exists(), f"Robustness metrics JSON missing: {metrics_json}"
 
     with open(metrics_json, "r", encoding="utf-8") as f:
@@ -117,9 +117,9 @@ def test_robustness_metrics_validity():
 
 
 def test_error_analysis_completeness():
-    """Verify audit/phase5/error_analysis.csv contains all observed errors with required fields."""
+    """Verify audit/error_analysis/error_analysis.csv contains all observed errors with required fields."""
     print("\n[TEST 4] Testing Error Analysis Completeness...")
-    error_csv = PROJECT_ROOT / "audit" / "phase5" / "error_analysis.csv"
+    error_csv = PROJECT_ROOT / "audit" / "error_analysis" / "error_analysis.csv"
     assert error_csv.exists(), f"Error analysis CSV missing: {error_csv}"
 
     with open(error_csv, "r", encoding="utf-8") as f:

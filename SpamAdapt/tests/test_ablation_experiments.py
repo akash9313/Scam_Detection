@@ -65,7 +65,7 @@ class TestPhase10Experiments(unittest.TestCase):
         self.assertTrue((lora_v3 / "adapter_model.safetensors").exists())
 
     def test_04_epoch_metrics_csv_integrity(self):
-        csv_path = PROJECT_ROOT / "reports" / "phase10" / "epoch_metrics.csv"
+        csv_path = PROJECT_ROOT / "reports" / "ablations" / "epoch_metrics.csv"
         self.assertTrue(csv_path.exists())
         with open(csv_path, "r", encoding="utf-8") as f:
             reader = list(csv.DictReader(f))
@@ -88,7 +88,7 @@ class TestPhase10Experiments(unittest.TestCase):
         self.assertGreater(float(fft_rows[2]["val_loss"]), float(fft_rows[0]["val_loss"]))
 
     def test_05_learning_curve_plots_exist(self):
-        curves_dir = PROJECT_ROOT / "reports" / "phase10" / "learning_curves"
+        curves_dir = PROJECT_ROOT / "reports" / "ablations" / "learning_curves"
         self.assertTrue((curves_dir / "lora_v4_learning_curve.png").exists())
         self.assertTrue((curves_dir / "dora_v3_learning_curve.png").exists())
         self.assertTrue((curves_dir / "full_finetuning_v3_learning_curve.png").exists())
@@ -108,9 +108,9 @@ class TestPhase10Experiments(unittest.TestCase):
         # full_finetuning_v3 fails Jio Reverification
         self.assertEqual(fft_m["evaluation_results"]["regression_fixtures"]["jio_reverification"]["predicted_label"], "SPAM")
 
-    def test_07_phase10_reports_exist(self):
-        phase10_dir = PROJECT_ROOT / "reports" / "phase10"
-        self.assertTrue((phase10_dir / "epoch_metrics.csv").exists())
+    def test_07_ablation_reports_exist(self):
+        ablations_dir = PROJECT_ROOT / "reports" / "ablations"
+        self.assertTrue((ablations_dir / "epoch_metrics.csv").exists())
 
     def test_08_active_ui_model_registry_undisturbed(self):
         from app.model_registry import get_active_ui_models

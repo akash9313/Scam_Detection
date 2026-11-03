@@ -2,7 +2,7 @@
 SpamAdapt Phase 5: Systematic Error Analysis Generator.
 
 Evaluates frozen models on data/external_v2/benchmark.csv and records every
-classification error into audit/phase5/error_analysis.csv with:
+classification error into audit/error_analysis/error_analysis.csv with:
 - Anonymized example identifier
 - True label and predicted label
 - Model name and actual decision threshold
@@ -158,8 +158,8 @@ def run_error_analysis():
 
         print(f"  Confusion Matrix: TN={tn}, FP={fp}, FN={fn}, TP={tp} | Total Errors: {len(model_errors)}")
 
-    # Write errors to audit/phase5/error_analysis.csv
-    out_dir = PROJECT_ROOT / "audit" / "phase5"
+    # Write errors to audit/error_analysis/error_analysis.csv
+    out_dir = PROJECT_ROOT / "audit" / "error_analysis"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_csv = out_dir / "error_analysis.csv"
 

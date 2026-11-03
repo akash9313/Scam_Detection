@@ -1,24 +1,27 @@
 """
-SpamAdapt Phase 6: Unified Acceptance Test Runner.
+SpamAdapt: Unified Acceptance Test Runner.
 Executes all 6 test suites sequentially and summarizes outcomes.
 """
 
+from pathlib import Path
 import subprocess
 import sys
 import time
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
 TEST_SUITES = [
-    "test_phase6_app_smoke.py",
-    "test_phase5_robustness.py",
-    "test_phase4_benchmark.py",
-    "test_phase3_augmented_dataset.py",
+    "test_app_smoke.py",
+    "test_robustness.py",
+    "test_benchmark.py",
+    "test_augmented_dataset.py",
     "test_telecom_fixture.py",
     "test_app.py",
 ]
 
 def main():
     print("=" * 80)
-    print("SPAMADAPT PHASE 6: UNIFIED FINAL ACCEPTANCE TEST SUITE")
+    print("SPAMADAPT: UNIFIED FINAL ACCEPTANCE TEST SUITE")
     print("=" * 80)
     
     results = {}
@@ -27,7 +30,8 @@ def main():
     for test_file in TEST_SUITES:
         print(f"\n[RUNNING SUITE] {test_file} ...")
         t0 = time.time()
-        proc = subprocess.run([sys.executable, test_file], capture_output=True, text=True)
+        test_path = PROJECT_ROOT / test_file
+        proc = subprocess.run([sys.executable, str(test_path)], cwd=str(PROJECT_ROOT), capture_output=True, text=True)
         elapsed = time.time() - t0
         
         # Print trimmed output

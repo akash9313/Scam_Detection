@@ -200,7 +200,7 @@ def main():
             print(f"  Latency: Direct={direct['latency_ms']:.2f}ms, App={app_res['latency_ms']:.2f}ms")
 
     # Save detailed JSON output
-    out_path = PROJECT_ROOT / "scratch" / "phase1_reproduction_results.json"
+    out_path = PROJECT_ROOT / "scratch" / "baseline_reproduction_results.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2)
     print(f"\n[DONE] Saved Phase 1 reproduction results to {out_path}")
