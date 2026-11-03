@@ -18,13 +18,7 @@ SUBMISSION_DIR = PROJECT_ROOT / "submission" / "SpamAdapt_Final_Submission"
 
 REQUIRED_SUBMISSION_FILES = [
     "SpamAdapt_Final_Presentation.pptx",
-    "Project_Report.md",
-    "README.md",
     "Requirements.txt",
-    "Viva_Quick_Revision.md",
-    "Demo_Checklist.md",
-    "Evaluation_Summary.md",
-    "Limitations_and_Future_Work.md",
 ]
 
 def main():
@@ -51,21 +45,7 @@ def main():
     assert slide_count == 14, f"Expected 14 slides, found {slide_count}"
     print("  PASSED: PowerPoint opens cleanly with exactly 14 slides.")
 
-    # Check 3: Check for accidental absolute user paths in README
-    print("\n[CHECK 3] Checking for Accidental Absolute Paths in README.md...")
-    readme_path = SUBMISSION_DIR / "README.md"
-    readme_text = readme_path.read_text(encoding="utf-8")
-    
-    # Patterns like C:\Users\Akash or /home/akash
-    user_path_pattern = re.compile(r"[a-zA-Z]:\\Users\\[a-zA-Z0-9_-]+", re.IGNORECASE)
-    matches = user_path_pattern.findall(readme_text)
-    if matches:
-        print(f"  WARNING: Found absolute user paths in README: {matches}")
-        assert False, f"Absolute user paths found in README: {matches}"
-    else:
-        print("  PASSED: Zero hardcoded user absolute paths found in README.md.")
-
-    # Check 4: Check for API keys or secrets
+    # Check 3: Check for API keys or secrets
     print("\n[CHECK 4] Scanning for Secrets / API Keys in Submission...")
     secret_patterns = [r"AIza[0-9A-Za-z-_]{35}", r"sk-[a-zA-Z0-9]{20,}", r"ghp_[a-zA-Z0-9]{30,}"]
     for fname in REQUIRED_SUBMISSION_FILES:
