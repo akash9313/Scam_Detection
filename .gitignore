@@ -1,7 +1,35 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.bak
+*$py.class
+*.pyc
 
-/SpamAdapt/experiments/full_finetuning/model/model.safetensors
-/SpamAdapt/experiments/full_finetuning_v2/model/model.safetensors
-/SpamAdapt/experiments/full_finetuning_v3/model/model.safetensors
+# Backup and temporary files
+*.bak
+*.swp
+*.swo
+*~
+*.tmp
+
+# Operating system artifacts
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Large model checkpoints (>100MB, cannot be pushed to standard GitHub)
+/SpamAdapt/experiments/full_finetuning*/model/model.safetensors
+
+# Testing and coverage caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor and IDE configurations
+.vscode/
+.idea/
