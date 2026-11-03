@@ -1,8 +1,8 @@
 """
-Metrics Loading and Analysis Module for SpamAdapt (Stage 6 & Phase 11).
+Metrics Loading and Analysis Module for SpamAdapt.
 
 Reads and structures verified experimental outputs from:
-- results/metrics/phase11_reliability_audit.json (Phase 11 final comparative audit)
+- results/metrics/reliability_audit.json (Final comparative reliability audit)
 - results/metrics/lora_v3.json (Remediation candidate v3)
 - results/metrics/dora_v2.json (Augmented retrained DoRA v2)
 - results/metrics/full_finetuning_v2.json (Augmented retrained Full FT v2)
@@ -120,16 +120,21 @@ def get_comparison_summary_table(metrics: Dict) -> List[Dict]:
 
 
 # =========================================================================
-# PHASE 11 VERIFIED ACTIVE MODELS METRICS LOADERS
+# COMPREHENSIVE RELIABILITY AUDIT METRICS LOADERS
 # =========================================================================
 
 def load_phase11_audit_metrics(project_root_str: str) -> Optional[Dict[str, Any]]:
     """
-    Loads master reliability audit JSON (results/metrics/phase11_reliability_audit.json).
+    Loads master reliability audit JSON (results/metrics/reliability_audit.json).
     Returns None if missing.
     """
-    audit_path = Path(project_root_str) / "results" / "metrics" / "phase11_reliability_audit.json"
+    audit_path = Path(project_root_str) / "results" / "metrics" / "reliability_audit.json"
     return load_json_file(audit_path)
+
+
+def load_reliability_audit_metrics(project_root_str: str) -> Optional[Dict[str, Any]]:
+    """Alias for load_phase11_audit_metrics."""
+    return load_phase11_audit_metrics(project_root_str)
 
 
 def load_model_individual_metrics(model_id: str, project_root_str: str) -> Optional[Dict[str, Any]]:
@@ -159,7 +164,7 @@ def get_active_models_comparison_table(project_root_str: str) -> List[Dict[str, 
     2. DoRA v2 (Active Comparison)
     3. Full Fine-Tuning v2 (Active Comparison)
 
-    Ingests strictly from results/metrics/phase11_reliability_audit.json with fallback
+    Ingests strictly from results/metrics/reliability_audit.json with fallback
     to individual metric files (lora_v3.json, dora_v2.json, full_finetuning_v2.json).
     Never fabricates metrics; displays 'Unavailable' for missing keys.
     """

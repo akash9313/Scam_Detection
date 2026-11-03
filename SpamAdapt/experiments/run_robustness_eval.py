@@ -16,7 +16,7 @@ Perturbation Types:
 
 Outputs:
 - data/robustness/robustness_fixtures.csv
-- results/phase5/robustness_metrics.json
+- results/robustness/robustness_metrics.json
 """
 
 import csv
@@ -727,8 +727,8 @@ def run_robustness_evaluation():
             "details": perturbation_results,
         }
 
-    # Save to results/phase5/robustness_metrics.json
-    out_json = PROJECT_ROOT / "results" / "phase5" / "robustness_metrics.json"
+    # Save to results/robustness/robustness_metrics.json
+    out_json = PROJECT_ROOT / "results" / "robustness" / "robustness_metrics.json"
     with open(out_json, "w", encoding="utf-8") as f:
         json.dump(results_payload, f, indent=2)
 

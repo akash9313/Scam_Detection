@@ -14,7 +14,7 @@ from pptx.enum.text import PP_ALIGN
 from pptx.enum.shapes import MSO_SHAPE
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-OUTPUT_DIR = PROJECT_ROOT / "reports" / "phase7"
+OUTPUT_DIR = PROJECT_ROOT / "reports" / "presentation"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 PPTX_PATH = OUTPUT_DIR / "SpamAdapt_Final_Presentation.pptx"
 

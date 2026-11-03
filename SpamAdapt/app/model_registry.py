@@ -13,7 +13,7 @@ Defines the single source of truth for all verified and deployed models:
 CRITICAL CONSTRAINT:
 Only validated, production-ready or active comparison models are exposed
 in the user-facing registry. Experimental research checkpoints (such as
-full_finetuning_v3, lora_v4, or dora_v3 from Phase 10) are preserved on disk
+full_finetuning_v3, lora_v4, or dora_v3 from ablation studies) are preserved on disk
 in experiments/ but explicitly rejected by the selector due to validation-loss
 divergence and transactional regression failures.
 """
@@ -48,7 +48,7 @@ class ModelSpec:
 
 # Central Registry of Genuinely Available Models
 REGISTERED_MODELS: Dict[str, ModelSpec] = {
-    # 1. Candidate Remediated Model (Phase 9 Default)
+    # 1. Candidate Remediated Model (Production Default)
     "lora_v3": ModelSpec(
         model_id="lora_v3",
         display_name="LoRA v3 — Remediation Candidate",
@@ -72,7 +72,7 @@ REGISTERED_MODELS: Dict[str, ModelSpec] = {
         is_production_default=True,
     ),
 
-    # 2. Historical Augmented Retrained Models (Phase 3 / Milestone v2)
+    # 2. Historical Augmented Retrained Models (Milestone v2)
     "full_finetuning_v2": ModelSpec(
         model_id="full_finetuning_v2",
         display_name="Full Fine-Tuning v2",
@@ -133,7 +133,7 @@ REGISTERED_MODELS: Dict[str, ModelSpec] = {
         is_production_default=False,
     ),
 
-    # 3. Original Historical Baseline Models (Phase 1 Baseline / Milestone v1)
+    # 3. Original Historical Baseline Models (Baseline v1)
     "full_finetuning": ModelSpec(
         model_id="full_finetuning",
         display_name="Full Fine-Tuning v1",
@@ -244,17 +244,17 @@ def get_active_ui_models() -> List[ModelSpec]:
 # Explicitly documented unsupported experimental models (excluded from active UI selector)
 KNOWN_UNSUPPORTED_MODELS = {
     "full_finetuning_v3": (
-        "Full Fine-Tuning v3 is an isolated Phase 10 experimental checkpoint (experiments/full_finetuning_v3/model). "
+        "Full Fine-Tuning v3 is an isolated ablation experimental checkpoint (experiments/full_finetuning_v3/model). "
         "It is excluded from the active UI selector due to severe validation-loss divergence after Epoch 1 (+27.1% loss surge) "
         "and regression failures on transactional notifications (e.g. Jio reverification classified as SPAM)."
     ),
     "lora_v4": (
-        "LoRA v4 is an isolated Phase 10 experimental checkpoint (experiments/lora_v4/model). "
+        "LoRA v4 is an isolated ablation experimental checkpoint (experiments/lora_v4/model). "
         "It is excluded from the active UI selector because extending training to 3 epochs caused low-rank overfitting, "
         "validation-loss divergence (+3.3%), and catastrophic false positives on customer-dispute alerts (Bank of Baroda UPI 60.4% SPAM, Jio reverification 81.4% SPAM)."
     ),
     "dora_v3": (
-        "DoRA v3 is an isolated Phase 10 experimental checkpoint (experiments/dora_v3/model). "
+        "DoRA v3 is an isolated ablation experimental checkpoint (experiments/dora_v3/model). "
         "It is excluded from the active UI selector because 3-epoch training caused validation-loss divergence (+3.6%) "
         "and false positives on critical transactional fixtures (Bank of Baroda UPI 78.4% SPAM, Jio reverification 82.2% SPAM)."
     ),

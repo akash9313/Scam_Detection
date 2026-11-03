@@ -485,7 +485,7 @@ def main():
         # Verified Active Models Comparative Table (Task 2 Requirements 1, 2, 3)
         st.markdown("#### 📋 Verified Active Models Multi-Domain Evaluation Table")
         st.caption(
-            "Ingested from verified Phase 11 evaluation artifacts (`phase11_reliability_audit.json`). "
+            "Ingested from verified comprehensive reliability evaluation artifacts (`reliability_audit.json`). "
             "All metric names, dataset sizes, and model versions are explicit. "
             "Decided accuracy reflects performance when ambiguous predictions within the review band are routed for human review."
         )
@@ -507,7 +507,7 @@ def main():
         st.markdown("<br>", unsafe_allow_html=True)
 
         # Expander for Historical Baseline Experiments & Visualizations
-        with st.expander("📊 View Historical Phase 1 Baselines & Runtime Profiling Visualizations", expanded=False):
+        with st.expander("📊 View Historical Baseline Evaluations & Runtime Profiling Visualizations", expanded=False):
             st.markdown(
                 "Historical baseline comparisons on the original UCI test split and runtime profiling artifacts."
             )

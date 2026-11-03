@@ -293,13 +293,13 @@ def main():
         print(f"  Jio Rev Fixture : P(Spam)={fixture_results['fixture_b_jio']['p_spam']*100:.2f}% -> {fixture_results['fixture_b_jio']['predicted_label']} ({fixture_results['fixture_b_jio']['decision']})")
 
     # Save detailed JSON payload
-    out_json = PROJECT_ROOT / "reports" / "phase9" / "four_model_comparison_detailed.json"
+    out_json = PROJECT_ROOT / "reports" / "remediation" / "four_model_comparison_detailed.json"
     with open(out_json, "w", encoding="utf-8") as f:
         json.dump(comparison_results, f, indent=2)
     print(f"\n[Export] Saved comparison JSON -> {out_json}")
 
     # Save Category Error Comparison CSV
-    out_csv = PROJECT_ROOT / "reports" / "phase9" / "category_error_comparison.csv"
+    out_csv = PROJECT_ROOT / "reports" / "remediation" / "category_error_comparison.csv"
     fieldnames = [
         "model_key",
         "model_name",
