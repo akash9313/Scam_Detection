@@ -347,7 +347,7 @@ def get_active_models_kpi_cards(project_root_str: str) -> Dict[str, Dict[str, An
             "full_finetuning_v2",
             "Full Fine-Tuning v2",
             "ACTIVE COMPARISON",
-            "#34d399",
+            "#38bdf8",
         ),
     }
 

@@ -17,6 +17,22 @@ DARK_THEME_CSS = """
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Force normal clean text color on all code elements (removes Streamlit default bright green) */
+code,
+.stMarkdown code,
+[data-testid="stMarkdownContainer"] code,
+.stCode,
+kbd,
+samp {
+    color: #e2e8f0 !important;
+    background-color: rgba(30, 41, 59, 0.7) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 4px !important;
+    padding: 2px 6px !important;
+    font-size: 0.88em !important;
+    font-weight: 400 !important;
+}
+
 /* Sidebar styling */
 [data-testid="stSidebar"] {
     background-color: #0f172a;

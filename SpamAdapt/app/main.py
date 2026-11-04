@@ -38,7 +38,6 @@ print("[DIAGNOSTICS] ==================================================")
 # Must be the very first Streamlit command
 st.set_page_config(
     page_title="SpamAdapt — Spam Detection & PEFT Benchmarks",
-    page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -83,7 +82,7 @@ def render_header(device_str: str, cuda_available: bool):
     st.markdown(
         f"""
         <div class="main-header">
-            <h1 class="main-title">🛡️ SpamAdapt Research Dashboard</h1>
+            <h1 class="main-title">SpamAdapt Research Dashboard</h1>
             <p class="sub-title">
                 Parameter-Efficient vs. Full Fine-Tuning for Message Spam Detection on Pretrained BERT
             </p>
@@ -112,7 +111,7 @@ def main():
     render_header(str(device), cuda_avail)
 
     # Sidebar: Global Model Configuration (Single Unified Model Dropdown)
-    st.sidebar.markdown("### ⚙️ Model Selection")
+    st.sidebar.markdown("###Model Selection")
 
     # ONE central dropdown driven by registered models: exactly 3 active models
     selectable_specs = get_active_ui_models()
@@ -134,7 +133,7 @@ def main():
     lora_v3_valid = any(s.model_id == "lora_v3" for s in valid_specs)
     if not lora_v3_valid:
         st.sidebar.error(
-            f"❌ LoRA v3 Candidate Failed Validation: {validation_failures.get('lora_v3', 'Missing files')}. "
+            f"LoRA v3 Candidate Failed Validation: {validation_failures.get('lora_v3', 'Missing files')}. "
             "Cannot set as default model."
         )
 
@@ -162,9 +161,9 @@ def main():
             <div class="card-title">{spec.display_name}</div>
             <p style="font-size: 0.8rem; color: #cbd5e1; margin-bottom: 8px;">{spec.description}</p>
             <div style="font-size: 0.75rem; color: #94a3b8;">
-                <b>Identifier:</b> <code>{spec.model_id}</code><br>
+                <b>Identifier:</b> <span style="font-family: monospace; color: #cbd5e1;">{spec.model_id}</span><br>
                 <b>Generation:</b> {spec.version.upper()}<br>
-                <b>Checkpoint Path:</b> <code>{spec.checkpoint_subpath}</code><br>
+                <b>Checkpoint Path:</b> <span style="font-family: monospace; color: #cbd5e1;">{spec.checkpoint_subpath}</span><br>
                 <b>Adapter / Weights Size:</b> {spec.adapter_size_mb:.2f} MB<br>
                 <b>Trainable Params:</b> {spec.trainable_parameters:,} ({spec.trainable_parameters/spec.total_parameters*100:.2f}%)<br>
                 <b>Decision &tau;:</b> {spec.default_threshold:.2f}
@@ -174,26 +173,26 @@ def main():
         unsafe_allow_html=True,
     )
 
-    with st.sidebar.expander("🔧 Runtime Diagnostics", expanded=False):
-        st.caption(f"**CWD:** `{os.getcwd()}`")
-        st.caption(f"**Main:** `{Path(__file__).resolve()}`")
-        st.caption(f"**Inference:** `{Path(app.inference.__file__).resolve()}`")
-        st.caption(f"**Registry:** `{Path(app.model_registry.__file__).resolve()}`")
-        st.caption(f"**PID:** `{os.getpid()}`")
-        st.caption(f"**Active Model:** `{spec.model_id}` ({spec.display_name})")
+    with st.sidebar.expander("Runtime Diagnostics", expanded=False):
+        st.caption(f"**CWD:** {os.getcwd()}")
+        st.caption(f"**Main:** {Path(__file__).resolve()}")
+        st.caption(f"**Inference:** {Path(app.inference.__file__).resolve()}")
+        st.caption(f"**Registry:** {Path(app.model_registry.__file__).resolve()}")
+        st.caption(f"**PID:** {os.getpid()}")
+        st.caption(f"**Active Model:** {spec.model_id} ({spec.display_name})")
 
     st.sidebar.markdown("---")
-    st.sidebar.markdown("### 🛡️ Empirical Guarantee")
+    st.sidebar.markdown("###Empirical Guarantee")
     st.sidebar.info(
-        "All models use fresh `google-bert/bert-base-uncased` base weights and were evaluated on the held-out "
+        "All models use fresh google-bert/bert-base-uncased base weights and were evaluated on the held-out "
         "test split ($N=774$). Models are cached in local memory."
     )
 
     # Main Navigation Tabs
     tab_detect, tab_benchmarks, tab_arch = st.tabs([
-        "🔍 Live SMS Detection",
-        "📊 Model Comparison & Benchmarks",
-        "🧠 Architecture & Methodology",
+        "Live SMS Detection",
+        "Model Comparison & Benchmarks",
+        "Architecture & Methodology",
     ])
 
     # -------------------------------------------------------------
@@ -224,9 +223,9 @@ def main():
 
             col_btn1, col_btn2, col_spacer = st.columns([1, 1, 2])
             with col_btn1:
-                analyze_clicked = st.button("🚀 Analyze Message", use_container_width=True)
+                analyze_clicked = st.button("Analyze Message", use_container_width=True)
             with col_btn2:
-                clear_clicked = st.button("🗑️ Clear Input", use_container_width=True)
+                clear_clicked = st.button("Clear Input", use_container_width=True)
 
             if clear_clicked:
                 st.session_state["sms_input"] = ""
@@ -245,7 +244,7 @@ def main():
         # Execution and Result Rendering
         if analyze_clicked:
             if not sms_text or not sms_text.strip():
-                st.error("⚠️ Validation Error: Message text cannot be empty. Please enter an SMS message.")
+                st.error("Validation Error: Message text cannot be empty. Please enter an SMS message.")
             else:
                 with st.spinner(f"Running inference with {selected_display_label}..."):
                     try:
@@ -282,12 +281,12 @@ def main():
                                 f"""
                                 <div class="result-banner-spam">
                                     <div class="result-tag-spam">
-                                        🚨 SUSPECTED SPAM / FRAUDULENT MESSAGE
+                                        SUSPECTED SPAM / FRAUDULENT MESSAGE
                                     </div>
                                     <p style="color: #fca5a5; font-size: 1.05rem; margin-top: 6px; margin-bottom: 0;">
                                         Confidence: <b>{result['confidence']:.2f}%</b> &nbsp;|&nbsp; 
                                         Inference Latency: <b>{result['latency_ms']:.1f} ms</b> &nbsp;|&nbsp; 
-                                        Loaded Model: <b>{loaded_name} (<code>{loaded_id}</code>)</b> &nbsp;|&nbsp;
+                                        Loaded Model: <b>{loaded_name} ({loaded_id})</b> &nbsp;|&nbsp;
                                         Decision Threshold: <b>&tau; = {thresh_used:.2f}</b>{policy_meta}
                                     </p>
                                 </div>
@@ -299,12 +298,12 @@ def main():
                                 f"""
                                 <div class="result-banner-review">
                                     <div class="result-tag-review">
-                                        ⚠️ REVIEW REQUIRED / UNCERTAIN DECISION BOUNDARY
+                                        REVIEW REQUIRED / UNCERTAIN DECISION BOUNDARY
                                     </div>
                                     <p style="color: #fde68a; font-size: 1.05rem; margin-top: 6px; margin-bottom: 0;">
                                         Model Output: <b>P(Spam) = {result['spam_probability']*100:.2f}%</b> &nbsp;|&nbsp; 
                                         Inference Latency: <b>{result['latency_ms']:.1f} ms</b> &nbsp;|&nbsp; 
-                                        Loaded Model: <b>{loaded_name} (<code>{loaded_id}</code>)</b> &nbsp;|&nbsp;
+                                        Loaded Model: <b>{loaded_name} ({loaded_id})</b> &nbsp;|&nbsp;
                                         Decision Threshold: <b>&tau; = {thresh_used:.2f}</b>{policy_meta}
                                     </p>
                                     <p style="color: #fef08a; font-size: 0.85rem; margin-top: 4px; margin-bottom: 0;">
@@ -319,12 +318,12 @@ def main():
                                 f"""
                                 <div class="result-banner-ham">
                                     <div class="result-tag-ham">
-                                        ✅ HAM / LIKELY LEGITIMATE MESSAGE
+                                        HAM / LIKELY LEGITIMATE MESSAGE
                                     </div>
                                     <p style="color: #6ee7b7; font-size: 1.05rem; margin-top: 6px; margin-bottom: 0;">
                                         Confidence: <b>{result['confidence']:.2f}%</b> &nbsp;|&nbsp; 
                                         Inference Latency: <b>{result['latency_ms']:.1f} ms</b> &nbsp;|&nbsp; 
-                                        Loaded Model: <b>{loaded_name} (<code>{loaded_id}</code>)</b> &nbsp;|&nbsp;
+                                        Loaded Model: <b>{loaded_name} ({loaded_id})</b> &nbsp;|&nbsp;
                                         Decision Threshold: <b>&tau; = {thresh_used:.2f}</b>{policy_meta}
                                     </p>
                                 </div>
@@ -345,24 +344,24 @@ def main():
                         st.markdown(
                             """
                             <div class="security-notice">
-                                ⚠️ <b>Research Transparency Notice</b>: Scores shown reflect raw uncalibrated softmax outputs on BERT representations and must NOT be treated as calibrated real-world fraud odds or proof of absolute safety/fraud. Always independently verify financial transactions, sensitive account requests, and unsolicited URL links.
+                                <b>Research Transparency Notice</b>: Scores shown reflect raw uncalibrated softmax outputs on BERT representations and must NOT be treated as calibrated real-world fraud odds or proof of absolute safety/fraud. Always independently verify financial transactions, sensitive account requests, and unsolicited URL links.
                             </div>
                             """,
                             unsafe_allow_html=True,
                         )
 
                     except FileNotFoundError as fnf_err:
-                        st.error(f"❌ Checkpoint Loading Failure: {str(fnf_err)}. Ensure the specified model checkpoint directory exists.")
+                        st.error(f"Checkpoint Loading Failure: {str(fnf_err)}. Ensure the specified model checkpoint directory exists.")
                     except ValueError as val_err:
-                        st.error(f"⚠️ Input Validation Error: {str(val_err)}")
+                        st.error(f"Input Validation Error: {str(val_err)}")
                     except Exception as e:
-                        st.error(f"❌ Model Inference Failure: {str(e)}")
+                        st.error(f"Model Inference Failure: {str(e)}")
 
         # Session Prediction History Section
         st.markdown("---")
         col_hist_title, col_hist_clear = st.columns([4, 1])
         with col_hist_title:
-            st.markdown("#### 📜 Session Prediction History")
+            st.markdown("####Session Prediction History")
         with col_hist_clear:
             if st.button("Clear History", use_container_width=True):
                 st.session_state["history"] = []
@@ -385,7 +384,7 @@ def main():
                 hide_index=True,
             )
             st.caption(
-                "🔒 Session privacy: Predictions are processed in local volatile RAM and are never written to disk or sent to external servers."
+                "Session privacy: Predictions are processed in local volatile RAM and are never written to disk or sent to external servers."
             )
         else:
             st.info("No messages analyzed yet in this session. Submit a message above to see history.")
@@ -394,7 +393,7 @@ def main():
     # TAB 2: ACTIVE MODEL COMPARISON & BENCHMARKS
     # -------------------------------------------------------------
     with tab_benchmarks:
-        st.markdown("### 🔬 Active Model Evaluation & Benchmark Comparison")
+        st.markdown("###Active Model Evaluation & Benchmark Comparison")
         st.markdown(
             "Empirical multi-domain verification of the three active UI models across the preserved UCI SMS Spam "
             "held-out test split ($N = 774$) and the curated Indian telecom external benchmark ($N = 220$)."
@@ -404,7 +403,7 @@ def main():
         st.markdown(
             """
             <div class="security-notice" style="border-left: 3px solid #f59e0b; background-color: rgba(245, 158, 11, 0.08); margin-bottom: 20px;">
-                <strong style="color: #fbbf24;">⚠️ Research & Demonstration Limitation Notice:</strong>
+                <strong style="color: #fbbf24;">Research & Demonstration Limitation Notice:</strong>
                 <p style="margin: 4px 0 0 0; color: #cbd5e1; font-size: 0.85rem;">
                     Empirical metrics reflect evaluated benchmark distributions and <strong>do not guarantee correct classification of every real-world SMS</strong>. 
                     Adversarial variants, unfamiliar brand formats, or rapid domain shifts can produce false predictions. 
@@ -464,11 +463,11 @@ def main():
         with col_kpi3:
             st.markdown(
                 f"""
-                <div class="stat-box" style="border-top: 3px solid {fft_kpi.get('color', '#34d399')};">
-                    <div style="font-size: 0.70rem; font-weight: 700; color: {fft_kpi.get('color', '#34d399')}; letter-spacing: 0.05em; margin-bottom: 4px;">
+                <div class="stat-box" style="border-top: 3px solid {fft_kpi.get('color', '#38bdf8')};">
+                    <div style="font-size: 0.70rem; font-weight: 700; color: {fft_kpi.get('color', '#38bdf8')}; letter-spacing: 0.05em; margin-bottom: 4px;">
                         {fft_kpi.get('badge', 'COMPARISON')}
                     </div>
-                    <div class="stat-value" style="color: {fft_kpi.get('color', '#34d399')};">{fft_kpi.get('benchmark_acc', 'Unavailable')}</div>
+                    <div class="stat-value" style="color: {fft_kpi.get('color', '#38bdf8')};">{fft_kpi.get('benchmark_acc', 'Unavailable')}</div>
                     <div class="stat-label">Curated Benchmark Acc (N=220)</div>
                     <p style="font-size: 0.75rem; color: #94a3b8; margin: 4px 0 0 0;">
                         Decided Acc: <strong>{fft_kpi.get('benchmark_decided_acc', 'Unavailable')}</strong> ({fft_kpi.get('benchmark_coverage', 'Unavailable')} cov)<br>
@@ -482,10 +481,10 @@ def main():
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        # Verified Active Models Comparative Table (Task 2 Requirements 1, 2, 3)
-        st.markdown("#### 📋 Verified Active Models Multi-Domain Evaluation Table")
+        # Verified Active Models Comparative Table 
+        st.markdown("####Verified Active Models Multi-Domain Evaluation Table")
         st.caption(
-            "Ingested from verified comprehensive reliability evaluation artifacts (`reliability_audit.json`). "
+            "Ingested from verified comprehensive reliability evaluation artifacts (reliability_audit.json). "
             "All metric names, dataset sizes, and model versions are explicit. "
             "Decided accuracy reflects performance when ambiguous predictions within the review band are routed for human review."
         )
@@ -495,7 +494,7 @@ def main():
         st.markdown("<br>", unsafe_allow_html=True)
 
         # Curated External Benchmark Provenance Breakdown (Task 2 Requirement 4)
-        st.markdown("#### 🛡️ Curated External Benchmark Dataset Provenance & Tier Breakdown (N=220)")
+        st.markdown("Curated External Benchmark Dataset Provenance & Tier Breakdown (N=220)")
         st.caption(
             "Transparency disclosure: The 220-example benchmark is a curated multi-tier evaluation set. "
             "Only 15 messages (6.82%) represent unredacted authentic subscriber SMS captured directly on Indian networks; "
@@ -507,7 +506,7 @@ def main():
         st.markdown("<br>", unsafe_allow_html=True)
 
         # Expander for Historical Baseline Experiments & Visualizations
-        with st.expander("📊 View Historical Baseline Evaluations & Runtime Profiling Visualizations", expanded=False):
+        with st.expander("View Historical Baseline Evaluations & Runtime Profiling Visualizations", expanded=False):
             st.markdown(
                 "Historical baseline comparisons on the original UCI test split and runtime profiling artifacts."
             )
@@ -548,16 +547,16 @@ def main():
     # TAB 3: ARCHITECTURE & METHODOLOGY
     # -------------------------------------------------------------
     with tab_arch:
-        st.markdown("### 🧠 Transformer Architecture & Adaptation Methodology")
+        st.markdown("###Transformer Architecture & Adaptation Methodology")
 
         st.markdown(
             """
             #### 1. Pretrained BERT Sequence Classification
-            **Architecture**: `google-bert/bert-base-uncased` is a bidirectional transformer encoder comprising:
+            **Architecture**: google-bert/bert-base-uncased is a bidirectional transformer encoder comprising:
             - **12 Transformer layers**, 12 attention heads, hidden dimension $d = 768$.
             - **109.5 Million total parameters**.
             - **Sequence Classification**: Unlike generative autoregressive language models (e.g. GPT), BERT processes 
-              the entire input sequence simultaneously. The special classification token `[CLS]` aggregates cross-attention representations, 
+              the entire input sequence simultaneously. The special classification token [CLS] aggregates cross-attention representations, 
               which are passed through a pooled dropout layer and projected into two logits ($0 = \\text{Ham}$, $1 = \\text{Spam}$).
 
             ---
@@ -581,14 +580,14 @@ def main():
             - Decouples weight updates into directional updates and learnable magnitude vectors:
               $$\\mathbf{W} = \\mathbf{m} \\frac{\\mathbf{W}_0 + \\frac{\\alpha}{r}\\mathbf{B}\\mathbf{A}}{\\|\\mathbf{W}_0 + \\frac{\\alpha}{r}\\mathbf{B}\\mathbf{A}\\|_c}$$
               where $\\mathbf{m} \\in \\mathbb{R}^{1 \\times k}$ is a learnable magnitude vector matching projection dimension.
-            - **Parameters**: **314,882 parameters (0.29%)** ($r=8, \\alpha=16$, `use_dora=True`).
+            - **Parameters**: **314,882 parameters (0.29%)** ($r=8, \\alpha=16$, use_dora=True).
             - **Findings**: Achieved slightly lower test loss (**0.0779 vs 0.0783**) and faster epoch convergence, but registered slightly higher per-message latency (**110.0 ms**) due to the runtime matrix normalization step.
 
             ---
 
             #### 3. Dataset & Scientific Split Verification
             - **UCI SMS Spam Collection**: 5,160 clean, deduplicated messages (4,518 Ham, 642 Spam).
-            - **Stratified Split (`seed=42`)**:
+            - **Stratified Split (seed=42)**:
               - **Train (70%)**: 3,612 samples (3,163 Ham, 449 Spam)
               - **Validation (15%)**: 774 samples (678 Ham, 96 Spam)
               - **Test (15%)**: 774 samples (677 Ham, 97 Spam)
@@ -597,7 +596,7 @@ def main():
             ---
 
             #### 4. Limitations & Research Notes
-            - **1-Epoch Setup**: Due to CPU hardware constraints, models were trained for 1 epoch. While sufficient for 96%+ Macro-F1 on BERT, multi-epoch convergence on DoRA may reveal additional gains.
+            - **3-Epoch Setup**: Due to CPU hardware constraints, models were trained for 3 epochs. While sufficient for 96%+ Macro-F1 on BERT, multi-epoch convergence on DoRA may reveal additional gains.
             - **Single Dataset Scope**: Findings reflect SMS spam patterns and may exhibit domain shift on email, web, or social media spam.
             """
         )
