@@ -111,7 +111,7 @@ def main():
     render_header(str(device), cuda_avail)
 
     # Sidebar: Global Model Configuration (Single Unified Model Dropdown)
-    st.sidebar.markdown("###Model Selection")
+    st.sidebar.markdown("Model Selection")
 
     # ONE central dropdown driven by registered models: exactly 3 active models
     selectable_specs = get_active_ui_models()
@@ -182,7 +182,7 @@ def main():
         st.caption(f"**Active Model:** {spec.model_id} ({spec.display_name})")
 
     st.sidebar.markdown("---")
-    st.sidebar.markdown("###Empirical Guarantee")
+    st.sidebar.markdown("Empirical Guarantee")
     st.sidebar.info(
         "All models use fresh google-bert/bert-base-uncased base weights and were evaluated on the held-out "
         "test split ($N=774$). Models are cached in local memory."
@@ -361,7 +361,7 @@ def main():
         st.markdown("---")
         col_hist_title, col_hist_clear = st.columns([4, 1])
         with col_hist_title:
-            st.markdown("####Session Prediction History")
+            st.markdown("Session Prediction History")
         with col_hist_clear:
             if st.button("Clear History", use_container_width=True):
                 st.session_state["history"] = []
@@ -393,7 +393,7 @@ def main():
     # TAB 2: ACTIVE MODEL COMPARISON & BENCHMARKS
     # -------------------------------------------------------------
     with tab_benchmarks:
-        st.markdown("###Active Model Evaluation & Benchmark Comparison")
+        st.markdown("Active Model Evaluation & Benchmark Comparison")
         st.markdown(
             "Empirical multi-domain verification of the three active UI models across the preserved UCI SMS Spam "
             "held-out test split ($N = 774$) and the curated Indian telecom external benchmark ($N = 220$)."
@@ -482,7 +482,7 @@ def main():
         st.markdown("<br>", unsafe_allow_html=True)
 
         # Verified Active Models Comparative Table 
-        st.markdown("####Verified Active Models Multi-Domain Evaluation Table")
+        st.markdown("Verified Active Models Multi-Domain Evaluation Table")
         st.caption(
             "Ingested from verified comprehensive reliability evaluation artifacts (reliability_audit.json). "
             "All metric names, dataset sizes, and model versions are explicit. "
@@ -547,7 +547,7 @@ def main():
     # TAB 3: ARCHITECTURE & METHODOLOGY
     # -------------------------------------------------------------
     with tab_arch:
-        st.markdown("###Transformer Architecture & Adaptation Methodology")
+        st.markdown("Transformer Architecture & Adaptation Methodology")
 
         st.markdown(
             """
